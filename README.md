@@ -8,8 +8,8 @@ Nous allons commencer par construire les tableaux de données sur les prix des p
 
 Le projet va être accès sur trois grands axes : 
 
-- le développement d'une carte intéractive qui a pour but d'afficher le prix, la distance et le prix moyen au kilomètre d'une portion de route, accessible en cliquant sur la route correspondante : les packages ```plotly``` et ```folium``` seront très solicités dans cette partie.
-- pour l'affichage de la distribution des prix, nous comptons ...(je vais envoyer un mail aux prof !)
+- le développement d'une carte intéractive qui a pour but d'afficher le prix, la distance et le prix moyen au kilomètre d'une portion de route, accessible en cliquant sur la route correspondante : les packages ```plotly```, ```folium``` et ```osmnx``` seront très solicités dans cette partie.
+- pour l'affichage de la distribution des prix, nous comptons identifier, en fixant une portion de route, la densité de probabilité du prix au kilomètre à l'aide d'une estimation par noyau : le but sera de trouver les prix au kilomètre de toutes les routes possibles, dans la portion sélectionné et d'en déduire une distribution de probabilité. On pourra aussi faire une étude générale sur les portions de route à l'aide de boxplot par exemple... Si cet objectif devient finalement trop ambitieux, on se limitera à la distribution générale sur tout le tableau de donnée. Nous utiliserons ```pandas``` pour faire ces visualisations (voire même ```ipywidgets``` si tout se passe bien).
 - l'algorithme final sera fait en s'inspirant d'algorithmes de théorie des graphes (i.e. Kruskal) pour pouvoir donner une variante à des algorithmes du plus court chemin dans le but de répondre au problème. On utilisera donc sûrement beaucoup le module ```networkx``` pour cette partie.
 
 
