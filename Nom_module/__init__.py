@@ -1,1 +1,9 @@
-# fichier vide pour l'instant
+__version__ = '0.0.0'
+
+
+
+
+
+
+
+
