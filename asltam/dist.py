@@ -14,7 +14,7 @@ A9 = gd[gd['route']=='A0009']
 fr1 = ox.graph_from_point([43.155636, 3.468052], dist=50000, network_type='drive')
 
 # Extraction de ce que l'on veut
-a = nx.graph.Graph()
+a = nx.multigraph.Multigraph()
 latt = list(A9['Latt'])
 long = list(A9['Long'])
 
