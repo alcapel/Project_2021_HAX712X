@@ -1,7 +1,6 @@
 #Nous commençons par importer la bibliothèque "pyroutelib3" avec la première ligne "from pyroutelib3 import Router"
 from pyroutelib3 import Router
 import folium
-import webbrowser
 
 #Les 4 lignes suivantes initialisent les coordonnées du point de départ et d'arrivée
 c = folium.Map(location=[43.610769,3.876716], zoom_start=15)
