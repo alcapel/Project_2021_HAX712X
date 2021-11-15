@@ -13,18 +13,17 @@ outProj = Proj(init='epsg:4326')
 gare = pd.read_csv("gares-peage-2019.csv", sep=';',
                    usecols=["route", "x", "y", ' Nom gare '],
                    index_col=' Nom gare ', decimal=",")
-# gare = gare.stack().str.replace(',','.').unstack()
 
 # On prend les lignes dont on a besoin
-gare_2 = gare[(gare['route'] == 'A0009') | (gare['route'] == 'A0061') |
-              (gare['route'] == 'A0062') | (gare['route'] == 'A0075') | (gare['route'] == 'A0066')] 
+coord = gare[(gare['route'] == 'A0009') | (gare['route'] == 'A0061') |
+             (gare['route'] == 'A0062') | (gare['route'] == 'A0075') | 
+             (gare['route'] == 'A0066')] 
 
-# le dropna ne sert à rien
-coord = gare_2.dropna()
 
 # Transformation en coordonées GPS 
 x=coord['x'].tolist()
 y=coord['y'].tolist()
-coord['Long'], coord['Latt'] = transform(inProj, outProj, x,y)
+coord['Long'], coord['Latt'] = transform(inProj , outProj , x , y)
 del coord['x'], coord['y']
 coord.to_csv('data_geo.csv')
+
