@@ -17,8 +17,8 @@ gare = pd.read_csv("gares-peage-2019.csv", sep=';',
 
 # On prend les lignes dont on a besoin
 gare_2 = gare[(gare['route'] == 'A0009') | (gare['route'] == 'A0061') |
-              (gare['route'] == 'A0062') | (gare['route'] == 'A0075')]
-
+              (gare['route'] == 'A0062') | (gare['route'] == 'A0066') |
+              (gare['route'] == 'A0075')]
 # Pour exporter en csv
 gare_2.to_csv('dataframe.csv')
 
