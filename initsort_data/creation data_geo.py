@@ -1,7 +1,6 @@
-import numpy as np
 import pandas as pd
-import matplotlib.pyplot as plt
-import seaborn as sns
+import os
+from download import download
 from pyproj import Proj, transform
 
 # Pour transformer en coordonnées GPS
@@ -10,7 +9,11 @@ outProj = Proj(init='epsg:4326')
 
 # fichier csv originel avec sélection des données qui nous intéresse 
 # (coordonnées GPS, nom des gares de péage)
-gare = pd.read_csv("gares-peage-2019.csv", sep=';',
+url = 'https://static.data.gouv.fr/resources/gares-de-peage-du-reseau-routier-national-concede/20210224-175626/gares-peage-2019.csv'
+path = os.path.join(os.getcwd(), 'gares-peage-2019.csv')
+download(url, path, replace=False)
+
+gare = pd.read_csv("./gares-peage-2019.csv", sep=';',
                    usecols=["route", "x", "y", ' Nom gare '],
                    index_col=' Nom gare ', decimal=",")
 
@@ -23,7 +26,6 @@ coord = gare[(gare['route'] == 'A0009') | (gare['route'] == 'A0061') |
 # Transformation en coordonées GPS 
 x=coord['x'].tolist()
 y=coord['y'].tolist()
-coord['Long'], coord['Latt'] = transform(inProj , outProj , x , y)
+coord['Long'], coord['Latt'] = transform(inProj, outProj, x, y)
 del coord['x'], coord['y']
 coord.to_csv('data_geo.csv')
-
