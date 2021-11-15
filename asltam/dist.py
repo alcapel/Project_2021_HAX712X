@@ -16,7 +16,7 @@ A9 = gd[gd['route']=='A0009']
 fr1 = ox.graph_from_point([43.155636, 3.468052], dist=50000, network_type='drive')
 
 # Extraction de ce que l'on veut
-a = nx.multigraph.Multigraph()
+a = nx.multidigraph.Multigraph()
 latt = list(A9['Latt'])
 long = list(A9['Long'])
 
@@ -33,5 +33,3 @@ ox.folium.plot_graph_folium(a)
 
 # il est presque bon... il y a des moments où le chemin sort de l'autoroute et où les get_nearest_node donne des points en dehors de l'autoroute...
 # une fois cela fait pour l'autoroute A9, on pourra généraliser et faire les distances correctement
-
-
