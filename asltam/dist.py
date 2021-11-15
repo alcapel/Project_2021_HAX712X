@@ -23,8 +23,8 @@ long = list(A9['Long'])
 for i in range(8, 18):
     point1 = [long[i], latt[i]]
     point2 = [long[i+1], latt[i+1]]
-    depart = ox.get_nearest_node(fr, point1)
-    target = ox.get_nearest_node(fr, point2)
+    depart = ox.get_nearest_node(fr1, point1)
+    target = ox.get_nearest_node(fr1, point2)
     a = nx.disjoint_union(a, fr1.subgraph(nx.shortest_path(fr, depart, target, weight='length')))
 
 # affichage du graphe obtenu
