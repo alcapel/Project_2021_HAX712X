@@ -18,17 +18,3 @@ Chaque partie donnera lieu à plusieurs programmes contenus dans notre package f
 ## Répartition des tâches
 
 Le projet étant réparti en trois grands axes, nous allons séparé grossièrement le travail de la sorte : Thomas s'occupera de la carte interactive, Alexandre devra afficher les distributions et enfin Abdelmalek s'occupera de la partie graphe. Bien sûr, les parties étant intrinsèquement liées, certaines choses faites dans une partie seront peut-être utilisées dans une autre : tout le monde aura donc une part de son travail dans chaque axe.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
