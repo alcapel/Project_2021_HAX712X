@@ -28,4 +28,6 @@ del price['Pamiers sud']
 price=price.drop(index=[0,1,2,3,4,18,29,30,35,36,37,38,39,40,41,42])
 
 #%%
+price=price.fillna(0)
+#%%
 price.to_csv('price_data2.csv')
