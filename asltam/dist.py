@@ -1,11 +1,13 @@
 # ATTENTION CODE LONG (à cause de fr1)
-from asltam.io import load_data
 import osmnx as ox
+import os
 import networkx as nx
 import folium
 
 # Initialisation des données géographiques
-gd = load_data().save_as_geo()
+url = 'https://raw.githubusercontent.com/Eldohrim/Project_2021_HAX712X/Development/asltam/data/dataframe_2.csv'
+path = os.path.join(os.getcwd(), 'geo.csv')
+gd = download(url, path)
 
 # test pour A9
 A9 = gd[gd['route']=='A0009']
