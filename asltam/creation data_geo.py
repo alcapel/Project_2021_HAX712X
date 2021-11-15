@@ -17,37 +17,14 @@ gare = pd.read_csv("gares-peage-2019.csv", sep=';',
 
 # On prend les lignes dont on a besoin
 gare_2 = gare[(gare['route'] == 'A0009') | (gare['route'] == 'A0061') |
-              (gare['route'] == 'A0062') | (gare['route'] == 'A0075')]
-
-# Pour exporter en csv
-gare_2.to_csv('dataframe.csv')
+              (gare['route'] == 'A0062') | (gare['route'] == 'A0075') | (gare['route'] == 'A0066')] 
 
 # le dropna ne sert à rien
-gare_2_2 = gare_2.dropna()
+coord = gare_2.dropna()
 
-# transformation coordonnées GPS
-coord = pd.read_csv("dataframe.csv", sep=',')
-
-coord_x = list(coord['x'])
-coord_y = list(coord['y'])
-coord_gps = []
-
-for i in range(len(coord_x)):
-    coord_gps.append(transform(inProj,outProj,coord['x'][i],coord['y'][i]))
-
-coord_gps_x = []
-coord_gps_y = []
-
-for i in range(len(coord_gps)):
-    coord_gps_x.append(coord_gps[i][0])
-    coord_gps_y.append(coord_gps[i][1])
-
-# Création dataframe des coordonnées gps
-
-for i in range(len(coord_gps_x)):
-    coord['x'] = np.where(coord['x'] == coord['x'][i], coord_gps_x[i] , coord['x'] )
-
-for i in range(len(coord_gps_y)):
-    coord['y'] = np.where(coord['y'] == coord['y'][i], coord_gps_y[i] , coord['y'] )
-
-coord.to_csv('dataframe_2.csv')
+# Transformation en coordonées GPS 
+x=coord['x'].tolist()
+y=coord['y'].tolist()
+coord['Long'], coord['Latt'] = transform(inProj, outProj, x,y)
+del coord['x'], coord['y']
+coord.to_csv('data_geo.csv')
