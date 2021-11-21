@@ -26,5 +26,5 @@ if status == 'success':
     routeLatLons = list(map(router.nodeLatLon, route))
 
 #Afficher une ligne bleu sur la route trouvé
-folium.PolyLine(routeLatLons, color = "blue", weight = 2.5, opacity=1).add_to(c)
+folium.PolyLine(routeLatLons, color="blue", weight=2.5, opacity=1).add_to(c)
 
