@@ -5,7 +5,7 @@ from pyroutelib3 import Router
 import folium
 
 #Les 4 lignes suivantes initialisent les coordonnées du point de départ et d'arrivée
-c = folium.Map(location = [43.610769, 3.876716], zoom_start=15)
+c = folium.Map(location=[43.610769, 3.876716], zoom_start=15)
 coor_depart= [43.56321197997598, 3.832152851175532]
 coor_arrivee= [43.17658759196942, 3.034479741724844] 
 
