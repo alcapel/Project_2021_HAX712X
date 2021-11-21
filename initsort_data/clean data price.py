@@ -3,7 +3,7 @@ from download import download
 import pandas as pd
 
 # téléchargement du fichier construit par Abdelmalek
-url = 'https://raw.githubusercontent.com/Eldohrim/Project_2021_HAX712X/Development/asltam/data/price-data.csv'
+url = 'https://raw.githubusercontent.com/Eldohrim/Project_2021_HAX712X/main/asltam/data/price-data.csv'
 path = os.path.join(os.getcwd(), 'price-data.csv')
 download(url, path, replace=False)
 price = pd.read_csv("price-data.csv", sep=';')
@@ -31,9 +31,11 @@ del price['Montgiscard']
 del price['Le palays']
 del price['Frontiere Espagnole']
 del price['Peage de Toulouse sud/est']
-price=price.drop(index=[0,1,2,3,4,18,19,29,30,31,33,34,35,36,37,38,39,40,41,42])
+price = price.drop(index=[0, 1, 2, 3, 4, 18, 19, 29, 30, 31,
+                        33, 34, 35, 36, 37, 38, 39, 40, 41, 42])
+price.set_index(' ', inplace=True)
 
 # Correction pour une seule donnée
-price=price.fillna(0)
+price = price.fillna(0)
 #%%
 price.to_csv('price_data2.csv')

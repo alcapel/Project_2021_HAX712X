@@ -10,8 +10,8 @@ coor_depart = [43.56321197997598, 3.832152851175532]
 coor_arrivee = [43.17658759196942, 3.034479741724844] 
 
 #Ajoutez un marqueur au point de départ et au point d'arriver
-folium.Marker(coor_depart,popup="Départ").add_to(c)
-folium.Marker(coor_arrivee,popup="Arrivée").add_to(c)
+folium.Marker(coor_depart, popup="Départ").add_to(c)
+folium.Marker(coor_arrivee, popup="Arrivée").add_to(c)
 
 #Définir le véhicule qui sera utilisé pour effectuer le trajet. Dans notre cas, nous utilisons une voiture ("car")
 router = Router("car")
