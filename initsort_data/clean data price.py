@@ -3,7 +3,7 @@ from download import download
 import pandas as pd
 
 # téléchargement du fichier construit par Abdelmalek
-url = 'https://raw.githubusercontent.com/Eldohrim/Project_2021_HAX712X/Development/main/data/price-data.csv'
+url = 'https://raw.githubusercontent.com/Eldohrim/Project_2021_HAX712X/main/asltam/data/price-data.csv'
 path = os.path.join(os.getcwd(), 'price-data.csv')
 download(url, path, replace=False)
 price = pd.read_csv("price-data.csv", sep=';')
