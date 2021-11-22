@@ -7,7 +7,7 @@ import json
 
 # chargement des données géographiques
 url = 'https://raw.githubusercontent.com/Eldohrim/Project_2021_HAX712X/main/asltam/data/data_geo2.csv'
-path = os.path.join(os.getcwd(),'data_geo.csv')
+path = os.path.join(os.getcwd(),'data_geo2.csv')
 download(url, path, replace=False)
 geo = pd.read_csv('./data_geo2.csv')
 
