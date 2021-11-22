@@ -3,8 +3,9 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
 
+
 def get_index(data, name):
-    """ 
+    """
     Retourne la valeur de la position de la gare de péage dans le DataFrame.
 
     Attributs
@@ -15,17 +16,19 @@ def get_index(data, name):
     try:
         data[name] + 0 == 1
         i = 0
-        while i<len(data) and name != data.columns[i]:
+        while i < len(data) and name != data.columns[i]:
             i += 1
         return i
-    except Exception as a :
-        print(f"Attention ! Vérifiez que le nom des colonnes soient bien définis ou que {a} appartient à la base de donnée.")  
-        
-def kde_gare(all, 
-            data_price, 
-            data_dist, 
-            name1, 
-            name2, 
+    except Exception as a:
+        print(f"Attention ! Vérifiez que le nom des colonnes soient bien définis ou que {a} appartient à la base de donnée.")
+
+
+def kde_gare(
+            all,
+            data_price,
+            data_dist,
+            name1,
+            name2,
             bw):
     """
     Affiche la distribution des prix au kilomètre entre deux gares de péages sur un trajet donné.
@@ -43,15 +46,18 @@ def kde_gare(all,
     if all:
         m = np.array(data_price)/(np.array(data_dist)+np.diag(np.ones(len(data_dist))))
         fig, ax = plt.subplots(1, 1, figsize=(5, 5))
-        sns.kdeplot(m[np.triu_indices(len(m), k=1)], shade=True, cut=0, bw_adjust=bw)
+        sns.kdeplot(m[np.triu_indices(len(m), k=1)],
+                    shade=True,
+                    cut=0,
+                    bw_adjust=bw)
         plt.ylabel("Densité")
         plt.title("KDE pour le prix au kilomètre")
         plt.tight_layout()
         plt.show()
 
-    elif name1 == name2 : 
+    elif name1 == name2:
         print("Ce sont les mêmes gares : il n'y a rien à afficher.")
-        
+
     else:
         i = min(get_index(data_price, name1), get_index(data_price, name2))
         j = max(get_index(data_price, name1), get_index(data_price, name2))
@@ -62,7 +68,10 @@ def kde_gare(all,
 
         m = np.array(p)/(np.array(d)+np.diag(np.ones(len(d))))
         fig, ax = plt.subplots(1, 1, figsize=(5, 5))
-        sns.kdeplot(m[np.triu_indices(len(m), k=1)], shade=True, cut=0, bw_adjust=bw)
+        sns.kdeplot(m[np.triu_indices(len(m), k=1)],
+                    shade=True,
+                    cut=0,
+                    bw_adjust=bw)
         plt.ylabel("Densité")
         plt.title(f"KDE pour le prix au kilomètre \n entre {name1} et {name2}")
         plt.tight_layout()
