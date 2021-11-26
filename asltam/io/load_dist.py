@@ -9,3 +9,6 @@ class load_dist :
 	def save_as_dist():
 		df_dist = pd.read_csv(path_dist)
 		return df_dist
+	def subdata_dist(data, index):
+        	return data.iloc[index][data.columns[index]]
+	
