@@ -9,3 +9,5 @@ class load_price :
 	def save_as_price():
 		df_price = pd.read_csv(path_price)
 		return df_price
+	def subdata_price(data, index):
+        	return data.iloc[index][data.columns[index]]
