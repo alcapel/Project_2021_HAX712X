@@ -3,3 +3,9 @@ ASLTAM
 
 .. automodule:: asltam.itinéraire
     :members:
+
+.. automodule:: asltam.price_distribution.plot_kde
+    :members:
+
+.. automodule:: asltam.graphe.graphe
+    :members:

@@ -13,6 +13,7 @@ Documentation du programme ASLTAM
 .. toctree::
    usage/asltam.rst
    usage/initsort_data.rst
+   usage/Comment_installer.rst
 
 Indices and tables
 ==================
