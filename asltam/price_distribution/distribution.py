@@ -59,9 +59,9 @@ def kde_gare(all,
     bw : voir doc bw_adjust de seaborn.
     """
     if all:
-        m = np.array(data_price)/(np.array(data_dist)+np.diag(np.ones(len(data_dist))))
+        m = average_cost_list(data_price, data_dist)
         fig, ax = plt.subplots(1, 1, figsize=(5, 5))
-        sns.kdeplot(m[np.triu_indices(len(m), k=1)], shade=True, cut=0, bw_adjust=bw)
+        sns.kdeplot(m, shade=True, cut=0, bw_adjust=bw)
         plt.ylabel("Density level")
         plt.title("KDE pour le prix au kilomètre")
         plt.tight_layout()
@@ -72,7 +72,7 @@ def kde_gare(all,
     else:
         i = get_index(data_price, start)
         j = get_index(data_price, target)
-        route = get_way(data_dist, dist.columns[i], dist.columns[j])
+        route = get_way(data_dist, data_dist.columns[i], data_dist.columns[j])
         route_ind = get_index(data_dist, route)
 
         if len(route_ind)==2:
@@ -81,9 +81,9 @@ def kde_gare(all,
             data_price.columns[j], ".",
             f"\nLe trajet coûte {data_price.iloc[i][j]/data_dist.iloc[i][j]:f}€/km")
         else:
-            p = load_price.subdata_price(price, route_ind)
-            d = load_dist.subdata_dist(dist, route_ind)
-            m = average_cost_list(p,d)
+            p = load_price.subdata_price(data_price, route_ind)
+            d = load_dist.subdata_dist(data_dist, route_ind)
+            m = average_cost_list(p, d)
             fig, ax = plt.subplots(1, 1, figsize=(5, 5))
             sns.kdeplot(m, shade=True, cut=0, bw_adjust=bw)
             plt.ylabel("Density level")
