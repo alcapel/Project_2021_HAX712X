@@ -7,43 +7,45 @@ from asltam.io.load_price import load_price
 from asltam.graph.graph import get_way
 from asltam.io.pricedist import average_cost_list
 
+
 def get_index(data, name):
-    """ 
+    """
     Retourne la valeur de la position de la gare de péage dans le DataFrame
 
-    Attributs : 
+    Attributs :
     -----------
     data : pd.DataFrame, dont les colonnes porte le nom des péages
     name : str ou list, nom(s) d'une gare de péage de data
     """
-    if type(name)==str :
+    if type(name) == str:
         try:
             data[name] + 0 == 1
             i = 0
-            while i<len(data) and name != data.columns[i]:
-                i +=1
+            while i < len(data) and name != data.columns[i]:
+                i += 1
             return i
-        except Exception as a :
+        except Exception as a:
             print(f"Attention ! {a} n'appartient pas à la base de donnée.")
-    elif type(name)==list:
+    elif type(name) == list:
         ind = []
         try:
             data[name] + 0 == 1
             for j in range(len(name)):
                 i = 0
-                while i<len(data) and name[j] != data.columns[i]:
-                    i +=1
+                while i < len(data) and name[j] != data.columns[i]:
+                    i += 1
                 ind.append(i)
             return ind
-        except Exception as a :
+        except Exception as a:
             print(f"Attention ! {a} n'appartient pas à la base de donnée.")
 
 
-def kde_gare(all, 
-            data_price, 
-            data_dist, 
-            start, 
-            target, 
+def kde_gare(
+            all,
+            data_price,
+            data_dist,
+            start,
+            target,
             bw):
     """
     Affiche la distribution des prix au kilomètre entre deux gares de péages sur un trajet donné.
@@ -67,7 +69,7 @@ def kde_gare(all,
         plt.tight_layout()
         plt.show()
 
-    elif start == target : 
+    elif start == target:
         print("Ce sont les mêmes gares : il n'y a rien à afficher.")
     else:
         i = get_index(data_price, start)
@@ -75,11 +77,12 @@ def kde_gare(all,
         route = get_way(data_dist, data_dist.columns[i], data_dist.columns[j])
         route_ind = get_index(data_dist, route)
 
-        if len(route_ind)==2:
-            print("Il n'y a qu'un seul trajet ",
-            f"possible entre \n{data_price.columns[i]} et ",
-            data_price.columns[j], ".",
-            f"\nLe trajet coûte {data_price.iloc[i][j]/data_dist.iloc[i][j]:f}€/km")
+        if len(route_ind) == 2:
+            print(
+                "Il n'y a qu'un seul trajet ",
+                f"possible entre \n{data_price.columns[i]} et ",
+                data_price.columns[j], ".",
+                f"\nLe trajet coûte {data_price.iloc[i][j]/data_dist.iloc[i][j]:f}€/km")
         else:
             p = load_price.subdata_price(data_price, route_ind)
             d = load_dist.subdata_dist(data_dist, route_ind)
