@@ -1,6 +1,7 @@
 import numpy as np
 import pandas as pd
 
+
 def average_cost(data_price, data_dist):
     """
     Retourne la matrice des prix moyens.
@@ -9,6 +10,7 @@ def average_cost(data_price, data_dist):
     p = np.array(data_price)
     d = np.array(data_dist)
     return p/d
+
 
 def average_cost_list(data_price, data_dist):
     """
