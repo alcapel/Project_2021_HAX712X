@@ -15,7 +15,7 @@
 
 import os
 import sys
-sys.path.insert(0, os.path.abspath('D:\Documents\Bureau\Project_2021_HAX712X-main'))
+sys.path.insert(0, os.path.abspath('D:\Documents\Bureau\Project_2021_HAX712X-Development'))
 
 ###################################### A LIRE ######################################
 # Pour que sphinx trouve le module, il faut que vous modifiez le chemin d'accès ci-dessus
@@ -53,7 +53,7 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = 'alabaster'
+html_theme = 'sphinx_rtd_theme'
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,

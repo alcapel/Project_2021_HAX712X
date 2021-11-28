@@ -37,7 +37,6 @@
               <ul>
 <li class="toctree-l1"><a class="reference internal" href="usage/asltam.html">ASLTAM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usage/initsort_data.html">initsort_data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage/Comment_installer.html">Comment installer, guide pour les nuls</a></li>
 </ul>
 
         </div>
@@ -74,36 +73,45 @@
  | <a href="#I"><strong>I</strong></a>
  | <a href="#K"><strong>K</strong></a>
  | <a href="#M"><strong>M</strong></a>
- | <a href="#P"><strong>P</strong></a>
- | <a href="#T"><strong>T</strong></a>
  
 </div>
 <h2 id="A">A</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li>
-    asltam.graphe.graphe
+    asltam.Carte_interactive
 
       <ul>
-        <li><a href="usage/asltam.html#module-asltam.graphe.graphe">module</a>
+        <li><a href="usage/asltam.html#module-asltam.Carte_interactive">module</a>
 </li>
       </ul></li>
       <li>
-    asltam.itinéraire
+    asltam.graph.graph
 
       <ul>
-        <li><a href="usage/asltam.html#module-asltam.itineraire">module</a>
+        <li><a href="usage/asltam.html#module-asltam.graph.graph">module</a>
+</li>
+      </ul></li>
+      <li>
+    asltam.io.pricedist
+
+      <ul>
+        <li><a href="usage/asltam.html#module-asltam.io.pricedist">module</a>
 </li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li>
-    asltam.price_distribution.plot_kde
+    asltam.price_distribution.distribution
 
       <ul>
-        <li><a href="usage/asltam.html#module-asltam.price_distribution.plot_kde">module</a>
+        <li><a href="usage/asltam.html#module-asltam.price_distribution.distribution">module</a>
 </li>
       </ul></li>
+      <li><a href="usage/asltam.html#asltam.io.pricedist.average_cost">average_cost() (in module asltam.io.pricedist)</a>
+</li>
+      <li><a href="usage/asltam.html#asltam.io.pricedist.average_cost_list">average_cost_list() (in module asltam.io.pricedist)</a>
+</li>
   </ul></td>
 </tr></table>
 
@@ -126,7 +134,13 @@
 <h2 id="G">G</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="usage/asltam.html#asltam.price_distribution.plot_kde.get_index">get_index() (in module asltam.price_distribution.plot_kde)</a>
+      <li><a href="usage/asltam.html#asltam.io.pricedist.get_index">get_index() (in module asltam.io.pricedist)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="usage/asltam.html#asltam.graph.graph.get_subgraph_under_k">get_subgraph_under_k() (in module asltam.graph.graph)</a>
+</li>
+      <li><a href="usage/asltam.html#asltam.io.pricedist.get_way">get_way() (in module asltam.io.pricedist)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -156,7 +170,11 @@
 <h2 id="K">K</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="usage/asltam.html#asltam.price_distribution.plot_kde.kde_gare">kde_gare() (in module asltam.price_distribution.plot_kde)</a>
+      <li><a href="usage/asltam.html#asltam.price_distribution.distribution.kde_gare">kde_gare() (in module asltam.price_distribution.distribution)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="usage/asltam.html#asltam.graph.graph.kmin_cost_out">kmin_cost_out() (in module asltam.graph.graph)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -168,33 +186,19 @@
     module
 
       <ul>
-        <li><a href="usage/asltam.html#module-asltam.graphe.graphe">asltam.graphe.graphe</a>
+        <li><a href="usage/asltam.html#module-asltam.Carte_interactive">asltam.Carte_interactive</a>
 </li>
-        <li><a href="usage/asltam.html#module-asltam.itineraire">asltam.itinéraire</a>
+        <li><a href="usage/asltam.html#module-asltam.graph.graph">asltam.graph.graph</a>
 </li>
-        <li><a href="usage/asltam.html#module-asltam.price_distribution.plot_kde">asltam.price_distribution.plot_kde</a>
+        <li><a href="usage/asltam.html#module-asltam.io.pricedist">asltam.io.pricedist</a>
+</li>
+        <li><a href="usage/asltam.html#module-asltam.price_distribution.distribution">asltam.price_distribution.distribution</a>
 </li>
         <li><a href="usage/initsort_data.html#module-initsort_data.creation_data_geo">initsort_data.creation_data_geo</a>
 </li>
         <li><a href="usage/initsort_data.html#module-initsort_data.distance">initsort_data.distance</a>
 </li>
       </ul></li>
-  </ul></td>
-</tr></table>
-
-<h2 id="P">P</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="usage/asltam.html#asltam.graphe.graphe.plus_court_chemin">plus_court_chemin() (in module asltam.graphe.graphe)</a>
-</li>
-  </ul></td>
-</tr></table>
-
-<h2 id="T">T</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="usage/asltam.html#asltam.itineraire.trajet">trajet() (in module asltam.itinéraire)</a>
-</li>
   </ul></td>
 </tr></table>
 

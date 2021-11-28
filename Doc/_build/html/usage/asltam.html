@@ -39,7 +39,6 @@
               <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">ASLTAM</a></li>
 <li class="toctree-l1"><a class="reference internal" href="initsort_data.html">initsort_data</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Comment_installer.html">Comment installer, guide pour les nuls</a></li>
 </ul>
 
         </div>
@@ -66,39 +65,78 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="module-asltam.itineraire">
-<span id="module-asltam.itinéraire"></span><span id="asltam"></span><h1>ASLTAM<a class="headerlink" href="#module-asltam.itineraire" title="Permalink to this headline"></a></h1>
-<dl class="py function">
-<dt class="sig sig-object py" id="asltam.itineraire.trajet">
-<span id="asltam.itinéraire.trajet"></span><span class="sig-prename descclassname"><span class="pre">asltam.itinéraire.</span></span><span class="sig-name descname"><span class="pre">trajet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coord_depart</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">coord_arrivee</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asltam.itineraire.trajet" title="Permalink to this definition"></a></dt>
-<dd><p>Cette fonction affiche une carte avec le trajet souhaité !</p>
-</dd></dl>
-
-<span class="target" id="module-asltam.price_distribution.plot_kde"></span><dl class="py function">
-<dt class="sig sig-object py" id="asltam.price_distribution.plot_kde.get_index">
-<span class="sig-prename descclassname"><span class="pre">asltam.price_distribution.plot_kde.</span></span><span class="sig-name descname"><span class="pre">get_index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asltam.price_distribution.plot_kde.get_index" title="Permalink to this definition"></a></dt>
-<dd><p>Retourne la valeur de la position de la gare de péage dans le DataFrame.</p>
-<p>data : pd.DataFrame, dont les colonnes portent le nom des péages.
-name : str, nom d’une gare de péage de data.</p>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="asltam.price_distribution.plot_kde.kde_gare">
-<span class="sig-prename descclassname"><span class="pre">asltam.price_distribution.plot_kde.</span></span><span class="sig-name descname"><span class="pre">kde_gare</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">all</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_price</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_dist</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bw</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asltam.price_distribution.plot_kde.kde_gare" title="Permalink to this definition"></a></dt>
+  <div class="section" id="asltam">
+<h1>ASLTAM<a class="headerlink" href="#asltam" title="Permalink to this headline"></a></h1>
+<p>Il s’agit du module principal de notre programme, il contient toutes les fonctions nécessaires à l’aboutissement du projet.</p>
+<span class="target" id="module-asltam.Carte_interactive"></span><span class="target" id="module-asltam.price_distribution.distribution"></span><dl class="py function">
+<dt class="sig sig-object py" id="asltam.price_distribution.distribution.kde_gare">
+<span class="sig-prename descclassname"><span class="pre">asltam.price_distribution.distribution.</span></span><span class="sig-name descname"><span class="pre">kde_gare</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">all</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_price</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_dist</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bw</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asltam.price_distribution.distribution.kde_gare" title="Permalink to this definition"></a></dt>
 <dd><p>Affiche la distribution des prix au kilomètre entre deux gares de péages sur un trajet donné.
 Attention, les données de distance et de prix doivent être rangé dans le même ordre dans les tableaux de données.</p>
 <p>all : Bool, Si True affiche la distribution sur le DataFrame entier.
 data_price : DataFrame, tableaux de données de prix entre les gares de péage.
 data_dist : DataFrame, tableaux de données des distances entre les gares de péage.
-name1 : str, nom de la première gare.
-name2 : str, nom de la seconde gare.
-bw : à modifier il ne fonctionne pas trop</p>
+start : str, nom de la première gare.
+target : str, nom de la seconde gare.
+bw : voir doc bw_adjust de seaborn.</p>
 </dd></dl>
 
-<span class="target" id="module-asltam.graphe.graphe"></span><dl class="py function">
-<dt class="sig sig-object py" id="asltam.graphe.graphe.plus_court_chemin">
-<span class="sig-prename descclassname"><span class="pre">asltam.graphe.graphe.</span></span><span class="sig-name descname"><span class="pre">plus_court_chemin</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">depart</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">arrivee</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asltam.graphe.graphe.plus_court_chemin" title="Permalink to this definition"></a></dt>
-<dd><p>Cette fonction calcule le plus court chemin entre le départ et l’arrivée</p>
+<span class="target" id="module-asltam.io.pricedist"></span><dl class="py function">
+<dt class="sig sig-object py" id="asltam.io.pricedist.average_cost">
+<span class="sig-prename descclassname"><span class="pre">asltam.io.pricedist.</span></span><span class="sig-name descname"><span class="pre">average_cost</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_price</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_dist</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asltam.io.pricedist.average_cost" title="Permalink to this definition"></a></dt>
+<dd><p>Retourne la matrice des prix moyens.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="asltam.io.pricedist.average_cost_list">
+<span class="sig-prename descclassname"><span class="pre">asltam.io.pricedist.</span></span><span class="sig-name descname"><span class="pre">average_cost_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_price</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_dist</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asltam.io.pricedist.average_cost_list" title="Permalink to this definition"></a></dt>
+<dd><p>Retourne la liste des prix moyens.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="asltam.io.pricedist.get_index">
+<span class="sig-prename descclassname"><span class="pre">asltam.io.pricedist.</span></span><span class="sig-name descname"><span class="pre">get_index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asltam.io.pricedist.get_index" title="Permalink to this definition"></a></dt>
+<dd><p>Retourne la valeur de la position de la gare de péage dans le DataFrame</p>
+<p>data : pd.DataFrame, dont les colonnes porte le nom des péages
+name : str ou list, nom(s) d’une gare de péage de data</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="asltam.io.pricedist.get_way">
+<span class="sig-prename descclassname"><span class="pre">asltam.io.pricedist.</span></span><span class="sig-name descname"><span class="pre">get_way</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_dist</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asltam.io.pricedist.get_way" title="Permalink to this definition"></a></dt>
+<dd><p>Renvoie une liste contenant les péages entre start et target.
+Notre méthode se base sur le fait que l’algorithme de Kruskal nous
+fournit un graphe du réseau routier avec seulement des arêtes
+entre deux gares successives dont on déduit facilement la liste
+avec un algorithme du plus court chemin (ici Dijkstra).
+Attributs
+———
+data_dist : DataFrame, tableau de données sous forme de matrice de distance entre toutes les gares.
+start : str, la gare de départ (doit être une élément de data_dist.columns).
+target : str, la gare d’arrivée (doit être une élément de data_dist.columns).</p>
+</dd></dl>
+
+<span class="target" id="module-asltam.graph.graph"></span><dl class="py function">
+<dt class="sig sig-object py" id="asltam.graph.graph.get_subgraph_under_k">
+<span class="sig-prename descclassname"><span class="pre">asltam.graph.graph.</span></span><span class="sig-name descname"><span class="pre">get_subgraph_under_k</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asltam.graph.graph.get_subgraph_under_k" title="Permalink to this definition"></a></dt>
+<dd><p>Renvoie une liste contenant tous les sous-graphes induits par data, de taille inférieure ou égal à k.
+Attributs
+———
+data : DataFrame ou array,
+k : int, déterminant la taille maximale des sous-graphes.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="asltam.graph.graph.kmin_cost_out">
+<span class="sig-prename descclassname"><span class="pre">asltam.graph.graph.</span></span><span class="sig-name descname"><span class="pre">kmin_cost_out</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_price</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_dist</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asltam.graph.graph.kmin_cost_out" title="Permalink to this definition"></a></dt>
+<dd><p>Calcule le trajet de frais minimum avec la contrainte d’au maximum k entrées/sorties d’autoroute. Renvoie le prix, et les gares de sortie.
+Attributs
+———
+data_price : DataFrame, tableau des prix.
+data_dist : DataFrame, tableau des distances.
+start : str, gare d’entrée.
+target : str, gare de sortie.
+k : int, nombre maximum d’entrées/sorties.</p>
 </dd></dl>
 
 </div>
