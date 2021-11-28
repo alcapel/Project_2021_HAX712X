@@ -110,3 +110,8 @@ def trajet(DEPART, ARRIVEE):
                             icon=folium.Icon(color='red', icon='car', prefix='fa')
                              ).add_to(m)
         return m
+    
+    else :
+        print("Veuilliez entrer deux villes différentes")  
+
+interact(trajet, DEPART = villes, ARRIVEE = villes)
