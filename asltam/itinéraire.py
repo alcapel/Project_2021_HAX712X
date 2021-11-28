@@ -29,4 +29,5 @@ client = openrouteservice.Client(key='5b3ce3597851110001cf62486f5564a064e34f3895
 geometry = client.directions(coords)['routes'][0]['geometry']
 decoded = convert.decode_polyline(geometry)
 
-folium.GeoJso
+folium.GeoJson(decoded).add_to(m)
+m
