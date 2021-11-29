@@ -46,7 +46,7 @@ def trajet(DEPART, ARRIVEE):
 
         client = openrouteservice.Client(key='5b3ce3597851110001cf62486f5564a064e34f3895221e5a0d9a2405')  # Specify your personal API key
 
-        c = folium.Map(
+        m = folium.Map(
                         location=[43.1837661, 3.0042121],
                         zoom_start=10,
                         control_scale=True)
