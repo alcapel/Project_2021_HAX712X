@@ -44,4 +44,6 @@ def kmin_cost_out(data_price, data_dist, start, target, k):
         if pds<opt:
             i_opt = i
             opt = pds
-    print(graphes[i_opt].nodes, opt)
+    g = list(graphes[i_opt].nodes)
+    print(f"Pour avoir le trajet optimal entre {g[0]} et {g[-1]},\n",
+    f"il faut sortir à {g[1:-1]}. Le coût total sera de {round(opt, 3)}€")
