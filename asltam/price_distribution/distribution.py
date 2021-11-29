@@ -48,7 +48,7 @@ def kde_gare(
                 "Il n'y a qu'un seul trajet ",
                 f"possible entre \n{data_price.columns[i]} et ",
                 data_price.columns[j], ".",
-                f"\nLe trajet coûte {data_price.iloc[i][j]/data_dist.iloc[i][j]:f}€/km")
+                f"\nLe trajet coûte {round(data_price.iloc[i][j]/data_dist.iloc[i][j], 3)}€/km")
         else:
             p = load_price.subdata_price(data_price, route_ind)
             d = load_dist.subdata_dist(data_dist, route_ind)
