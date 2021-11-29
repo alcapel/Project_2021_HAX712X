@@ -22,9 +22,12 @@ villes = sorted(geo.gare.unique())
 
 
 def trajet(DEPART, ARRIVEE):
+    i=geo.loc[geo['gare'] == DEPART].index[0]
+    j=geo.loc[geo['gare'] == ARRIVEE].index[0]
+    
     # Résolution du problème de la distance différente entre
     # l'aller et le retour avec une boucle
-    if geo.loc[geo['gare'] == DEPART].index[0] < geo.loc[geo['gare'] == ARRIVEE].index[0]:
+    if i < j:
 
         x = [
             geo['Long'][geo.loc[geo['gare'] == DEPART].index[0]],
@@ -69,7 +72,7 @@ def trajet(DEPART, ARRIVEE):
                              ).add_to(c)
         return c
 
-    elif geo.loc[geo['gare'] == DEPART].index[0] > geo.loc[geo['gare'] == ARRIVEE].index[0]:
+    elif i > j:
 
         y = [geo['Long'][geo.loc[geo['gare'] == DEPART].index[0]],
              geo['Latt'][geo.loc[geo['gare'] == DEPART].index[0]]]
