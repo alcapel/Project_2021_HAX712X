@@ -1,1 +1,12 @@
-*__pycache__*
+__pycache__*
+.vscode
+.coverage
+tilescache*
+build*
+dist*
+*.egg-info
+.pytest_cache
+ignore*
+.DS_store
+.osm
+.json

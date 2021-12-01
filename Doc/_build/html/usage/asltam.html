@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ASLTAM &mdash; ASLTAM  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="initsort_data" href="initsort_data.html" />
+    <link rel="prev" title="Documentation du programme ASLTAM" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> ASLTAM
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">ASLTAM</a></li>
+<li class="toctree-l1"><a class="reference internal" href="initsort_data.html">initsort_data</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ASLTAM</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>ASLTAM</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/usage/asltam.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="asltam">
+<h1>ASLTAM<a class="headerlink" href="#asltam" title="Permalink to this headline"></a></h1>
+<p>Il s’agit du module principal de notre programme, il contient toutes les fonctions nécessaires à l’aboutissement du projet.</p>
+<span class="target" id="module-asltam.Carte_interactive"></span><span class="target" id="module-asltam.price_distribution.distribution"></span><dl class="py function">
+<dt class="sig sig-object py" id="asltam.price_distribution.distribution.kde_gare">
+<span class="sig-prename descclassname"><span class="pre">asltam.price_distribution.distribution.</span></span><span class="sig-name descname"><span class="pre">kde_gare</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">all</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_price</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_dist</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bw</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asltam.price_distribution.distribution.kde_gare" title="Permalink to this definition"></a></dt>
+<dd><p>Affiche la distribution des prix au kilomètre entre deux gares de péages sur un trajet donné.
+Attention, les données de distance et de prix doivent être rangé dans le même ordre dans les tableaux de données.</p>
+<p>all : Bool, Si True affiche la distribution sur le DataFrame entier.
+data_price : DataFrame, tableaux de données de prix entre les gares de péage.
+data_dist : DataFrame, tableaux de données des distances entre les gares de péage.
+start : str, nom de la première gare.
+target : str, nom de la seconde gare.
+bw : voir doc bw_adjust de seaborn.</p>
+</dd></dl>
+
+<span class="target" id="module-asltam.io.pricedist"></span><dl class="py function">
+<dt class="sig sig-object py" id="asltam.io.pricedist.average_cost">
+<span class="sig-prename descclassname"><span class="pre">asltam.io.pricedist.</span></span><span class="sig-name descname"><span class="pre">average_cost</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_price</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_dist</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asltam.io.pricedist.average_cost" title="Permalink to this definition"></a></dt>
+<dd><p>Retourne la matrice des prix moyens.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="asltam.io.pricedist.average_cost_list">
+<span class="sig-prename descclassname"><span class="pre">asltam.io.pricedist.</span></span><span class="sig-name descname"><span class="pre">average_cost_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_price</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_dist</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asltam.io.pricedist.average_cost_list" title="Permalink to this definition"></a></dt>
+<dd><p>Retourne la liste des prix moyens.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="asltam.io.pricedist.get_index">
+<span class="sig-prename descclassname"><span class="pre">asltam.io.pricedist.</span></span><span class="sig-name descname"><span class="pre">get_index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asltam.io.pricedist.get_index" title="Permalink to this definition"></a></dt>
+<dd><p>Retourne la valeur de la position de la gare de péage dans le DataFrame</p>
+<p>data : pd.DataFrame, dont les colonnes porte le nom des péages
+name : str ou list, nom(s) d’une gare de péage de data</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="asltam.io.pricedist.get_way">
+<span class="sig-prename descclassname"><span class="pre">asltam.io.pricedist.</span></span><span class="sig-name descname"><span class="pre">get_way</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_dist</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asltam.io.pricedist.get_way" title="Permalink to this definition"></a></dt>
+<dd><p>Renvoie une liste contenant les péages entre start et target.
+Notre méthode se base sur le fait que l’algorithme de Kruskal nous
+fournit un graphe du réseau routier avec seulement des arêtes
+entre deux gares successives dont on déduit facilement la liste
+avec un algorithme du plus court chemin (ici Dijkstra).
+Attributs
+———
+data_dist : DataFrame, tableau de données sous forme de matrice de distance entre toutes les gares.
+start : str, la gare de départ (doit être une élément de data_dist.columns).
+target : str, la gare d’arrivée (doit être une élément de data_dist.columns).</p>
+</dd></dl>
+
+<span class="target" id="module-asltam.graph.graph"></span><dl class="py function">
+<dt class="sig sig-object py" id="asltam.graph.graph.get_subgraph_under_k">
+<span class="sig-prename descclassname"><span class="pre">asltam.graph.graph.</span></span><span class="sig-name descname"><span class="pre">get_subgraph_under_k</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asltam.graph.graph.get_subgraph_under_k" title="Permalink to this definition"></a></dt>
+<dd><p>Renvoie une liste contenant tous les sous-graphes induits par data, de taille inférieure ou égal à k.
+Attributs
+———
+data : DataFrame ou array,
+k : int, déterminant la taille maximale des sous-graphes.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="asltam.graph.graph.kmin_cost_out">
+<span class="sig-prename descclassname"><span class="pre">asltam.graph.graph.</span></span><span class="sig-name descname"><span class="pre">kmin_cost_out</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_price</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_dist</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asltam.graph.graph.kmin_cost_out" title="Permalink to this definition"></a></dt>
+<dd><p>Calcule le trajet de frais minimum avec la contrainte d’au maximum k entrées/sorties d’autoroute. Renvoie le prix, et les gares de sortie.
+Attributs
+———
+data_price : DataFrame, tableau des prix.
+data_dist : DataFrame, tableau des distances.
+start : str, gare d’entrée.
+target : str, gare de sortie.
+k : int, nombre maximum d’entrées/sorties.</p>
+</dd></dl>
+
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../index.html" class="btn btn-neutral float-left" title="Documentation du programme ASLTAM" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="initsort_data.html" class="btn btn-neutral float-right" title="initsort_data" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, Bouarroudj Abdelmalek, Capel Alexandre, Carvaillo Thomas.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
