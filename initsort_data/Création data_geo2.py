@@ -2,6 +2,7 @@
 import numpy as np
 import pandas as pd
 from download import download
+import os
 
 # chargement des données géographiques
 url = 'https://raw.githubusercontent.com/Eldohrim/Project_2021_HAX712X/main/asltam/data/data_geo.csv'
