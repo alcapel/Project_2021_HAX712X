@@ -42,9 +42,26 @@ def trajet(DEPART, ARRIVEE):
     y = [geo['Long'][j],
          geo['Latt'][j]]
 
+    #Claculer les distance entre le point A et le point B pour pouvoir
+    # prendre par la suite la distance la plus courte
+    
+    r1 = requests.get(f"http://router.project-osrm.org/route/v1/car/{x[0]},{x[1]};{y[0]},{y[1]}?overview=false""")
+    routes_1 = json.loads(r1.content)
+    route_1 = routes_1.get("routes")[0]
+    
+    #Distance entre point A et point B :
+    dist1=round(route_1['distance']/1000)
+    
+    r2 = requests.get(f"http://router.project-osrm.org/route/v1/car/{y[0]},{y[1]};{x[0]},{x[1]}?overview=false""")
+    routes_2 = json.loads(r2.content)
+    route_2=routes_2.get("routes")[0]
+    
+    #Distance entre point B et point A :
+    dist2=round(route_2['distance']/1000)
+    
     # Résolution du problème de la distance différente entre
     # l'aller et le retour avec une boucle
-    if i < j:
+    if dist1 < dist2 :
 
         coor = [x, y]
 
@@ -84,7 +101,7 @@ def trajet(DEPART, ARRIVEE):
                              ).add_to(m)
         return m
 
-    elif i > j:
+    elif dist1 > dist2 :
 
         coor = [y, x]
 
