@@ -2,10 +2,13 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 import seaborn as sns
+import time
 from asltam.io.load_dist import load_dist
 from asltam.io.load_price import load_price
 from asltam.io.pricedist import average_cost_list, get_index, get_way
 
+
+start = time.time()
 def kde_gare(
             all,
             data_price,
@@ -59,3 +62,6 @@ def kde_gare(
             plt.title(f"KDE pour le prix au kilomètre \n entre {start} et {target}")
             plt.tight_layout()
             plt.show()
+
+end = time.time()
+print("Temps passé pour exécuter kde_gare : {0:.5f} s.".format(end - start))
