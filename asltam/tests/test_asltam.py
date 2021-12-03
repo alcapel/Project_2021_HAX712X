@@ -4,11 +4,10 @@ import download
 import pandas as pd
 import networkx as nx
 import numpy as np
+sys.path.append(os.path.dirname(os.path.abspath(__file__)) + (os.path.sep + '..')*2)
 import asltam as atm
 from asltam.io.pricedist import *
 from asltam.graph.graph import get_subgraph_under_k
-
-sys.path.append(os.path.dirname(os.path.abspath(__file__)) + (os.path.sep + '..')*2)
 
 
 def test_get_index():
