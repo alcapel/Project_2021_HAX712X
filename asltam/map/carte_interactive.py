@@ -13,12 +13,12 @@ url = 'https://raw.githubusercontent.com/Eldohrim/Project_2021_HAX712X/main/aslt
 path = os.path.join(os.getcwd(), 'data_geo2.csv')
 download(url, path, replace=False)
 geo = pd.read_csv('./data_geo2.csv')
-geo = geo.rename(columns={' Nom gare ':'gare'})
+geo = geo.rename(columns={' Nom gare ': 'gare'})
 
 url = 'https://raw.githubusercontent.com/Eldohrim/Project_2021_HAX712X/main/asltam/data/data_dist.csv'
 path = os.path.join(os.getcwd(), 'data_dist.csv')
 download(url, path, replace=False)
-dist = pd.read_csv('./data_dist.csv',index_col=' Nom gare ')
+dist = pd.read_csv('./data_dist.csv', index_col=' Nom gare ')
 
 url = 'https://raw.githubusercontent.com/Eldohrim/Project_2021_HAX712X/main/asltam/data/price_dataf2.csv'
 path = os.path.join(os.getcwd(), 'price_dataf2.csv')
@@ -31,22 +31,24 @@ villes = sorted(geo.gare.unique())
 
 
 start = time.time()
+
+
 def trajet(DEPART, ARRIVEE):
     i = geo.loc[geo['gare'] == DEPART].index[0]
     j = geo.loc[geo['gare'] == ARRIVEE].index[0]
-    
-    x = [geo['Long'][i], 
+
+    x = [geo['Long'][i],
          geo['Latt'][i]]
     y = [geo['Long'][j],
          geo['Latt'][j]]
-    
+
     # Résolution du problème de la distance différente entre
     # l'aller et le retour avec une boucle
     if i < j:
-        
+
         coor = [x, y]
 
-        client = openrouteservice.Client(key='5b3ce3597851110001cf62486f5564a064e34f3895221e5a0d9a2405') 
+        client = openrouteservice.Client(key='5b3ce3597851110001cf62486f5564a064e34f3895221e5a0d9a2405')
 
         m = folium.Map(
                         location=[43.1837661, 3.0042121],
@@ -63,11 +65,11 @@ def trajet(DEPART, ARRIVEE):
                 geometry = client.directions(coord)['routes'][0]['geometry']
                 decoded = convert.decode_polyline(geometry)
 
-                distance_txt = "<h4> Distance du trajet :&nbsp" + "<strong>"+str(dist[DEPART][j])+" Km </strong>" +"</h4></b>" 
-                price_txt = "<h4> Coût du trajet :&nbsp" + "<strong>"+str(price[DEPART][j])+" € </strong>" +"</h4></b>" 
-                moy_txt="<h4> Coût au kilométre :&nbsp" + "<strong>"+str(round(price[DEPART][j]/dist[DEPART][j],4))+" €/Km </strong>" +"</h4></b>"
-                
-                folium.GeoJson(decoded).add_child(folium.Popup(distance_txt+price_txt+moy_txt,max_width = 300)).add_to(m)
+                distance_txt = "<h4> Distance du trajet :&nbsp" + "<strong>" + str(dist[DEPART][j]) + " Km </strong>" + "</h4></b>"
+                price_txt = "<h4> Coût du trajet :&nbsp" + "<strong>" + str(price[DEPART][j]) + " € </strong>" + "</h4></b>"
+                moy_txt="<h4> Coût au kilométre :&nbsp" + "<strong>" + str(round(price[DEPART][j]/dist[DEPART][j], 4)) + " €/Km </strong>" + "</h4></b>"
+
+                folium.GeoJson(decoded).add_child(folium.Popup(distance_txt + price_txt + moy_txt, max_width=300)).add_to(m)
 
                 folium.Marker(
                             coord[0][::-1],
@@ -83,7 +85,7 @@ def trajet(DEPART, ARRIVEE):
         return m
 
     elif i > j:
-        
+
         coor = [y, x]
 
         client = openrouteservice.Client(key='5b3ce3597851110001cf62486f5564a064e34f3895221e5a0d9a2405')
@@ -102,11 +104,11 @@ def trajet(DEPART, ARRIVEE):
                 geometry = client.directions(coord)['routes'][0]['geometry']
                 decoded = convert.decode_polyline(geometry)
 
-                distance_txt = "<h4> Distance du trajet :&nbsp" + "<strong>"+str(dist[DEPART][j])+" Km </strong>" +"</h4></b>" 
-                price_txt = "<h4> Coût du trajet :&nbsp" + "<strong>"+str(price[DEPART][j])+" € </strong>" +"</h4></b>" 
-                moy_txt="<h4> Coût au kilométre :&nbsp" + "<strong>"+str(round(price[DEPART][j]/dist[DEPART][j],4))+" €/Km </strong>" +"</h4></b>" 
+                distance_txt = "<h4> Distance du trajet :&nbsp" + "<strong>" + str(dist[DEPART][j]) + " Km </strong>" + "</h4></b>"
+                price_txt = "<h4> Coût du trajet :&nbsp" + "<strong>"+str(price[DEPART][j]) + " € </strong>" + "</h4></b>"
+                moy_txt = "<h4> Coût au kilométre :&nbsp" + "<strong>" + str(round(price[DEPART][j]/dist[DEPART][j], 4)) + " €/Km </strong>" + "</h4></b>"
 
-                folium.GeoJson(decoded).add_child(folium.Popup(distance_txt+price_txt+moy_txt,max_width = 300)).add_to(m)
+                folium.GeoJson(decoded).add_child(folium.Popup(distance_txt+price_txt+moy_txt, max_width=300)).add_to(m)
 
                 folium.Marker(
                             coord[0][::-1],
@@ -120,11 +122,12 @@ def trajet(DEPART, ARRIVEE):
                             icon=folium.Icon(color='red', icon='car', prefix='fa')
                              ).add_to(m)
         return m
-    
-    else :
-        print("Veuilliez entrer deux villes différentes")  
+
+    else:
+        print("Veuilliez entrer deux villes différentes")
+
 end = time.time()
 print("Temps passé pour exécuter trajet: {0:.5f} s.".format(end - start))
 
-        
-interact(trajet, DEPART = villes, ARRIVEE = villes)
+
+interact(trajet, DEPART=villes, ARRIVEE=villes)
