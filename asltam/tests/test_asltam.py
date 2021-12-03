@@ -9,6 +9,8 @@ from asltam.graph.graph import get_subgraph_under_k
 import networkx as nx
 import numpy as np
 
+import pandas as pd
+
 def test_get_index():
     a = load_price.save_as_price(index=' ')
     assert get_index(data=a, name='SETE') == 1
