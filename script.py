@@ -11,8 +11,12 @@ interact(atm.kde_gare, all = True, data_dist = fixed(dist),
          target = prix.columns, bw = (0.05,2,0.01))
 
 # Recherche des trajets optimaux
+start = input(f"Donnez une gare de départ parmi les gares suivantes : {list(prix.index)}.")
+target = input(f"Donnez une gare d'arrivée parmi les gares suivantes : {list(prix.index)}.")
+n = input("Rentrez le nombre de sortie que vous vous accordez :")
+
 g, opt = atm.kmin_cost_out(data_dist=dist, data_price=prix,
-                          start = 'MONTPELLIER', target = 'CASTELNAUDARY', 
-                          k = 4)
+                          start = start, target = target, 
+                          k = int(n))
 print(f"Pour avoir le trajet optimal entre {g[0]} et {g[-1]},\n",
     f"il faut sortir à {g[1:-1]}. Le coût total sera de {round(opt, 3)}€")
