@@ -36,7 +36,6 @@ jobs:
         python -m pip install pyroutelib3
         python -m pip install folium
         python -m pip install openrouteservice
-        python -m pip install os
         python -m pip install ipywidgets
         python -m pip install itertools
         python -m pip install seaborn
