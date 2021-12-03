@@ -7,6 +7,7 @@ import openrouteservice
 import json
 from ipywidgets import interact
 import time
+import os
 
 url = 'https://raw.githubusercontent.com/Eldohrim/Project_2021_HAX712X/main/asltam/data/data_geo2.csv'
 path = os.path.join(os.getcwd(), 'data_geo2.csv')
