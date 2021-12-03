@@ -70,7 +70,9 @@ atm.kde_gare(all=True, prix, dist, bw=1)
 ```
 permet d'afficher la distribution des prix au kilomètre selon tout le réseau routier que nous avions à disposition :
 
-![alt text](https://github.com/Eldohrim/Project_2021_HAX712X/blob/main/Doc/kde.pdf?raw=true)
+<p align="center">
+  <img src="https://github.com/Eldohrim/Project_2021_HAX712X/blob/main/Doc/kde.svg" width="400" title="Exemple">
+</p>
 
 Une démonstration plus complète (avec des widgets !) de cette fonction est faite dans ``script.py``, ou dans la documentation.
 
