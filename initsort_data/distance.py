@@ -4,8 +4,10 @@ import os
 from download import download
 import requests
 import json
+import time
 
 
+start = time.time()
 def distance():
     '''
     Cette fonction nous sert à créer le dataframe des distances
@@ -54,3 +56,6 @@ def distance():
     dist.set_index(geo[' Nom gare '], inplace=True)
 
     dist.to_csv('./data_dist.csv')
+
+end = time.time()
+print("Temps passé pour exécuter distance: {0:.5f} s.".format(end - start))
