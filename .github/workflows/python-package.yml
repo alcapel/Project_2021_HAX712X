@@ -38,7 +38,6 @@ jobs:
         python -m pip install openrouteservice
         python -m pip install ipywidgets
         python -m pip install seaborn
-        python -m pip install asltam
         
         
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
