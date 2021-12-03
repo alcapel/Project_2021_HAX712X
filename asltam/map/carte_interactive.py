@@ -9,7 +9,7 @@ from ipywidgets import interact
 import time
 import os
 import requests
-import asltam as am
+import asltam as atm
 
 
 url = 'https://raw.githubusercontent.com/Eldohrim/Project_2021_HAX712X/main/asltam/data/data_geo2.csv'
@@ -18,8 +18,8 @@ download(url, path, replace=False)
 geo = pd.read_csv('./data_geo2.csv')
 geo = geo.rename(columns={' Nom gare ': 'gare'})
 
-dist = am.load_dist().save_as_dist(index=' Nom gare ')
-price = am.load_price().save_as_price()
+dist = atm.load_dist().save_as_dist(index=' Nom gare ')
+price = atm.load_price().save_as_price()
 
 # Crée une liste qui contient le nom de toutes les villes
 villes = sorted(geo.gare.unique())
