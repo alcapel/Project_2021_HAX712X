@@ -2,7 +2,10 @@ import networkx as nx
 from itertools import combinations
 from asltam.io.load_price import load_price
 from asltam.io.pricedist import get_index, get_way
+import time
 
+
+start = time.time()
 def get_subgraph_under_k(data, k):
     """
     Renvoie une liste contenant tous les sous-graphes induits par data, de taille inférieure ou égal à k.
@@ -20,7 +23,11 @@ def get_subgraph_under_k(data, k):
             g = load_price.subdata_price(data, sub)
             graphes.append(nx.Graph(incoming_graph_data=g))
     return graphes
+end = time.time()
+print("Temps passé pour exécuter get_subgraph_under_k : {0:.5f} s.".format(end - start))
 
+
+start = time.time()
 def kmin_cost_out(data_price, data_dist, start, target, k):
     """
     Calcule le trajet de frais minimum avec la contrainte d'au maximum k entrées/sorties d'autoroute. Renvoie le prix, et les gares de sortie.
@@ -47,3 +54,6 @@ def kmin_cost_out(data_price, data_dist, start, target, k):
     g = list(graphes[i_opt].nodes)
     print(f"Pour avoir le trajet optimal entre {g[0]} et {g[-1]},\n",
     f"il faut sortir à {g[1:-1]}. Le coût total sera de {round(opt, 3)}€")
+    
+end = time.time()
+print("Temps passé pour exécuter kmin_cost_out: {0:.5f} s.".format(end - start))
