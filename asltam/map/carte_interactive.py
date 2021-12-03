@@ -35,16 +35,15 @@ def trajet(DEPART, ARRIVEE):
     i = geo.loc[geo['gare'] == DEPART].index[0]
     j = geo.loc[geo['gare'] == ARRIVEE].index[0]
     
+    x = [geo['Long'][i], 
+         geo['Latt'][i]]
+    y = [geo['Long'][j],
+         geo['Latt'][j]]
+    
     # Résolution du problème de la distance différente entre
     # l'aller et le retour avec une boucle
     if i < j:
-
-        x = [geo['Long'][i], 
-             geo['Latt'][i]]
         
-        y = [geo['Long'][j], 
-             geo['Latt'][j]]
-
         coor = [x, y]
 
         client = openrouteservice.Client(key='5b3ce3597851110001cf62486f5564a064e34f3895221e5a0d9a2405')  # Specify your personal API key
@@ -84,13 +83,7 @@ def trajet(DEPART, ARRIVEE):
         return m
 
     elif i > j:
-
-        y = [geo['Long'][i],
-             geo['Latt'][i]]
         
-        x = [geo['Long'][j],
-             geo['Latt'][j]]
-
         coor = [x, y]
 
         client = openrouteservice.Client(key='5b3ce3597851110001cf62486f5564a064e34f3895221e5a0d9a2405')
