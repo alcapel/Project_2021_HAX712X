@@ -58,7 +58,7 @@ def test_get_subgraph_under_k():
 def test_kmin_cost_out():
     a = atm.load_price().save_as_price(index=' ')
     b = atm.load_dist.save_as_dist(index=' Nom gare ')
-    assert am.kmin_cost_out(data_price=a,
+    assert atm.kmin_cost_out(data_price=a,
                             data_dist=b,
                             start='MONTPELLIER',
                             target='BEZIERS CABRIALS (SORTIE)', k=1) == (['MONTPELLIER', 'AGDE', 'BEZIERS CABRIALS (SORTIE)'], 4.6)
