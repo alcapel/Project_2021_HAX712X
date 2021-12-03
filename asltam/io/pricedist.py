@@ -5,6 +5,8 @@ import networkx as nx
 
 
 start = time.time()
+
+
 def average_cost(data_price, data_dist):
     """
     Retourne la matrice des prix moyens.
@@ -13,11 +15,14 @@ def average_cost(data_price, data_dist):
     p = np.array(data_price)
     d = np.array(data_dist) + np.diag(np.ones(n))
     return p/d
+
 end = time.time()
 print("Temps passé pour exécuter average_cost: {0:.5f} s.".format(end - start))
 
 
 start = time.time()
+
+
 def average_cost_list(data_price, data_dist):
     """
     Retourne la liste des prix moyens.
@@ -26,15 +31,17 @@ def average_cost_list(data_price, data_dist):
     p = np.array(data_price)[np.triu_indices(n, k=1)]
     d = np.array(data_dist)[np.triu_indices(n, k=1)]
     return p/d
+
 end = time.time()
 print("Temps passé pour exécuter average_cost_list: {0:.5f} s.".format(end - start))
 
 
 start = time.time()
+
+
 def get_index(data, name):
     """
     Retourne la valeur de la position de la gare de péage dans le DataFrame
-
     Attributs :
     -----------
     data : pd.DataFrame, dont les colonnes porte le nom des péages
@@ -61,11 +68,13 @@ def get_index(data, name):
             return ind
         except Exception as a:
             print(f"Attention ! {a} n'appartient pas à la base de donnée.")
+
 end = time.time()
 print("Temps passé pour exécuter get_index: {0:.5f} s.".format(end - start))
-        
-    
+
 start = time.time()
+
+
 def get_way(data_dist, start, target):
     """
     Renvoie une liste contenant les péages entre start et target.
@@ -81,6 +90,7 @@ def get_way(data_dist, start, target):
     """
     G = nx.Graph(incoming_graph_data=data_dist)
     a = nx.minimum_spanning_tree(G, weight='weight')
-    return nx.shortest_path(a, start, target, weight = 'weight')
+    return nx.shortest_path(a, start, target, weight='weight')
+
 end = time.time()
 print("Temps passé pour exécuter get_way : {0:.5f} s.".format(end - start))
