@@ -31,20 +31,20 @@ def test_get_way():
 def test_average_cost():
     a = am.load_price().save_as_price(index=' ')
     b = am.load_dist().save_as_dist(index=' Nom gare ')
-    assert np.allclose(average_cost(data_price=am.load_price().subdata_price(a, [0, 1]),
-    data_dist=am.load_dist().subdata_dist(b,[0,1])),
+    assert np.allclose(average_cost(data_price=am.load_price.subdata_price(a, [0, 1]),
+    data_dist=am.load_dist.subdata_dist(b,[0,1])),
      np.array([[0, 1.6/17.0], [1.6/17.0 , 0]]))
 
 def test_average_cost_list():
     a = am.load_price().save_as_price(index=' ')
     b = am.load_dist().save_as_dist(index=' Nom gare ')
-    assert np.allclose(average_cost_list(data_price=am.load_price().subdata_price(a, [0, 1]),
-    data_dist=am.load_dist().subdata_dist(b, [0, 1])),
+    assert np.allclose(average_cost_list(data_price=am.load_price.subdata_price(a, [0, 1]),
+    data_dist=am.load_dist.subdata_dist(b, [0, 1])),
      np.array([1.6/17.0]))
 
 def test_get_subgraph_under_k():
     a = am.load_price().save_as_price(index=' ')
-    g = get_subgraph_under_k(am.load_price().subdata_price(a, list(range(4))), 1)
+    g = get_subgraph_under_k(am.load_price.subdata_price(a, range(4)), 1)
     assert [tuple(g[0].nodes), tuple(g[1].nodes), tuple(g[2].nodes)] == [('MONTPELLIER', 'BEZIERS CABRIALS (SORTIE)'),
     ('MONTPELLIER', 'SETE', 'BEZIERS CABRIALS (SORTIE)'), ('MONTPELLIER', 'AGDE', 'BEZIERS CABRIALS (SORTIE)')]
 
