@@ -8,6 +8,9 @@ import json
 from ipywidgets import interact
 import time
 import os
+import requests
+import asltam as am
+
 
 url = 'https://raw.githubusercontent.com/Eldohrim/Project_2021_HAX712X/main/asltam/data/data_geo2.csv'
 path = os.path.join(os.getcwd(), 'data_geo2.csv')
@@ -15,16 +18,8 @@ download(url, path, replace=False)
 geo = pd.read_csv('./data_geo2.csv')
 geo = geo.rename(columns={' Nom gare ': 'gare'})
 
-url = 'https://raw.githubusercontent.com/Eldohrim/Project_2021_HAX712X/main/asltam/data/data_dist.csv'
-path = os.path.join(os.getcwd(), 'data_dist.csv')
-download(url, path, replace=False)
-dist = pd.read_csv('./data_dist.csv', index_col=' Nom gare ')
-
-url = 'https://raw.githubusercontent.com/Eldohrim/Project_2021_HAX712X/main/asltam/data/price_dataf2.csv'
-path = os.path.join(os.getcwd(), 'price_dataf2.csv')
-download(url, path, replace=False)
-price = pd.read_csv('./price_dataf2.csv')
-
+dist = am.load_dist().save_as_dist(index=' Nom gare ')
+price = am.load_price().save_as_price()
 
 # Crée une liste qui contient le nom de toutes les villes
 villes = sorted(geo.gare.unique())
@@ -42,22 +37,22 @@ def trajet(DEPART, ARRIVEE):
     y = [geo['Long'][j],
          geo['Latt'][j]]
 
-    #Claculer les distance entre le point A et le point B pour pouvoir
+    # Claculer la distance entre le point A et le point B pour pouvoir
     # prendre par la suite la distance la plus courte
     
     r1 = requests.get(f"http://router.project-osrm.org/route/v1/car/{x[0]},{x[1]};{y[0]},{y[1]}?overview=false""")
     routes_1 = json.loads(r1.content)
     route_1 = routes_1.get("routes")[0]
     
-    #Distance entre point A et point B :
-    dist1=round(route_1['distance']/1000)
-    
     r2 = requests.get(f"http://router.project-osrm.org/route/v1/car/{y[0]},{y[1]};{x[0]},{x[1]}?overview=false""")
     routes_2 = json.loads(r2.content)
-    route_2=routes_2.get("routes")[0]
+    route_2 = routes_2.get("routes")[0]
     
-    #Distance entre point B et point A :
-    dist2=round(route_2['distance']/1000)
+    # Distance entre le point A et le point B :
+    dist1 = round(route_1['distance']/1000)
+   
+    # Distance entre le point B et le point A :
+    dist2 = round(route_2['distance']/1000)
     
     # Résolution du problème de la distance différente entre
     # l'aller et le retour avec une boucle
