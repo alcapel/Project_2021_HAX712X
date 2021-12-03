@@ -6,6 +6,7 @@ class load_dist :
 	def __init__(self, url = url_dist, target = path_dist):
 		download(url, target, replace = False)
 
+	@staticmethod
 	def save_as_dist(index=None):
 		df_dist = pd.read_csv(path_dist, index_col=index)
 		return df_dist
