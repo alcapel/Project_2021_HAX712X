@@ -11,7 +11,7 @@ def average_cost(data_price, data_dist):
     """
     n = len(data_price)
     p = np.array(data_price)
-    d = np.array(data_dist)
+    d = np.array(data_dist) + np.diag(np.ones(n))
     return p/d
 end = time.time()
 print("Temps passé pour exécuter average_cost: {0:.5f} s.".format(end - start))
