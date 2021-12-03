@@ -84,7 +84,7 @@ def trajet(DEPART, ARRIVEE):
 
     elif i > j:
         
-        coor = [x, y]
+        coor = [y, x]
 
         client = openrouteservice.Client(key='5b3ce3597851110001cf62486f5564a064e34f3895221e5a0d9a2405')
         m = folium.Map(
