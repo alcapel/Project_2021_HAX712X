@@ -44,7 +44,7 @@ def test_average_cost_list():
 
 def test_get_subgraph_under_k():
     a = am.load_price().save_as_price(index=' ')
-    g = get_subgraph_under_k(am.load_price().subdata_price(a, range(4)), 1)
+    g = get_subgraph_under_k(am.load_price().subdata_price(a, list(range(4))), 1)
     assert [tuple(g[0].nodes), tuple(g[1].nodes), tuple(g[2].nodes)] == [('MONTPELLIER', 'BEZIERS CABRIALS (SORTIE)'),
     ('MONTPELLIER', 'SETE', 'BEZIERS CABRIALS (SORTIE)'), ('MONTPELLIER', 'AGDE', 'BEZIERS CABRIALS (SORTIE)')]
 
