@@ -6,6 +6,7 @@ from openrouteservice import convert
 import openrouteservice
 import json
 from ipywidgets import interact
+import time
 
 url = 'https://raw.githubusercontent.com/Eldohrim/Project_2021_HAX712X/main/asltam/data/data_geo2.csv'
 path = os.path.join(os.getcwd(), 'data_geo2.csv')
@@ -28,6 +29,7 @@ price = pd.read_csv('./price_dataf2.csv')
 villes = sorted(geo.gare.unique())
 
 
+start = time.time()
 def trajet(DEPART, ARRIVEE):
     i = geo.loc[geo['gare'] == DEPART].index[0]
     j = geo.loc[geo['gare'] == ARRIVEE].index[0]
@@ -127,5 +129,8 @@ def trajet(DEPART, ARRIVEE):
     
     else :
         print("Veuilliez entrer deux villes différentes")  
+end = time.time()
+print("Temps passé pour exécuter trajet: {0:.5f} s.".format(end - start))
 
+        
 interact(trajet, DEPART = villes, ARRIVEE = villes)
