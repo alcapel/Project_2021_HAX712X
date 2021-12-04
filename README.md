@@ -10,19 +10,9 @@ $ conda create --name atm_env
 ```
 dans un terminal python (sous Windows, installer Anaconda3 si ce n'est pas déjà fait et recherchez Anaconda Prompt sur la barre de recherche).
 
-Ensuite, après avoir basculer dans le nouvel environnement python avec la commande ``conda activate atm_env``, compilez les commandes suivantes : 
+Ensuite, après avoir basculer dans le nouvel environnement python, téléchargez les modules présents dans le fichier ``requirements.txt`` via une commande ``pip``. Par exemple, pour le premier module compilez :
 ```bash
-$ pip install numpy
-$ pip install matplotlib
-$ pip install pandas
-$ pip install seaborn
-$ pip install folium
-$ pip install networkx
-$ pip install download
-$ pip install ipywidgets
-$ pip install openrouteservice
-$ pip install requests
-à finaliser
+$ conda install - n atm_env download=0.3.5
 ```
 Ces packages sont importants pour le bon fonctionnement du programme. Après toutes ces manipulations vous pourrez enfin installer notre module avec la commande ``pip`` comme fait précédemment, et ainsi le lancer et l'utiliser comme bon vous semble. 
 
