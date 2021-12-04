@@ -5,7 +5,7 @@ setup(
   name='asltam',
   version=version,
   description="Outils d'études de politique des prix des compagnies d'autoroutes",
-  url=,
+  url='https://github.com/Eldohrim/Project_2021_HAX712X.git',
   author='CARVAILLO Thomas, BOUARROUDJI Abdelmalek et CAPEL Alexandre',
   author_email='alexcaapel@gmail.com',
   license='MIT',
