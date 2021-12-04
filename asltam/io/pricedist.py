@@ -48,27 +48,18 @@ def get_index(data, name):
     name : str ou list, nom(s) d'une gare de péage de data
     """
     if type(name) == str:
-        try:
-            data[name] + 0 == 1
-            i = 0
-            while i < len(data) and name != data.columns[i]:
-                i += 1
-            return i
-        except Exception as a:
-            print(f"Attention ! {a} n'appartient pas à la base de donnée.")
+        i = 0
+        while i < len(data) and name != data.index[i]:
+            i += 1
+        return i
     elif type(name) == list:
         ind = []
-        try:
-            data[name] + 0 == 1
-            for j in range(len(name)):
-                i = 0
-                while i < len(data) and name[j] != data.columns[i]:
-                    i += 1
-                ind.append(i)
-            return ind
-        except Exception as a:
-            print(f"Attention ! {a} n'appartient pas à la base de donnée.")
-
+        for j in range(len(name)):
+            i = 0
+            while i < len(data) and name[j] != data.index[i]:
+                i += 1
+            ind.append(i)
+        return ind
 end = time.time()
 print("Temps passé pour exécuter get_index: {0:.5f} s.".format(end - start))
 
