@@ -1,7 +1,7 @@
 # Projet ASLTAM
 
 ## Introduction
-Le nom ``asltam`` provient de l'acronyme ASL (une mauvaise lecture de ASF, pour Autoroute du Sud de la France) et des premières lettres des créateurs du package : Thomas CARVAILLO, Alexandre CAPEL et Abdelmalk BOUARROUDJI (appelé aussi Malek). Ce module python a été conçu pour répondre à une problématique sur l'étude de la politique des prix de la compagnie Vinci, en particulier dans la région Occitanie.
+Le nom ``asltam`` provient de l'acronyme ASL (une mauvaise lecture de ASF, pour Autoroute du Sud de la France) et des premières lettres des créateurs du package : Thomas CARVAILLO, Alexandre CAPEL et Abdelmalek BOUARROUDJ (appelé aussi Malek). Ce module python a été conçu pour répondre à une problématique sur l'étude de la politique des prix de la compagnie Vinci, en particulier dans la région Occitanie.
 
 ## Procédure d'installation
 Pour utiliser pleinement ``asltam``, il faut faire plusieurs installations intermédiaires. Vous pourriez par exemple commencer par créer un environnement anaconda qui contiendra tous les modules nécessaire au bon fonctionnement du package, avec la commande :
