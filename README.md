@@ -14,8 +14,13 @@ Ensuite, après avoir basculer dans le nouvel environnement python, télécharge
 ```bash
 $ conda install - n atm_env download=0.3.5
 ```
-Ces packages sont importants pour le bon fonctionnement du programme. Après toutes ces manipulations vous pourrez enfin installer notre module avec la commande ``pip`` comme fait précédemment, et ainsi le lancer et l'utiliser comme bon vous semble. 
+Ces packages sont importants pour le bon fonctionnement du programme. Après toutes ces manipulations vous pourrez enfin installer notre module avec la commande :
 
+```bash
+$ pip install -i https://test.pypi.org/simple/ asltam==1.0.0
+```
+et ainsi le lancer et l'utiliser comme bon vous semble. 
+Idée d'importation :
 ```python
 import asltam as atm
 ```
