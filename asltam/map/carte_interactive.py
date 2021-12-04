@@ -12,8 +12,8 @@ def trajet(DEPART, ARRIVEE, data_geo, data_price, data_dist):
     i = get_index(data_geo, DEPART)
     j = get_index(data_geo, ARRIVEE)
 
-    x = list(geo.iloc[i])[::-1]
-    y = list(geo.iloc[j])[::-1]
+    x = list(data_geo.iloc[i])[::-1]
+    y = list(data_geo.iloc[j])[::-1]
     # Claculer la distance entre le point A et le point B pour pouvoir
     # prendre par la suite la distance la plus courte
     
