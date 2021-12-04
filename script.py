@@ -7,7 +7,7 @@ geo = atm.load_geo().save_as_geo(index=' Nom gare ')
 geo = geo[['Latt', 'Long']]
 
 #%% Construction de la carte intéractive
-interact(trajet, DEPART=list(geo.index), ARRIVEE=list(geo.index), 
+interact(atm.trajet, DEPART=list(geo.index), ARRIVEE=list(geo.index), 
          data_geo=fixed(geo), data_price=fixed(prix), data_dist=fixed(dist))
 
 #%% Affichage des distributions avec interact
