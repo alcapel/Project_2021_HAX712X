@@ -9,6 +9,6 @@ setup(
   author='CARVAILLO Thomas, BOUARROUDJI Abdelmalek et CAPEL Alexandre',
   author_email='alexcaapel@gmail.com',
   license='MIT',
-  packages=['asltam','asltam.io', 'asltam.map', 'asltam.plot_distribution','asltam.graph'],
+  packages=['asltam','asltam.io', 'asltam.map', 'asltam.price_distribution','asltam.graph'],
   zip_safe=False
 )
