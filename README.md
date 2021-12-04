@@ -32,7 +32,7 @@ import asltam as atm
 ## Structure des données
 
 La plupart des fonctions et algorithmes de ``asltam`` utilisent des variables de type DataFrame ``pandas`` qui ont une structure bien particulière pour bien fonctionner.
-On appellera alors matrice des distances/prix, un tableau de donnée symétrique à coefficients positifs, de diagonale nulle. Il sera donc nécessaire avant d'utiliser les fonctions du package, de veiller à ce que les données utilisées soient rangées de cette manière. Il sera également possible d'utiliser des données géographique, en particulier dans le module ``map``, pour l'affichage de cartes par exemple. Une classe pour chacun de ces types de données ont été conçu pour les charger et les manipuler.
+On appellera alors matrice des distances/prix, un tableau de donnée symétrique à coefficients positifs, de diagonale nulle. Il sera donc nécessaire avant d'utiliser les fonctions du package, de veiller à ce que les données utilisées soient rangées de cette manière. Il faudra aussi veiller à ce que les données soient compatibles dans le sens ou la position des distances et des prix soit rangée dans le même ordre. Il sera également possible d'utiliser des données géographique, en particulier dans le module ``map``, pour l'affichage de cartes par exemple. Une classe pour chacun de ces types de données ont été conçu pour les charger et les manipuler.
 
 ## Présentation des modules 
 
@@ -44,16 +44,13 @@ import asltam as atm
 geo = 
 dist = atm.load_dist().save_as_dist(index=' Nom gare ')
 price = atm.load_price().save_as_price(index=' ')
-start = 'MONTPELLIER'
-target = 'SETE'
+start = 'NARBONNE EST'
+target = 'BEZIERS OUEST'
 atm.trajet(geo, dist, price, start, target)
 
 ```
 permettant d'afficher la carte suivante : 
-
-
-
-
+ 
 Une démonstration de cette fonction est faite dans le fichier ``script.py`` si vous voulez le lancez vous même, ou dans la documentation :
 
 ### ``astlam.plot_distribution``
@@ -81,10 +78,18 @@ Une démonstration plus complète (avec des widgets !) de cette fonction est fai
 Ce dernier module s'appuie sur deux gros algorithmes issus de la théorie des graphes (i.e. Dijkstra et Kruskal) dans le but de produire un algorithme minimisant le coût d'un trajet en s'autorisant k sortie d'autoroute durant le trajet. Le problème étant combinatoire (voire même NP difficile), il est conseillé de l'utiliser dans des conditions viables : soit avec un trajet assez court, soit avec une contrainte k assez petite ou très grande.
 
 ## Construction des données
+### Récupération des données
+Les données que nous utilisons pour faire les démonstrations proviennent de données libres disponible sur internet. Pour les points géographiques (dont nous avons déduit les distances), nous avons utilisé des données libres (sous format ``.csv``) disponible sur https://static.data.gouv.fr/resources/gares-de-peage-du-reseau-routier-national-concede/20210224-175626/gares-peage-2019.csv. Les prix des portions d'autoroutes ont été récupéré dans le pdf suivant https://public-content.vinci-autoroutes.com/PDF/Tarifs-peage-asf-vf/ASF-C1-TARIFS-WEB-2021-maille-vf.pdf, nos données se limiteront à la page 3).
 
+### Nettoyage des données
+Après avoir tout transformé en fichier ``.csv``, il a fallu trier les données et ne récupérer seulement celles qui nous intéressaient. En particulier, nous souhaitions nous concentrer uniquement sur des portions payantes des autoroutes disponibles à la page 3 du lien précédemment donné (à l'exception de la portion menant Toulouse à Albi). Pour cela, nous avons utilisé le module ``pandas``pour nettoyer toutes ces données (les codes sont fournis dans le dossier ``./initsort_data`` du git): 
+- le fichier ``clean_data_price.py`` sert à retirer les gares dont les portions de route sont gratuites ou indisponibles, à partir du fichier ``price-data.csv``, disponible sur le git dans ``./asltam/data``, construit à partir du pdf.
+- le fichier ``creation_data_geo.py`` commence par sélectionner les autoroutes de notre problèmes, et transformer les coordonnées GPS dans le bon format
+- on revient ensuite sur nos données géographiques nous réindexons les gares pour que leur position soit compatible avec le tableau des prix (``Creation data_geo2.py``).
+- enfin, on procède à des requêtes à l'aide des modules ``requests`` et ``json`` pour pouvoir récupérer les données des distances que nous rangeons sous forme de tableau de distance compatible avec les données précédentes (``distance.py``).
 
-
-
+### Accès aux données
+Les fichiers peuvent être consultés sur le git dans le dossier ``./asltam/data``, et les données finales téléchargées à l'aide des classes ``load_dist``, ``load_price``, ou ``load_geo``.
 
 ## README du projet mid-term
 ### Programme des tâches à effectuer
