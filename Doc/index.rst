@@ -8,21 +8,40 @@ Documentation du programme ASLTAM
 
 Bienvenu dans la documentation du programme ASLTAM !  
 
-ASLTAM est package Python créé dans le cadre du module HAX712X.
-Le but de ce projet a été d'analyser et de comprendre la distribution des prix d'une partie des autoroutes du sud de la France, tout en y incluant un aspect visuel.  
-Nous avons donc inclus une carte intéractive et divers graphiques.
+Introduction
+=============
+Le nom ``asltam`` provient de l'acronyme ASL (une mauvaise lecture de ASF, pour Autoroute du Sud de la France) et des premières lettres des créateurs du package : Thomas CARVAILLO, Alexandre CAPEL et Abdelmalk BOUARROUDJI (appelé aussi Malek). Ce module python a été conçu pour répondre à une problématique sur l'étude de la politique des prix de la compagnie Vinci, en particulier dans la région Occitanie.
 
-Les objectifs ont été des plus divers. 
+Procédure d'installation
+=========================
+Pour utiliser pleinement ``asltam``, il faut faire plusieurs installations intermédiaires. Vous pourriez par exemple commencer par créer un environnement anaconda qui contiendra tous les modules nécessaire au bon fonctionnement du package, avec la commande :
 
-En premier lieu, il a fallu créer un jeu de données pour les coordonnées, les distances et les prix.
+.. code:: bash
 
-Nous nous sommes ensuite attelés à la création et à l'affichage d'une carte intéractive, sous forme de widget, permettant d'afficher le point de départ, le point d'arrivée et la distance entre deux péages.
+         $ conda create --name atm_env
 
-Il a ensuite été réalisé la partie graphique, permettant d'afficher la distribution des prix au kilomètre entre deux gares pour un trajet donné.
+dans un terminal python (sous Windows, installer Anaconda3 si ce n'est pas déjà fait et recherchez Anaconda Prompt sur la barre de recherche).
 
-Pour finir, il a été implémenté la partie "graphe", permettant de déterminer le chemin le moins couteux en s'autorisant un nombre prédéfini de sorties.
+Ensuite, après avoir basculer dans le nouvel environnement python, téléchargez les modules présents dans le fichier ``requirements.txt`` via une commande ``pip``. Par exemple, pour le premier module compilez :
 
-Pour ce faire, nous avons utilisé divers packages, et notamment folium, pyroutelib3, osmnnx, pandas, networkx...
+.. code:: bash
+
+         $ conda install - n atm_env download=0.3.5
+
+Ces packages sont importants pour le bon fonctionnement du programme. Après toutes ces manipulations vous pourrez enfin installer notre module avec la commande ``pip`` comme fait précédemment, et ainsi le lancer et l'utiliser comme bon vous semble. 
+
+.. code:: python
+
+         import asltam as atm
+
+Structure des données
+=======================
+
+La plupart des fonctions et algorithmes de ``asltam`` utilisent des variables de type DataFrame ``pandas`` qui ont une structure bien particulière pour bien fonctionner.
+On appellera alors matrice des distances/prix, un tableau de donnée symétrique à coefficients positifs, de diagonale nulle. Il sera donc nécessaire avant d'utiliser les fonctions du package, de veiller à ce que les données utilisées soient rangées de cette manière. Il faudra aussi veiller à ce que les données soient compatibles dans le sens ou la position des distances et des prix soit rangée dans le même ordre. Il sera également possible d'utiliser des données géographique, en particulier dans le module ``map``, pour l'affichage de cartes par exemple. Une classe pour chacun de ces types de données ont été conçu pour les charger et les manipuler.
+
+
+
 
 .. toctree::
    :maxdepth: 2
@@ -30,7 +49,9 @@ Pour ce faire, nous avons utilisé divers packages, et notamment folium, pyroute
 
 .. toctree::
    usage/asltam.rst
-   usage/initsort_data.rst
+
+.. toctree::
+   usage/Construction_des_données.rst
 
 Indices and tables
 ==================
