@@ -94,7 +94,7 @@ def trajet(DEPART, ARRIVEE, data_geo, data_price, data_dist):
                 decoded = convert.decode_polyline(geometry)
 
                 distance_txt = "<h4> Distance du trajet :&nbsp" + "<strong>" + str(data_dist.iloc[i][j]) + " Km </strong>" + "</h4></b>"
-                price_txt = "<h4> Coût du trajet :&nbsp" + "<strong>"+str(data_price[i][j]) + " € </strong>" + "</h4></b>"
+                price_txt = "<h4> Coût du trajet :&nbsp" + "<strong>"+str(data_price.iloc[i][j]) + " € </strong>" + "</h4></b>"
                 moy_txt = "<h4> Coût au kilométre :&nbsp" + "<strong>" + str(round(data_price.iloc[i][j]/data_dist.iloc[i][j], 4)) + " €/Km </strong>" + "</h4></b>"
 
                 folium.GeoJson(decoded).add_child(folium.Popup(distance_txt+price_txt+moy_txt, max_width=300)).add_to(m)
