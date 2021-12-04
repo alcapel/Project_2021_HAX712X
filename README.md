@@ -21,6 +21,7 @@ $ pip install networkx
 $ pip install download
 $ pip install ipywidgets
 $ pip install openrouteservice
+$ pip install requests
 à finaliser
 ```
 Ces packages sont importants pour le bon fonctionnement du programme. Après toutes ces manipulations vous pourrez enfin installer notre module avec la commande ``pip`` comme fait précédemment, et ainsi le lancer et l'utiliser comme bon vous semble. 
