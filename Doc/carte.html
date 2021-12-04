@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_0d8f9eeb75454b50a767cd16df49e69b {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+</head>
+<body>    
+    
+            <div class="folium-map" id="map_0d8f9eeb75454b50a767cd16df49e69b" ></div>
+        
+</body>
+<script>    
+    
+            var map_0d8f9eeb75454b50a767cd16df49e69b = L.map(
+                "map_0d8f9eeb75454b50a767cd16df49e69b",
+                {
+                    center: [43.1837661, 3.0042121],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 10,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+            L.control.scale().addTo(map_0d8f9eeb75454b50a767cd16df49e69b);
+
+            
+
+        
+    
+            var tile_layer_0d1b1b1147e14100b4380f7392c7fb12 = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_0d8f9eeb75454b50a767cd16df49e69b);
+        
+    
+
+        function geo_json_ff194d4586c444c9bbe4f7c5acef5adb_onEachFeature(feature, layer) {
+            layer.on({
+            });
+        };
+        var geo_json_ff194d4586c444c9bbe4f7c5acef5adb = L.geoJson(null, {
+                onEachFeature: geo_json_ff194d4586c444c9bbe4f7c5acef5adb_onEachFeature,
+            
+        });
+
+        function geo_json_ff194d4586c444c9bbe4f7c5acef5adb_add (data) {
+            geo_json_ff194d4586c444c9bbe4f7c5acef5adb
+                .addData(data)
+                .addTo(map_0d8f9eeb75454b50a767cd16df49e69b);
+        }
+            geo_json_ff194d4586c444c9bbe4f7c5acef5adb_add({"coordinates": [[3.22295, 43.30366], [3.22152, 43.30348], [3.22099, 43.30341], [3.22039, 43.30332], [3.21843, 43.303], [3.21819, 43.30296], [3.21729, 43.30278], [3.21668, 43.30264], [3.21545, 43.30238], [3.21442, 43.30212], [3.2126, 43.30163], [3.21083, 43.30109], [3.2089, 43.30043], [3.20732, 43.29982], [3.20565, 43.29912], [3.20428, 43.29848], [3.20333, 43.29801], [3.20164, 43.29712], [3.20067, 43.29657], [3.19954, 43.29588], [3.19845, 43.29516], [3.19763, 43.29461], [3.19634, 43.29365], [3.1953, 43.29282], [3.19375, 43.2915], [3.19252, 43.29031], [3.1914, 43.28914], [3.19056, 43.28819], [3.18966, 43.2871], [3.18909, 43.28633], [3.18836, 43.2853], [3.18728, 43.28359], [3.18659, 43.28238], [3.18595, 43.28123], [3.18467, 43.27877], [3.18338, 43.27635], [3.18273, 43.27515], [3.18203, 43.27394], [3.18133, 43.2728], [3.18061, 43.2717], [3.17965, 43.27037], [3.17863, 43.26907], [3.17742, 43.2677], [3.177, 43.26724], [3.17651, 43.26672], [3.17618, 43.2664], [3.17503, 43.26532], [3.17353, 43.264], [3.17309, 43.26365], [3.17266, 43.2633], [3.17241, 43.26311], [3.17159, 43.26246], [3.17011, 43.26137], [3.16872, 43.26038], [3.16589, 43.25841], [3.16394, 43.25704], [3.16281, 43.2562], [3.16169, 43.2553], [3.16072, 43.25448], [3.15964, 43.25355], [3.15814, 43.25218], [3.15722, 43.25133], [3.15604, 43.25024], [3.15383, 43.24816], [3.15165, 43.24611], [3.15096, 43.24547], [3.14855, 43.24323], [3.14636, 43.24119], [3.14533, 43.24028], [3.14391, 43.23912], [3.14256, 43.23814], [3.14184, 43.23766], [3.14112, 43.23719], [3.14001, 43.23653], [3.13877, 43.23584], [3.13735, 43.23512], [3.13573, 43.23439], [3.13486, 43.23403], [3.133, 43.23334], [3.13194, 43.23298], [3.13075, 43.23262], [3.12946, 43.23227], [3.1283, 43.23198], [3.12701, 43.23171], [3.12547, 43.23142], [3.12457, 43.23128], [3.12421, 43.23122], [3.12354, 43.23113], [3.12174, 43.2309], [3.11251, 43.22988], [3.11071, 43.22962], [3.10993, 43.22949], [3.10821, 43.22914], [3.10708, 43.22885], [3.1062, 43.22859], [3.1051, 43.22824], [3.10371, 43.2277], [3.10284, 43.22734], [3.10198, 43.22693], [3.10086, 43.22634], [3.10005, 43.22587], [3.09925, 43.22537], [3.09842, 43.2248], [3.09768, 43.22423], [3.09689, 43.22358], [3.09614, 43.22291], [3.09539, 43.22216], [3.09419, 43.22073], [3.09355, 43.21983], [3.09323, 43.21932], [3.09252, 43.21808], [3.092, 43.21701], [3.09149, 43.2159], [3.09123, 43.21535], [3.09099, 43.21479], [3.09027, 43.21323], [3.08985, 43.21243], [3.08943, 43.21168], [3.08909, 43.21115], [3.08897, 43.21095], [3.08846, 43.21023], [3.08799, 43.20962], [3.08746, 43.209], [3.08687, 43.20836], [3.08595, 43.20746], [3.08548, 43.20704], [3.0844, 43.20602], [3.08335, 43.20499], [3.08247, 43.2041], [3.0784, 43.19963], [3.07757, 43.19878], [3.07673, 43.19795], [3.07529, 43.19662], [3.07376, 43.19531], [3.07247, 43.19427], [3.07115, 43.19329], [3.06938, 43.19205], [3.06825, 43.19131], [3.06622, 43.19007], [3.06502, 43.18938], [3.06376, 43.1887], [3.06263, 43.18812], [3.06121, 43.18743], [3.0602, 43.18697], [3.0598, 43.18678], [3.05944, 43.18662], [3.05793, 43.18598], [3.05561, 43.18507], [3.05492, 43.18482], [3.05447, 43.18466], [3.05316, 43.18421], [3.05186, 43.18378], [3.0507, 43.1834], [3.04931, 43.18293], [3.04734, 43.18221], [3.04591, 43.18165], [3.04553, 43.18149], [3.04411, 43.18089], [3.04315, 43.18046], [3.04242, 43.18012], [3.04153, 43.1797], [3.04116, 43.17953], [3.04014, 43.17903], [3.03958, 43.17877], [3.03871, 43.17837], [3.03792, 43.17802], [3.03656, 43.17743], [3.03594, 43.17716], [3.03548, 43.17697], [3.03448, 43.17658]], "type": "LineString"});
+
+        
+    
+        var popup_5e1cdba58e6d4a979e3ea6c60f6b50e5 = L.popup({"maxWidth": 300});
+
+        
+            var html_c2bc77f2f74d4a07901aaa2741e1da32 = $(`<div id="html_c2bc77f2f74d4a07901aaa2741e1da32" style="width: 100.0%; height: 100.0%;"><h4> Distance du trajet :&nbsp<strong>22.0 Km </strong></h4></b><h4> Coût du trajet :&nbsp<strong>2.0 € </strong></h4></b><h4> Coût au kilométre :&nbsp<strong>0.0909 €/Km </strong></h4></b></div>`)[0];
+            popup_5e1cdba58e6d4a979e3ea6c60f6b50e5.setContent(html_c2bc77f2f74d4a07901aaa2741e1da32);
+        
+
+        geo_json_ff194d4586c444c9bbe4f7c5acef5adb.bindPopup(popup_5e1cdba58e6d4a979e3ea6c60f6b50e5)
+        ;
+
+        
+    
+    
+            var marker_61abcd6785ef4f7f873ac3353a5b61fe = L.marker(
+                [43.303664399696856, 3.2229492234270127],
+                {}
+            ).addTo(map_0d8f9eeb75454b50a767cd16df49e69b);
+        
+    
+            var icon_deccecd0f564404ba5c3a87836216f99 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "car", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_61abcd6785ef4f7f873ac3353a5b61fe.setIcon(icon_deccecd0f564404ba5c3a87836216f99);
+        
+    
+        var popup_cf4e793f921c4be7b4355c270cd89405 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_bc6cce5c7f6343fd80d3942ff5aac584 = $(`<div id="html_bc6cce5c7f6343fd80d3942ff5aac584" style="width: 100.0%; height: 100.0%;">NARBONNE EST</div>`)[0];
+            popup_cf4e793f921c4be7b4355c270cd89405.setContent(html_bc6cce5c7f6343fd80d3942ff5aac584);
+        
+
+        marker_61abcd6785ef4f7f873ac3353a5b61fe.bindPopup(popup_cf4e793f921c4be7b4355c270cd89405)
+        ;
+
+        
+    
+    
+            var marker_869ced97b2db421b826851ce2eb8fbe0 = L.marker(
+                [43.17658759196942, 3.034479741724844],
+                {}
+            ).addTo(map_0d8f9eeb75454b50a767cd16df49e69b);
+        
+    
+            var icon_9d0023a6b26843d2853f82677d85e777 = L.AwesomeMarkers.icon(
+                {"extraClasses": "fa-rotate-0", "icon": "car", "iconColor": "white", "markerColor": "red", "prefix": "fa"}
+            );
+            marker_869ced97b2db421b826851ce2eb8fbe0.setIcon(icon_9d0023a6b26843d2853f82677d85e777);
+        
+    
+        var popup_a06bf3dfc9c9405ebf99dd3e7caa95a5 = L.popup({"maxWidth": "100%"});
+
+        
+            var html_732e6202619e4c459ed6ab022a3a436b = $(`<div id="html_732e6202619e4c459ed6ab022a3a436b" style="width: 100.0%; height: 100.0%;">BEZIERS OUEST</div>`)[0];
+            popup_a06bf3dfc9c9405ebf99dd3e7caa95a5.setContent(html_732e6202619e4c459ed6ab022a3a436b);
+        
+
+        marker_869ced97b2db421b826851ce2eb8fbe0.bindPopup(popup_a06bf3dfc9c9405ebf99dd3e7caa95a5)
+        ;
+
+        
+    
+</script>
