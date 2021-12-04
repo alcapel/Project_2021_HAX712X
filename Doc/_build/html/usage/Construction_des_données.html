@@ -1,0 +1,251 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Récupération des données &mdash; ASLTAM  documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="ASLTAM  documentation" href="../index.html"/>
+        <link rel="prev" title="ASLTAM" href="asltam.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> ASLTAM
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="asltam.html">ASLTAM</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Récupération des données</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#nettoyage-des-donnees">Nettoyage des données</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#acces-aux-donnees">Accès aux données</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ASLTAM</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Récupération des données</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/usage/Construction_des_données.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="recuperation-des-donnees">
+<h1>Récupération des données<a class="headerlink" href="#recuperation-des-donnees" title="Permalink to this headline">¶</a></h1>
+<p>Les données que nous utilisons pour faire les démonstrations proviennent de données libres disponible sur internet. Pour les points géographiques (dont nous avons déduit les distances), nous avons utilisé des données libres (sous format <code class="docutils literal notranslate"><span class="pre">.csv</span></code>) disponible sur</p>
+<p><a class="reference external" href="https://static.data.gouv.fr/resources/gares-de-peage-du-reseau-routier-national-concede/20210224-175626/gares-peage-2019.csv">https://static.data.gouv.fr/resources/gares-de-peage-du-reseau-routier-national-concede/20210224-175626/gares-peage-2019.csv</a>.</p>
+<p>Les prix des portions d’autoroutes ont été récupéré dans le pdf suivant</p>
+<p><a class="reference external" href="https://public-content.vinci-autoroutes.com/PDF/Tarifs-peage-asf-vf/ASF-C1-TARIFS-WEB-2021-maille-vf.pdf">https://public-content.vinci-autoroutes.com/PDF/Tarifs-peage-asf-vf/ASF-C1-TARIFS-WEB-2021-maille-vf.pdf</a></p>
+<p>Nos données se limiteront à la page 3.</p>
+<div class="section" id="nettoyage-des-donnees">
+<h2>Nettoyage des données<a class="headerlink" href="#nettoyage-des-donnees" title="Permalink to this headline">¶</a></h2>
+<p>Après avoir tout transformé en fichier <code class="docutils literal notranslate"><span class="pre">.csv</span></code>, il a fallu trier les données et ne récupérer seulement celles qui nous intéressaient. En particulier, nous souhaitions nous concentrer uniquement sur des portions payantes des autoroutes disponibles à la page 3 du lien précédemment donné (à l’exception de la portion menant Toulouse à Albi).</p>
+<p>Pour cela, nous avons utilisé le module <code class="docutils literal notranslate"><span class="pre">pandas</span></code> pour nettoyer toutes ces données (les codes sont fournis dans le dossier <code class="docutils literal notranslate"><span class="pre">./initsort_data</span></code> du git):</p>
+<ul class="simple">
+<li><p>le fichier <code class="docutils literal notranslate"><span class="pre">clean_data_price.py</span></code> sert à retirer les gares dont les portions de route sont gratuites ou indisponibles, à partir du fichier <code class="docutils literal notranslate"><span class="pre">price-data.csv</span></code>, disponible sur le git dans <code class="docutils literal notranslate"><span class="pre">./asltam/data</span></code>, construit à partir du pdf.</p></li>
+<li><p>le fichier <code class="docutils literal notranslate"><span class="pre">creation_data_geo.py</span></code> commence par sélectionner les autoroutes de notre problèmes, et transformer les coordonnées GPS dans le bon format</p></li>
+<li><p>on revient ensuite sur nos données géographiques nous réindexons les gares pour que leur position soit compatible avec le tableau des prix (<code class="docutils literal notranslate"><span class="pre">Creation</span> <span class="pre">data_geo2.py</span></code>).</p></li>
+<li><p>enfin, on procède à des requêtes à l’aide des modules <code class="docutils literal notranslate"><span class="pre">requests</span></code> et <code class="docutils literal notranslate"><span class="pre">json</span></code> pour pouvoir récupérer les données des distances que nous rangeons sous forme de tableau de distance compatible avec les données précédentes (<code class="docutils literal notranslate"><span class="pre">distance.py</span></code>).</p></li>
+</ul>
+</div>
+<div class="section" id="acces-aux-donnees">
+<h2>Accès aux données<a class="headerlink" href="#acces-aux-donnees" title="Permalink to this headline">¶</a></h2>
+<p>Les fichiers peuvent être consultés sur le git dans le dossier <code class="docutils literal notranslate"><span class="pre">./asltam/data</span></code>, et les données finales téléchargées à l’aide des classes <code class="docutils literal notranslate"><span class="pre">load_dist</span></code>, <code class="docutils literal notranslate"><span class="pre">load_price</span></code>, ou <code class="docutils literal notranslate"><span class="pre">load_geo</span></code>.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="asltam.html" class="btn btn-neutral" title="ASLTAM" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2021, Bouarroudj Abdelmalek, Capel Alexandre, Carvaillo Thomas.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> and ❤️  using a custom <a href="https://github.com/LinxiFan/Stanford-theme">theme</a> based on <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/documentation_options.js"></script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

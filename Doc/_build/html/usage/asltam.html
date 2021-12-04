@@ -38,7 +38,7 @@
               href="../genindex.html"/>
         <link rel="search" title="Search" href="../search.html"/>
     <link rel="top" title="ASLTAM  documentation" href="../index.html"/>
-        <link rel="next" title="initsort_data" href="initsort_data.html"/>
+        <link rel="next" title="Récupération des données" href="Construction_des_donn%C3%A9es.html"/>
         <link rel="prev" title="Documentation du programme ASLTAM" href="../index.html"/> 
 
   
@@ -86,12 +86,16 @@
             
             
                 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">ASLTAM</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#module-asltam.map.carte_interactive">Module map</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#module-asltam.price_distribution.distribution">Module price_distribution</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#module-asltam.io.pricedist">Module pricedist</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#module-asltam.graph.graph">Module graph</a></li>
-<li class="toctree-l1"><a class="reference internal" href="initsort_data.html">initsort_data</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">ASLTAM</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-map">Module map</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-price-distribution">Module price_distribution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-asltam.io.pricedist">Module pricedist</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-graph">Module graph</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Construction_des_donn%C3%A9es.html">Récupération des données</a></li>
 </ul>
 
             
@@ -158,19 +162,34 @@
   <div class="section" id="asltam">
 <h1>ASLTAM<a class="headerlink" href="#asltam" title="Permalink to this headline">¶</a></h1>
 <p>Il s’agit du module principal de notre programme, il contient toutes les fonctions nécessaires à l’aboutissement du projet.</p>
+<div class="section" id="module-map">
+<h2>Module map<a class="headerlink" href="#module-map" title="Permalink to this headline">¶</a></h2>
+<p>Le but principal de ce module est l’affichage d’une carte folium, affichant le trajet entre deux gares, ainsi que des descriptions de la route les séparant comme le prix, ou la distance totale. La fonction principale permettant d’afficher la carte peut s’appeler directement après importation de <code class="docutils literal notranslate"><span class="pre">asltam</span></code> comme fait ci-dessus, ainsi avec le code suivant :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">asltam</span> <span class="k">as</span> <span class="nn">atm</span>
+<span class="n">geo</span> <span class="o">=</span>
+<span class="n">dist</span> <span class="o">=</span> <span class="n">atm</span><span class="o">.</span><span class="n">load_dist</span><span class="p">()</span><span class="o">.</span><span class="n">save_as_dist</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s1">&#39; Nom gare &#39;</span><span class="p">)</span>
+<span class="n">price</span> <span class="o">=</span> <span class="n">atm</span><span class="o">.</span><span class="n">load_price</span><span class="p">()</span><span class="o">.</span><span class="n">save_as_price</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+<span class="n">start</span> <span class="o">=</span> <span class="s1">&#39;NARBONNE EST&#39;</span>
+<span class="n">target</span> <span class="o">=</span> <span class="s1">&#39;BEZIERS OUEST&#39;</span>
+<span class="n">atm</span><span class="o">.</span><span class="n">trajet</span><span class="p">(</span><span class="n">geo</span><span class="p">,</span> <span class="n">dist</span><span class="p">,</span> <span class="n">price</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span>
+</pre></div>
 </div>
-<div class="section" id="module-asltam.map.carte_interactive">
-<span id="module-map"></span><h1>Module map<a class="headerlink" href="#module-asltam.map.carte_interactive" title="Permalink to this headline">¶</a></h1>
-<dl class="py function">
-<dt class="sig sig-object py" id="asltam.map.carte_interactive.trajet">
-<span class="sig-prename descclassname"><span class="pre">asltam.map.carte_interactive.</span></span><span class="sig-name descname"><span class="pre">trajet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">DEPART</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ARRIVEE</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asltam.map.carte_interactive.trajet" title="Permalink to this definition">¶</a></dt>
-<dd><p>test</p>
-</dd></dl>
+<p>permettant d’afficher la carte suivante :</p>
+<a class="reference internal image-reference" href="../_images/trajet.png"><img alt="../_images/trajet.png" src="../_images/trajet.png" style="width: 500px;" /></a>
+<span class="target" id="module-asltam.map.carte_interactive"></span></div>
+<div class="section" id="module-price-distribution">
+<h2>Module price_distribution<a class="headerlink" href="#module-price-distribution" title="Permalink to this headline">¶</a></h2>
+<p>Dans ce module, des outils d’analyse sont mis à disposition pour faire de la visualisation des données. Par exemple, nous pouvons utiliser la fonction <code class="docutils literal notranslate"><span class="pre">kde_gare</span></code> de ce module, directement callable après importation du package, pour pouvoir faire une “kernel distribution estimation” sur la distribution des prix au kilomètre. Par exemple, le script suivant :</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">asltam</span> <span class="k">as</span> <span class="nn">atm</span>
+<span class="n">dist</span> <span class="o">=</span> <span class="n">atm</span><span class="o">.</span><span class="n">load_dist</span><span class="p">()</span><span class="o">.</span><span class="n">save_as_dist</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s1">&#39; Nom gare &#39;</span><span class="p">)</span>
+<span class="n">prix</span> <span class="o">=</span> <span class="n">atm</span><span class="o">.</span><span class="n">load_price</span><span class="p">()</span><span class="o">.</span><span class="n">save_as_price</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
 
+<span class="n">atm</span><span class="o">.</span><span class="n">kde_gare</span><span class="p">(</span><span class="nb">all</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">prix</span><span class="p">,</span> <span class="n">dist</span><span class="p">,</span> <span class="n">bw</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
 </div>
-<div class="section" id="module-asltam.price_distribution.distribution">
-<span id="module-price-distribution"></span><h1>Module price_distribution<a class="headerlink" href="#module-asltam.price_distribution.distribution" title="Permalink to this headline">¶</a></h1>
-<dl class="py function">
+<p>permet d’afficher la distribution des prix au kilomètre selon tout le réseau routier que nous avions à disposition :</p>
+<a class="reference internal image-reference" href="../_images/distrib.png"><img alt="../_images/distrib.png" src="../_images/distrib.png" style="width: 300px;" /></a>
+<span class="target" id="module-asltam.price_distribution.distribution"></span><dl class="py function">
 <dt class="sig sig-object py" id="asltam.price_distribution.distribution.kde_gare">
 <span class="sig-prename descclassname"><span class="pre">asltam.price_distribution.distribution.</span></span><span class="sig-name descname"><span class="pre">kde_gare</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">all</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_price</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_dist</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bw</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asltam.price_distribution.distribution.kde_gare" title="Permalink to this definition">¶</a></dt>
 <dd><p>Affiche la distribution des prix au kilomètre entre deux gares de péages sur un trajet donné.
@@ -185,7 +204,7 @@ bw : voir doc bw_adjust de seaborn.</p>
 
 </div>
 <div class="section" id="module-asltam.io.pricedist">
-<span id="module-pricedist"></span><h1>Module pricedist<a class="headerlink" href="#module-asltam.io.pricedist" title="Permalink to this headline">¶</a></h1>
+<span id="module-pricedist"></span><h2>Module pricedist<a class="headerlink" href="#module-asltam.io.pricedist" title="Permalink to this headline">¶</a></h2>
 <dl class="py function">
 <dt class="sig sig-object py" id="asltam.io.pricedist.average_cost">
 <span class="sig-prename descclassname"><span class="pre">asltam.io.pricedist.</span></span><span class="sig-name descname"><span class="pre">average_cost</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_price</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_dist</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asltam.io.pricedist.average_cost" title="Permalink to this definition">¶</a></dt>
@@ -201,8 +220,10 @@ bw : voir doc bw_adjust de seaborn.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="asltam.io.pricedist.get_index">
 <span class="sig-prename descclassname"><span class="pre">asltam.io.pricedist.</span></span><span class="sig-name descname"><span class="pre">get_index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asltam.io.pricedist.get_index" title="Permalink to this definition">¶</a></dt>
-<dd><p>Retourne la valeur de la position de la gare de péage dans le DataFrame</p>
-<p>data : pd.DataFrame, dont les colonnes porte le nom des péages
+<dd><p>Retourne la valeur de la position de la gare de péage dans le DataFrame
+Attributs :
+———–
+data : pd.DataFrame, dont les colonnes porte le nom des péages
 name : str ou list, nom(s) d’une gare de péage de data</p>
 </dd></dl>
 
@@ -222,9 +243,10 @@ target : str, la gare d’arrivée (doit être une élément de data_dist.column
 </dd></dl>
 
 </div>
-<div class="section" id="module-asltam.graph.graph">
-<span id="module-graph"></span><h1>Module graph<a class="headerlink" href="#module-asltam.graph.graph" title="Permalink to this headline">¶</a></h1>
-<dl class="py function">
+<div class="section" id="module-graph">
+<h2>Module graph<a class="headerlink" href="#module-graph" title="Permalink to this headline">¶</a></h2>
+<p>Ce dernier module s’appuie sur deux gros algorithmes issus de la théorie des graphes (i.e. Dijkstra et Kruskal) dans le but de produire un algorithme minimisant le coût d’un trajet en s’autorisant k sortie d’autoroute durant le trajet. Le problème étant combinatoire (voire même NP difficile), il est conseillé de l’utiliser dans des conditions viables : soit avec un trajet assez court, soit avec une contrainte k assez petite ou très grande.</p>
+<span class="target" id="module-asltam.graph.graph"></span><dl class="py function">
 <dt class="sig sig-object py" id="asltam.graph.graph.get_subgraph_under_k">
 <span class="sig-prename descclassname"><span class="pre">asltam.graph.graph.</span></span><span class="sig-name descname"><span class="pre">get_subgraph_under_k</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#asltam.graph.graph.get_subgraph_under_k" title="Permalink to this definition">¶</a></dt>
 <dd><p>Renvoie une liste contenant tous les sous-graphes induits par data, de taille inférieure ou égal à k.
@@ -248,6 +270,7 @@ k : int, nombre maximum d’entrées/sorties.</p>
 </dd></dl>
 
 </div>
+</div>
 
 
            </div>
@@ -256,7 +279,7 @@ k : int, nombre maximum d’entrées/sorties.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="initsort_data.html" class="btn btn-neutral float-right" title="initsort_data" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="Construction_des_donn%C3%A9es.html" class="btn btn-neutral float-right" title="Récupération des données" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="../index.html" class="btn btn-neutral" title="Documentation du programme ASLTAM" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>

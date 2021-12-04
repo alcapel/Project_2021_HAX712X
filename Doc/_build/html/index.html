@@ -86,11 +86,9 @@
             
                 <ul>
 <li class="toctree-l1"><a class="reference internal" href="usage/asltam.html">ASLTAM</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage/asltam.html#module-asltam.map.carte_interactive">Module map</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage/asltam.html#module-asltam.price_distribution.distribution">Module price_distribution</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage/asltam.html#module-asltam.io.pricedist">Module pricedist</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage/asltam.html#module-asltam.graph.graph">Module graph</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage/initsort_data.html">initsort_data</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="usage/Construction_des_donn%C3%A9es.html">Récupération des données</a></li>
 </ul>
 
             
@@ -157,25 +155,51 @@
   <div class="section" id="documentation-du-programme-asltam">
 <h1>Documentation du programme ASLTAM<a class="headerlink" href="#documentation-du-programme-asltam" title="Permalink to this headline">¶</a></h1>
 <p>Bienvenu dans la documentation du programme ASLTAM !</p>
-<p>ASLTAM est package Python créé dans le cadre du module HAX712X.
-Le but de ce projet a été d’analyser et de comprendre la distribution des prix d’une partie des autoroutes du sud de la France, tout en y incluant un aspect visuel.
-Nous avons donc inclus une carte intéractive et divers graphiques.</p>
-<p>Les objectifs ont été des plus divers.</p>
-<p>En premier lieu, il a fallu créer un jeu de données pour les coordonnées, les distances et les prix.</p>
-<p>Nous nous sommes ensuite attelés à la création et à l’affichage d’une carte intéractive, sous forme de widget, permettant d’afficher le point de départ, le point d’arrivée et la distance entre deux péages.</p>
-<p>Il a ensuite été réalisé la partie graphique, permettant d’afficher la distribution des prix au kilomètre entre deux gares pour un trajet donné.</p>
-<p>Pour finir, il a été implémenté la partie “graphe”, permettant de déterminer le chemin le moins couteux en s’autorisant un nombre prédéfini de sorties.</p>
-<p>Pour ce faire, nous avons utilisé divers packages, et notamment folium, pyroutelib3, osmnnx, pandas, networkx…</p>
+</div>
+<div class="section" id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<p>Le nom <code class="docutils literal notranslate"><span class="pre">asltam</span></code> provient de l’acronyme ASL (une mauvaise lecture de ASF, pour Autoroute du Sud de la France) et des premières lettres des créateurs du package : Thomas CARVAILLO, Alexandre CAPEL et Abdelmalk BOUARROUDJI (appelé aussi Malek). Ce module python a été conçu pour répondre à une problématique sur l’étude de la politique des prix de la compagnie Vinci, en particulier dans la région Occitanie.</p>
+</div>
+<div class="section" id="procedure-d-installation">
+<h1>Procédure d’installation<a class="headerlink" href="#procedure-d-installation" title="Permalink to this headline">¶</a></h1>
+<p>Pour utiliser pleinement <code class="docutils literal notranslate"><span class="pre">asltam</span></code>, il faut faire plusieurs installations intermédiaires. Vous pourriez par exemple commencer par créer un environnement anaconda qui contiendra tous les modules nécessaire au bon fonctionnement du package, avec la commande :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ conda create --name atm_env
+</pre></div>
+</div>
+<p>dans un terminal python (sous Windows, installer Anaconda3 si ce n’est pas déjà fait et recherchez Anaconda Prompt sur la barre de recherche).</p>
+<p>Ensuite, après avoir basculer dans le nouvel environnement python, téléchargez les modules présents dans le fichier <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> via une commande <code class="docutils literal notranslate"><span class="pre">pip</span></code>. Par exemple, pour le premier module compilez :</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ conda install - n atm_env <span class="nv">download</span><span class="o">=</span><span class="m">0</span>.3.5
+</pre></div>
+</div>
+<p>Ces packages sont importants pour le bon fonctionnement du programme. Après toutes ces manipulations vous pourrez enfin installer notre module avec la commande <code class="docutils literal notranslate"><span class="pre">pip</span></code> comme fait précédemment, et ainsi le lancer et l’utiliser comme bon vous semble.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">asltam</span> <span class="k">as</span> <span class="nn">atm</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="structure-des-donnees">
+<h1>Structure des données<a class="headerlink" href="#structure-des-donnees" title="Permalink to this headline">¶</a></h1>
+<p>La plupart des fonctions et algorithmes de <code class="docutils literal notranslate"><span class="pre">asltam</span></code> utilisent des variables de type DataFrame <code class="docutils literal notranslate"><span class="pre">pandas</span></code> qui ont une structure bien particulière pour bien fonctionner.
+On appellera alors matrice des distances/prix, un tableau de donnée symétrique à coefficients positifs, de diagonale nulle. Il sera donc nécessaire avant d’utiliser les fonctions du package, de veiller à ce que les données utilisées soient rangées de cette manière. Il faudra aussi veiller à ce que les données soient compatibles dans le sens ou la position des distances et des prix soit rangée dans le même ordre. Il sera également possible d’utiliser des données géographique, en particulier dans le module <code class="docutils literal notranslate"><span class="pre">map</span></code>, pour l’affichage de cartes par exemple. Une classe pour chacun de ces types de données ont été conçu pour les charger et les manipuler.</p>
 <div class="toctree-wrapper compound">
 </div>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="usage/asltam.html">ASLTAM</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage/asltam.html#module-asltam.map.carte_interactive">Module map</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage/asltam.html#module-asltam.price_distribution.distribution">Module price_distribution</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage/asltam.html#module-asltam.io.pricedist">Module pricedist</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage/asltam.html#module-asltam.graph.graph">Module graph</a></li>
-<li class="toctree-l1"><a class="reference internal" href="usage/initsort_data.html">initsort_data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage/asltam.html">ASLTAM</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="usage/asltam.html#module-map">Module map</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage/asltam.html#module-price-distribution">Module price_distribution</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage/asltam.html#module-asltam.io.pricedist">Module pricedist</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage/asltam.html#module-graph">Module graph</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="usage/Construction_des_donn%C3%A9es.html">Récupération des données</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="usage/Construction_des_donn%C3%A9es.html#nettoyage-des-donnees">Nettoyage des données</a></li>
+<li class="toctree-l2"><a class="reference internal" href="usage/Construction_des_donn%C3%A9es.html#acces-aux-donnees">Accès aux données</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>

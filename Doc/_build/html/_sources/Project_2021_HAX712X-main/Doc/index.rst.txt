@@ -1,0 +1,41 @@
+.. ASLTAM documentation master file, created by
+   sphinx-quickstart on Sun Nov 21 12:21:22 2021.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+Documentation du programme ASLTAM
+==================================
+
+Bienvenu dans la documentation du programme ASLTAM !  
+
+ASLTAM est package Python créé dans le cadre du module HAX712X.
+Le but de ce projet a été d'analyser et de comprendre la distribution des prix d'une partie des autoroutes du sud de la France, tout en y incluant un aspect visuel.  
+Nous avons donc inclus une carte intéractive et divers graphiques.
+
+Les objectifs ont été des plus divers. 
+
+En premier lieu, il a fallu créer un jeu de données pour les coordonnées, les distances et les prix.
+
+Nous nous sommes ensuite attelés à la création et à l'affichage d'une carte intéractive, sous forme de widget, permettant d'afficher le point de départ, le point d'arrivée et la distance entre deux péages.
+
+Il a ensuite été réalisé la partie graphique, permettant d'afficher la distribution des prix au kilomètre entre deux gares pour un trajet donné.
+
+Pour finir, il a été implémenté la partie "graphe", permettant de déterminer le chemin le moins couteux en s'autorisant un nombre prédéfini de sorties.
+
+Pour ce faire, nous avons utilisé divers packages, et notamment folium, pyroutelib3, osmnnx, pandas, networkx...
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Contents:
+
+.. toctree::
+   usage/asltam.rst
+   usage/initsort_data.rst
+   usage/Exemples.rst
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`

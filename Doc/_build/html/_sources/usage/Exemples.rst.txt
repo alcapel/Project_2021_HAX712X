@@ -1,0 +1,5 @@
+Exemples
+=========
+
+.. image:: D:/Documents/Project_2021_HAX712X-main/Doc/usage/img/trajet.png
+   :width: 600
