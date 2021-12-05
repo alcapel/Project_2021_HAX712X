@@ -94,4 +94,4 @@ class load_dist :
 		D = np.array(data_dist)
 		c1 = sum(sum(D == D.T))
 		c2 = sum(np.diag(D) == np.zeros(len(n)))
-		return c1 == n**2 and c2 = n
+		return c1 == n**2 and c2 == n
