@@ -72,7 +72,7 @@ class load_dist :
 		Renvoie un pandas DataFrame qui est un sous tableau de
 		distances de data_dist.
 		"""
-        	return data.iloc[index][data.columns[index]]
+		return data.iloc[index][data.columns[index]]
 	
 	def is_dist(data_dist):
 		"""
