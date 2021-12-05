@@ -40,16 +40,20 @@ Le but principal de ce module est l'affichage d'une carte folium, affichant le t
 
 ```python
 import asltam as atm
-geo = 
+geo = atm.load_dist().save_as_geo(index=' ')
+geo = geo[['Latt', 'Long']]
 dist = atm.load_dist().save_as_dist(index=' Nom gare ')
 price = atm.load_price().save_as_price(index=' ')
 start = 'NARBONNE EST'
 target = 'BEZIERS OUEST'
-atm.trajet(geo, dist, price, start, target)
+atm.trajet(start, target, geo, price, dist)
 
 ```
 permettant d'afficher la carte suivante : 
- 
+<p align="center">
+  <img src="https://github.com/Eldohrim/Project_2021_HAX712X/blob/main/Beamer/carte.jpg" width="400" title="Exemple">
+</p>
+
 Une démonstration de cette fonction est faite dans le fichier ``script.py`` si vous voulez le lancez vous même, ou dans la documentation :
 
 ### ``astlam.plot_distribution``
@@ -67,7 +71,7 @@ atm.kde_gare(all=True, prix, dist, bw=1)
 permet d'afficher la distribution des prix au kilomètre selon tout le réseau routier que nous avions à disposition :
 
 <p align="center">
-  <img src="https://github.com/Eldohrim/Project_2021_HAX712X/blob/main/Doc/kde.svg" width="400" title="Exemple">
+  <img src="https://github.com/Eldohrim/Project_2021_HAX712X/blob/main/Beamer/kde.jpg" width="400" title="Exemple">
 </p>
 
 Une démonstration plus complète (avec des widgets !) de cette fonction est faite dans ``script.py``, ou dans la documentation.
