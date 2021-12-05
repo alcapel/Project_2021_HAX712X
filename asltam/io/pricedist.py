@@ -9,7 +9,20 @@ start = time.time()
 
 def average_cost(data_price, data_dist):
     """
-    Retourne la matrice des prix moyens.
+    Calcule de la matrice du prix moyen au kilomètre.
+    
+    Paramètres
+    ----------
+    data_price : DataFrame.
+    	Tableau des prix.
+    
+    data_dist : DataFrame.
+    	Tableau des distances.
+    
+    Return
+    ------
+    M : array.
+    	Retourne la matrice des prix moyens.
     """
     n = len(data_price)
     p = np.array(data_price)
@@ -25,7 +38,21 @@ start = time.time()
 
 def average_cost_list(data_price, data_dist):
     """
-    Retourne la liste des prix moyens.
+    Calcule de la liste du prix moyen au kilomètre.
+    
+    Paramètres
+    ----------
+    data_price : DataFrame.
+    	Tableau des prix.
+    
+    data_dist : DataFrame.
+    	Tableau des distances.
+    
+    Return
+    ------
+    L : list.
+    	Retourne la partie diagonale inférieure (ou supérieure par 
+    	symétrie) de la matrice des prix moyens sous forme de liste.
     """
     n = len(data_price)
     p = np.array(data_price)[np.triu_indices(n, k=1)]
@@ -41,11 +68,19 @@ start = time.time()
 
 def get_index(data, name):
     """
-    Retourne la valeur de la position de la gare de péage dans le DataFrame
-    Attributs :
-    -----------
-    data : pd.DataFrame, dont les colonnes porte le nom des péages
-    name : str ou list, nom(s) d'une gare de péage de data
+    Retourne la valeur de la position de name en tant qu'index.
+    
+    Paramètres
+    ----------
+    data : pd.DataFrame.
+    
+    name : str ou list, 
+    	Nom(s) d'index du tableau de données data.
+    
+    Return
+    ------
+    I : int or list.
+    	Donne la/les positions(s) de name dans l'index de data.
     """
     if type(name) == str:
         i = 0
@@ -71,13 +106,28 @@ def get_way(data_dist, start, target):
     Renvoie une liste contenant les péages entre start et target.
     Notre méthode se base sur le fait que l'algorithme de Kruskal nous
     fournit un graphe du réseau routier avec seulement des arêtes
-    entre deux gares successives dont on déduit facilement la liste
+    entre deux gares successives dont on déduit trivialement la liste
     avec un algorithme du plus court chemin (ici Dijkstra).
-    Attributs
-    ---------
-    data_dist : DataFrame, tableau de données sous forme de matrice de distance entre toutes les gares.
-    start : str, la gare de départ (doit être une élément de data_dist.columns).
-    target : str, la gare d'arrivée (doit être une élément de data_dist.columns).
+    
+    Paramètres
+    ----------
+    data_dist : DataFrame.
+    	Tableau de données sous forme de matrice 
+    	de distance entre toutes les gares.
+    
+    start : str.
+    	La gare de départ (doit être une élément de 
+    	data_dist.columns).
+    
+    target : str.
+    	La gare d'arrivée (doit être une élément de
+    	data_dist.columns).
+    
+    Return
+    ------
+    L : list.
+    	Liste des péages situé sur le trajet autoroutier le plus court
+    	de start à target.
     """
     G = nx.Graph(incoming_graph_data=data_dist)
     a = nx.minimum_spanning_tree(G, weight='weight')
@@ -85,3 +135,4 @@ def get_way(data_dist, start, target):
 
 end = time.time()
 print("Temps passé pour exécuter get_way : {0:.5f} s.".format(end - start))
+
