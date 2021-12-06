@@ -17,9 +17,9 @@ $ conda create --name atm_env
 ```
 dans un terminal python (sous Windows, installer Anaconda3 si ce n'est pas déjà fait et recherchez Anaconda Prompt sur la barre de recherche).
 
-Ensuite, après avoir basculer dans le nouvel environnement python, téléchargez les modules présents dans le fichier ``requirements.txt`` via une commande ``pip``. Par exemple, pour le premier module compilez :
+Ensuite, après avoir basculer dans le nouvel environnement python, téléchargez les modules présents dans le fichier ``requirements.txt`` via la commande :
 ```bash
-$ conda install - n atm_env download=0.3.5
+$ pip install -r /path/to/requirements.txt
 ```
 Ces packages sont importants pour le bon fonctionnement du programme. Après toutes ces manipulations vous pourrez enfin installer notre module avec la commande :
 
