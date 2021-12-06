@@ -19,38 +19,37 @@ def kde_gare(
     """
     Affiche la distribution des prix au kilomètre entre deux 
     gares de péages sur un trajet donné (ou sur tout le 
-    réseau). Attention, les données de distance et de prix 
-    doivent être compatible pour pouvoir avoir des résultats
-    cohérents.
+    réseau). 
     
-    Voir la documentation pour la compatibilité.
+    .. warning:: 
+            Attention, les données de distance et de prix 
+            doivent être compatible pour pouvoir avoir 
+            des résultats cohérents. 
+            
+            Voir la documentation pour la compatibilité.
 
-    Attributs
-    ---------
-    all : Bool, Si True affiche la distribution sur le 
+    :param bool all: Si True affiche la distribution sur le 
     DataFrame entier.
     
-    data_price : DataFrame, tableaux de données de prix entre 
+    :param DataFrame data_price: Tableaux de données de prix entre 
     les gares de péage.
     
-    data_dist : DataFrame, tableaux de données des distances 
+    :param DataFrame data_dist: Tableaux de données des distances 
     entre les gares de péage.
     
-    start : str, nom de la première gare.
+    :param str start: Nom de la première gare.
     
-    target : str, nom de la seconde gare.
+    :param str target: Nom de la seconde gare.
     
-    bw : voir doc bw_adjust de seaborn.
+    :param float bw: Voir doc bw_adjust de seaborn.
     
-    Return
-    ------
+    :returns:
     None.
     
-    Examples
-    --------
+    :examples:
     .. code:: python
     	
-    	>> atm.kde_gare(True, prix, dist, 1)
+    	>>> atm.kde_gare(True, prix, dist, 1)
     """
     if all:
         m = average_cost_list(data_price, data_dist)
