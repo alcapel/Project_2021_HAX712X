@@ -1,3 +1,4 @@
+#%%
 import folium
 from openrouteservice import convert
 import openrouteservice
@@ -9,6 +10,45 @@ from asltam.io.pricedist import get_index
 start = time.time()
 
 def trajet(DEPART, ARRIVEE, data_geo, data_price, data_dist):
+    """
+    Affiche une carte intéractive avec le trajet
+    entre DEPART et ARRIVEE.
+
+    .. warning::
+        Les données géographiques doivent être dans le
+        bon ordre (i.e. Lattitude, Longitude) pour
+        pouvoir être utilisé correctement.
+
+    :param str DEPART: Nom de la gare de départ.
+
+    :param str ARRIVEE: Nom de la gare d'arrivée.
+
+    :param DataFrame data_geo: Tableau des données
+    géographiques dans le format standard.
+
+    :param DataFrame data_price: Tableau des prix.
+
+    :param DataFrame data_dist: Tableau des distances.
+
+    :return folium.Map m: Carte intéractive affichant
+    une route entre DEPART et ARRIVEE.
+    
+    :examples:
+    .. code:: python
+
+        >>> import asltam as atm
+        >>> prix = atm.load_price().save_as_price(index=' ')
+        >>> dist = atm.load_dist().save_as_dist(index=' Nom gare ')
+        >>> geo = atm.load_geo().save_as_geo(index=' Nom gare ')
+        >>> # pour avoir le bon format
+        >>> geo = geo[['Latt', 'Long']]
+        >>> atm.trajet('MONTPELLIER', 'PERPIGNAN NORD', geo, prix, dist)
+    
+    .. note::
+        Il est possible de cliquer sur les portions
+        de route. Essayez ! On verra bien ce qu'il
+        s'y cache.
+    """
     i = get_index(data_geo, DEPART)
     j = get_index(data_geo, ARRIVEE)
 
@@ -117,3 +157,4 @@ def trajet(DEPART, ARRIVEE, data_geo, data_price, data_dist):
 
 end = time.time()
 print("Temps passé pour exécuter trajet: {0:.5f} s.".format(end - start))
+
