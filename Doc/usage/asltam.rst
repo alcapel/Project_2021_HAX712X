@@ -42,12 +42,12 @@ Dans ce module, des outils d'analyse sont mis à disposition pour faire de la vi
 
 permet d'afficher la distribution des prix au kilomètre selon tout le réseau routier que nous avions à disposition :
 
-.. image:: D:/Documents/Project_2021_HAX712X-main/Doc/usage/img/distrib.png
-   :width: 300
-
 
 .. automodule:: asltam.price_distribution.distribution
     :members:
+
+.. image:: D:/Documents/Project_2021_HAX712X-main/Doc/usage/img/distrib.png
+   :width: 300
 
 Module pricedist
 -----------------
@@ -58,6 +58,7 @@ Module graph
 ---------------
 
 Ce dernier module s'appuie sur deux gros algorithmes issus de la théorie des graphes (i.e. Dijkstra et Kruskal) dans le but de produire un algorithme minimisant le coût d'un trajet en s'autorisant k sortie d'autoroute durant le trajet. Le problème étant combinatoire (voire même NP difficile), il est conseillé de l'utiliser dans des conditions viables : soit avec un trajet assez court, soit avec une contrainte k assez petite ou très grande.
+
 
 .. automodule:: asltam.graph.graph
     :members:
