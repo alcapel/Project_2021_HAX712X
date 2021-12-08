@@ -9,7 +9,7 @@ from asltam.io.pricedist import get_index
 
 start = time.time()
 
-def trajet(DEPART, ARRIVEE, data_geo, data_price, data_dist):
+def trajet(DEPART, ARRIVEE, data_geo, data_price, data_dist, KEY):
     """
     Affiche une carte intéractive avec le trajet
     entre DEPART et ARRIVEE.
@@ -77,7 +77,7 @@ def trajet(DEPART, ARRIVEE, data_geo, data_price, data_dist):
 
         coor = [x, y]
 
-        client = openrouteservice.Client(key='5b3ce3597851110001cf62486f5564a064e34f3895221e5a0d9a2405')
+        client = openrouteservice.Client(key=KEY)
 
         m = folium.Map(
                         location=x[::-1],
@@ -117,7 +117,7 @@ def trajet(DEPART, ARRIVEE, data_geo, data_price, data_dist):
 
         coor = [y, x]
 
-        client = openrouteservice.Client(key='5b3ce3597851110001cf62486f5564a064e34f3895221e5a0d9a2405')
+        client = openrouteservice.Client(key=KEY)
         m = folium.Map(
                         location=y[::-1],
                         zoom_start=10,
