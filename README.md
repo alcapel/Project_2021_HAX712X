@@ -98,6 +98,22 @@ Après avoir tout transformé en fichier ``.csv``, il a fallu trier les données
 ### Accès aux données
 Les fichiers peuvent être consultés sur le git dans le dossier ``./asltam/data``, et les données finales téléchargées à l'aide des classes ``load_dist``, ``load_price``, ou ``load_geo``.
 
+### Création d'une clef
+Afin d'éviter tout problème lors de l'affichage de la carte intéractive, il est nécessaire de créé une clef. Cette dernière étant inclue en tant que paramètre.
+Pour ce faire, rendez-vous sur https://openrouteservice.org/log-in/
+
+Il est nécessaire de se créer un compte, en se connectant avec Github par exemple.
+<p align="center">
+  <img src="https://github.com/Eldohrim/Project_2021_HAX712X/tree/main/Beamer/log.png" width="400" title="Exemple">
+</p>
+Ensuite, il s'agit de créer une clef, en cliquant sur CREATE TOKEN.
+<p align="center">
+  <img src="https://github.com/Eldohrim/Project_2021_HAX712X/tree/main/Beamer/creation.png" width="400" title="Exemple">
+</p>
+La clef résultante sera dès lors affichée et il suffira la copier lors de l'utilisation de la fonction trajet.
+<p align="center">
+  <img src="https://github.com/Eldohrim/Project_2021_HAX712X/tree/main/Beamer/key.png" width="400" title="Exemple">
+</p>
 
 ## Petite blague pour détendre
 ![Carte de blagues](https://readme-jokes.vercel.app/api)
@@ -118,3 +134,5 @@ Chaque partie donnera lieu à plusieurs programmes contenus dans notre package f
 ### Répartition des tâches
 
 Le projet étant réparti en trois grands axes, nous allons séparé grossièrement le travail de la sorte : Thomas s'occupera de la carte interactive, Alexandre devra afficher les distributions et enfin Abdelmalek s'occupera de la partie graphe. Bien sûr, les parties étant intrinsèquement liées, certaines choses faites dans une partie seront peut-être utilisées dans une autre : tout le monde aura donc une part de son travail dans chaque axe.
+
+
