@@ -8,7 +8,7 @@ geo = geo[['Latt', 'Long']]
 
 #%% Construction de la carte intéractive
 interact(atm.trajet, DEPART=list(geo.index), ARRIVEE=list(geo.index), 
-         data_geo=fixed(geo), data_price=fixed(prix), data_dist=fixed(dist))
+         data_geo=fixed(geo), data_price=fixed(prix), data_dist=fixed(dist),key=KEY)
 
 #%% Affichage des distributions avec interact
 interact(atm.kde_gare, all = True, data_dist = fixed(dist),
