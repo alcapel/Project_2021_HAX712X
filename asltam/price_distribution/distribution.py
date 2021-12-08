@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+import plotly.express as px
 import pandas as pd
 import seaborn as sns
 import time
@@ -87,3 +88,79 @@ def kde_gare(
 
 end = time.time()
 print("Temps passé pour exécuter kde_gare : {0:.5f} s.".format(end - start))
+
+def mean_gare(data):
+    """
+    Affiche le barycentre des données.
+
+    :param DataFrame data: Tableau de données numériques.
+
+    :return:
+        **b** (*pd.core.Series.Series*) Le vecteur aux coordonnées moyennes.
+
+    :example:  
+        .. code:: python
+
+                >>> import asltam as atm
+                >>> # affichons les prix moyens par gare
+                >>> prix = atm.load_price().save_as_price(index=' ')
+                >>> print(atm.mean_gare(prix))
+
+        MONTPELLIER                    13.339130
+        SETE                           11.247826
+        AGDE                            9.239130
+        BEZIERS CABRIALS (SORTIE)       8.430435
+        BEZIERS OUEST                   7.704348
+        NARBONNE EST                    6.878261
+        NARBONNE SUD                    6.339130
+        SIGEAN                          7.108696
+        LEUCATE                         7.543478
+        PERPIGNAN NORD                  9.391304
+        PERPIGNAN SUD                   9.830435
+        BOULOU (FERME)                 11.600000
+        LE PERTHUS-LE BOULOU           12.708696
+        LEZIGNAN                        6.408696
+        CARCASSONNE EST                 7.521739
+        CARCASSONNE OUEST               7.660870
+        BRAM                            8.608696
+        CASTELNAUDARY                   9.086957
+        VILLEFRANCHE DE LAURAGAIS      10.213043
+        NAILLOUX                       10.843478
+        MAZERES                        12.152174
+        PAMIER                         12.969565
+        TOULOUSE SUD-OUEST (SORTIE)    12.660870
+        dtype: float64
+    """
+    return data.mean()
+
+
+def swarm_gare_price(data_price, name):
+    """
+    Affiche le swarmplot des prix par gare inscrite dans name.
+
+    :param DataFrame data_price: Tableau de données des prix.
+
+    :param list name: Liste d'index de data_price.
+    
+    :return: None.
+
+    :examples:
+        .. code:: python
+                >>> import asltam as atm
+                >>> prix = atm.load_price().save_as_price(index=' ')
+                >>> atm.swarm_gare_price(prix, ['MONTPELLIER', 'BRAM', 'CASTELNAUDARY'])
+    
+    """
+    name_ind = get_index(name)
+    p = data_price[data_price.columns[name_ind]]
+    sen = ' '
+    for i in range(len(name)):
+        sen+= name[i] + ', '
+
+    fig = px.strip(p, orientation='h', hover_name=p.index, 
+                        labels = { "value" : "Prix (en €)",
+                                    "variable" :"Villes"}, 
+                        title =f"Swarmplot des prix entre {sen}")
+    fig.show()
+
+
