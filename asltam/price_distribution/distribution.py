@@ -29,14 +29,11 @@ def kde_gare(
             
             Voir la documentation pour la compatibilité.
 
-    :param bool all: Si True affiche la distribution sur le 
-    DataFrame entier.
+    :param bool all: Si True affiche la distribution sur le DataFrame entier.
     
-    :param DataFrame data_price: Tableaux de données de prix entre 
-    les gares de péage.
+    :param DataFrame data_price: Tableaux de données de prix entre les gares de péage.
     
-    :param DataFrame data_dist: Tableaux de données des distances 
-    entre les gares de péage.
+    :param DataFrame data_dist: Tableaux de données des distances entre les gares de péage.
     
     :param str start: Nom de la première gare.
     
@@ -50,6 +47,9 @@ def kde_gare(
     :examples:
     .. code:: python
     	
+            >>> import asltam as atm
+            >>> prix = atm.load_price().save_as_price(index=' ')
+            >>> dist = atm.load_dist().save_as_dist(index=' Nom gare ')
     	>>> atm.kde_gare(True, prix, dist, 1)
     """
     if all:
@@ -106,29 +106,29 @@ def mean_gare(data):
                 >>> prix = atm.load_price().save_as_price(index=' ')
                 >>> print(atm.mean_gare(prix))
 
-        MONTPELLIER                    13.339130
-        SETE                           11.247826
-        AGDE                            9.239130
-        BEZIERS CABRIALS (SORTIE)       8.430435
-        BEZIERS OUEST                   7.704348
-        NARBONNE EST                    6.878261
-        NARBONNE SUD                    6.339130
-        SIGEAN                          7.108696
-        LEUCATE                         7.543478
-        PERPIGNAN NORD                  9.391304
-        PERPIGNAN SUD                   9.830435
-        BOULOU (FERME)                 11.600000
-        LE PERTHUS-LE BOULOU           12.708696
-        LEZIGNAN                        6.408696
-        CARCASSONNE EST                 7.521739
-        CARCASSONNE OUEST               7.660870
-        BRAM                            8.608696
-        CASTELNAUDARY                   9.086957
-        VILLEFRANCHE DE LAURAGAIS      10.213043
-        NAILLOUX                       10.843478
-        MAZERES                        12.152174
-        PAMIER                         12.969565
-        TOULOUSE SUD-OUEST (SORTIE)    12.660870
+        MONTPELLIER                    13.339130\n
+        SETE                           11.247826\n
+        AGDE                            9.239130\n
+        BEZIERS CABRIALS (SORTIE)       8.430435\n
+        BEZIERS OUEST                   7.704348\n
+        NARBONNE EST                    6.878261\n
+        NARBONNE SUD                    6.339130\n
+        SIGEAN                          7.108696\n
+        LEUCATE                         7.543478\n
+        PERPIGNAN NORD                  9.391304\n
+        PERPIGNAN SUD                   9.830435\n
+        BOULOU (FERME)                 11.600000\n
+        LE PERTHUS-LE BOULOU           12.708696\n
+        LEZIGNAN                        6.408696\n
+        CARCASSONNE EST                 7.521739\n
+        CARCASSONNE OUEST               7.660870\n
+        BRAM                            8.608696\n
+        CASTELNAUDARY                   9.086957\n
+        VILLEFRANCHE DE LAURAGAIS      10.213043\n
+        NAILLOUX                       10.843478\n
+        MAZERES                        12.152174\n
+        PAMIER                         12.969565\n
+        TOULOUSE SUD-OUEST (SORTIE)    12.660870\n
         dtype: float64
     """
     return data.mean()
@@ -146,6 +146,7 @@ def swarm_gare_price(data_price, name):
 
     :examples:
         .. code:: python
+        
                 >>> import asltam as atm
                 >>> prix = atm.load_price().save_as_price(index=' ')
                 >>> atm.swarm_gare_price(prix, ['MONTPELLIER', 'BRAM', 'CASTELNAUDARY'])
