@@ -55,7 +55,7 @@ atm.trajet(start, target, geo, price, dist)
 ```
 permettant d'afficher la carte suivante : 
 <p align="center">
-  <img src="https://github.com/Eldohrim/Project_2021_HAX712X/blob/main/Beamer/carte.jpg" width="400" title="Exemple">
+  <img src="https://github.com/Eldohrim/Project_2021_HAX712X/blob/main/Beamer/carte-gif.gif" width="400" title="Exemple">
 </p>
 
 Une démonstration de cette fonction est faite dans le fichier ``script.py`` si vous voulez le lancez vous même, ou dans la documentation :
