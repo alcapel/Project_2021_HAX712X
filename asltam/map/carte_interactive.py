@@ -29,7 +29,9 @@ def trajet(DEPART, ARRIVEE, data_geo, data_price, data_dist, KEY):
     :param DataFrame data_price: Tableau des prix.
 
     :param DataFrame data_dist: Tableau des distances.
-
+    
+    :param str KEY: Clé API.
+   
     :return folium.Map m: Carte intéractive affichant
     une route entre DEPART et ARRIVEE.
     
