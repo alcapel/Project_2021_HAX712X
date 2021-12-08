@@ -99,20 +99,26 @@ Après avoir tout transformé en fichier ``.csv``, il a fallu trier les données
 Les fichiers peuvent être consultés sur le git dans le dossier ``./asltam/data``, et les données finales téléchargées à l'aide des classes ``load_dist``, ``load_price``, ou ``load_geo``.
 
 ### Création d'une clef
-Afin d'éviter tout problème lors de l'affichage de la carte intéractive, il est nécessaire de créé une clef. Cette dernière étant inclue en tant que paramètre.
+Afin d'éviter tout problème lors de l'affichage de la carte intéractive, il est nécessaire de créé une clef, cette dernière étant inclue en tant que paramètre.
+
 Pour ce faire, rendez-vous sur https://openrouteservice.org/log-in/
 
 Il est nécessaire de se créer un compte, en se connectant avec Github par exemple.
+
 <p align="center">
-  <img src="https://github.com/Eldohrim/Project_2021_HAX712X/tree/main/Beamer/log.png" width="400" title="Exemple">
+  <img src="https://github.com/Eldohrim/Project_2021_HAX712X/blob/main/Beamer/log.jpg" width="700" title="Exemple">
 </p>
+
 Ensuite, il s'agit de créer une clef, en cliquant sur CREATE TOKEN.
+
 <p align="center">
-  <img src="https://github.com/Eldohrim/Project_2021_HAX712X/tree/main/Beamer/creation.png" width="400" title="Exemple">
+  <img src="https://github.com/Eldohrim/Project_2021_HAX712X/blob/main/Beamer/creation.jpg" width="700" title="Exemple">
 </p>
+
 La clef résultante sera dès lors affichée et il suffira la copier lors de l'utilisation de la fonction trajet.
+
 <p align="center">
-  <img src="https://github.com/Eldohrim/Project_2021_HAX712X/tree/main/Beamer/key.png" width="400" title="Exemple">
+  <img src="https://github.com/Eldohrim/Project_2021_HAX712X/blob/main/Beamer//key.jpg" width="800" title="Exemple">
 </p>
 
 ## Petite blague pour détendre
