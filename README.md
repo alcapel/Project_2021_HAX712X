@@ -98,8 +98,8 @@ Après avoir tout transformé en fichier ``.csv``, il a fallu trier les données
 ### Accès aux données
 Les fichiers peuvent être consultés sur le git dans le dossier ``./asltam/data``, et les données finales téléchargées à l'aide des classes ``load_dist``, ``load_price``, ou ``load_geo``.
 
-### Création d'une clef
-Afin d'éviter tout problème lors de l'affichage de la carte intéractive, il est nécessaire de créé une clef, cette dernière étant inclue en tant que paramètre.
+## Création d'une clef
+Afin d'éviter tout problème lors de l'affichage de la carte intéractive, il est nécessaire de créer une clef API personnelle, qu'il faudra donner en paramètre de la fonction trajet.
 
 Pour ce faire, rendez-vous sur https://openrouteservice.org/log-in/
 
@@ -109,7 +109,7 @@ Il est nécessaire de se créer un compte, en se connectant avec Github par exem
   <img src="https://github.com/Eldohrim/Project_2021_HAX712X/blob/main/Beamer/log.jpg" width="700" title="Exemple">
 </p>
 
-Ensuite, il s'agit de créer une clef, en cliquant sur CREATE TOKEN.
+Il suffit ensuite de cliquer sur CREATE TOKEN dans l'onglet TOKEN.
 
 <p align="center">
   <img src="https://github.com/Eldohrim/Project_2021_HAX712X/blob/main/Beamer/creation.jpg" width="700" title="Exemple">
