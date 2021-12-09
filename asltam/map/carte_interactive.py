@@ -155,7 +155,7 @@ def trajet(DEPART, ARRIVEE, data_geo, data_price, data_dist, KEY):
         return m
 
     else:
-        print("Veuilliez entrer deux villes différentes")
+        print("Veuillez entrer deux villes différentes")
 
 end = time.time()
 print("Temps passé pour exécuter trajet: {0:.5f} s.".format(end - start))
