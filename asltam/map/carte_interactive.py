@@ -1,4 +1,3 @@
-#%%
 import folium
 from openrouteservice import convert
 import openrouteservice
@@ -15,16 +14,19 @@ def trajet(DEPART, ARRIVEE, data_geo, data_price, data_dist, KEY):
     entre DEPART et ARRIVEE.
 
     .. warning::
-        Les données géographiques doivent être dans le
-        bon ordre (i.e. Lattitude, Longitude) pour
-        pouvoir être utilisé correctement.
+        Les données géographiques doivent être dans le bon
+        format (voir :ref:`Format des données géographiques`).
+
+    .. tip::
+        Il est conseiller d'avoir sa propre clef API personelle.
+        Pour en obtenir une, vous pouvez aller voir le 
+        :ref:`Guide d'installation de clef API`.
 
     :param str DEPART: Nom de la gare de départ.
 
     :param str ARRIVEE: Nom de la gare d'arrivée.
 
-    :param DataFrame data_geo: Tableau des données
-    géographiques dans le format standard.
+    :param DataFrame data_geo: Tableau des données géographiques dans le format standard.
 
     :param DataFrame data_price: Tableau des prix.
 
@@ -32,19 +34,16 @@ def trajet(DEPART, ARRIVEE, data_geo, data_price, data_dist, KEY):
     
     :param str KEY: Clé API.
    
-    :return folium.Map m: Carte intéractive affichant
-    une route entre DEPART et ARRIVEE.
+    :return: * **m** (*folium.Map*) - Carte intéractive affichant une route entre DEPART et ARRIVEE.
     
-    :examples:
-    .. code:: python
-
-        >>> import asltam as atm
-        >>> prix = atm.load_price().save_as_price(index=' ')
-        >>> dist = atm.load_dist().save_as_dist(index=' Nom gare ')
-        >>> geo = atm.load_geo().save_as_geo(index=' Nom gare ')
-        >>> # pour avoir le bon format
-        >>> geo = geo[['Latt', 'Long']]
-        >>> atm.trajet('MONTPELLIER', 'PERPIGNAN NORD', geo, prix, dist)
+    :examples: .. code:: python
+                    >>> import asltam as atm
+                    >>> prix = atm.load_price().save_as_price(index=' ')
+                    >>> dist = atm.load_dist().save_as_dist(index=' Nom gare ')
+                    >>> geo = atm.load_geo().save_as_geo(index=' Nom gare ')
+                    >>> # pour avoir le bon format
+                    >>> geo = geo[['Latt', 'Long']]
+                    >>> atm.trajet('MONTPELLIER', 'PERPIGNAN NORD', geo, prix, dist)
     
     .. note::
         Il est possible de cliquer sur les portions
@@ -58,21 +57,21 @@ def trajet(DEPART, ARRIVEE, data_geo, data_price, data_dist, KEY):
     y = list(data_geo.iloc[j])[::-1]
     # Claculer la distance entre le point A et le point B pour pouvoir
     # prendre par la suite la distance la plus courte
-    
+
     r1 = requests.get(f"http://router.project-osrm.org/route/v1/car/{x[0]},{x[1]};{y[0]},{y[1]}?overview=false""")
     routes_1 = json.loads(r1.content)
     route_1 = routes_1.get("routes")[0]
-    
+
     r2 = requests.get(f"http://router.project-osrm.org/route/v1/car/{y[0]},{y[1]};{x[0]},{x[1]}?overview=false""")
     routes_2 = json.loads(r2.content)
     route_2 = routes_2.get("routes")[0]
-    
+
     # Distance entre le point A et le point B :
     dist1 = round(route_1['distance']/1000)
-   
+
     # Distance entre le point B et le point A :
     dist2 = round(route_2['distance']/1000)
-    
+
     # Résolution du problème de la distance différente entre
     # l'aller et le retour avec une boucle
     if dist1 < dist2 :
@@ -155,7 +154,7 @@ def trajet(DEPART, ARRIVEE, data_geo, data_price, data_dist, KEY):
         return m
 
     else:
-        print("Veuillez entrer deux villes différentes")
+        print("Veuilliez entrer deux villes différentes")
 
 end = time.time()
 print("Temps passé pour exécuter trajet: {0:.5f} s.".format(end - start))
