@@ -32,6 +32,8 @@
   
     <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   
+    <link rel="stylesheet" href="../../../_static/tabs.css" type="text/css" />
+  
 
   
         <link rel="index" title="Index"
@@ -89,6 +91,12 @@
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../usage/Construction_des_donn%C3%A9es.html">Récupération des données</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../usage/Structure_des_donn%C3%A9es.html">Structure des données</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../usage/installation_clef.html">Guide d’installation de clef API</a></li>
 </ul>
 
             
@@ -164,40 +172,42 @@
 
 <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
 
-<div class="viewcode-block" id="trajet"><a class="viewcode-back" href="../../../usage/asltam.html#asltam.map.carte_interactive.trajet">[docs]</a><span class="k">def</span> <span class="nf">trajet</span><span class="p">(</span><span class="n">DEPART</span><span class="p">,</span> <span class="n">ARRIVEE</span><span class="p">,</span> <span class="n">data_geo</span><span class="p">,</span> <span class="n">data_price</span><span class="p">,</span> <span class="n">data_dist</span><span class="p">):</span>
+<div class="viewcode-block" id="trajet"><a class="viewcode-back" href="../../../usage/asltam.html#asltam.map.carte_interactive.trajet">[docs]</a><span class="k">def</span> <span class="nf">trajet</span><span class="p">(</span><span class="n">DEPART</span><span class="p">,</span> <span class="n">ARRIVEE</span><span class="p">,</span> <span class="n">data_geo</span><span class="p">,</span> <span class="n">data_price</span><span class="p">,</span> <span class="n">data_dist</span><span class="p">,</span> <span class="n">KEY</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Affiche une carte intéractive avec le trajet</span>
 <span class="sd">    entre DEPART et ARRIVEE.</span>
 
 <span class="sd">    .. warning::</span>
-<span class="sd">        Les données géographiques doivent être dans le</span>
-<span class="sd">        bon ordre (i.e. Lattitude, Longitude) pour</span>
-<span class="sd">        pouvoir être utilisé correctement.</span>
+<span class="sd">        Les données géographiques doivent être dans le bon</span>
+<span class="sd">        format (voir :ref:`Format des données géographiques`).</span>
+
+<span class="sd">    .. tip::</span>
+<span class="sd">        Il est conseiller d&#39;avoir sa propre clef API personelle.</span>
+<span class="sd">        Pour en obtenir une, vous pouvez aller voir le </span>
+<span class="sd">        :ref:`Guide d&#39;installation de clef API`.</span>
 
 <span class="sd">    :param str DEPART: Nom de la gare de départ.</span>
 
 <span class="sd">    :param str ARRIVEE: Nom de la gare d&#39;arrivée.</span>
 
-<span class="sd">    :param DataFrame data_geo: Tableau des données</span>
-<span class="sd">    géographiques dans le format standard.</span>
+<span class="sd">    :param DataFrame data_geo: Tableau des données géographiques dans le format standard.</span>
 
 <span class="sd">    :param DataFrame data_price: Tableau des prix.</span>
 
 <span class="sd">    :param DataFrame data_dist: Tableau des distances.</span>
-
-<span class="sd">    :return folium.Map m: Carte intéractive affichant</span>
-<span class="sd">    une route entre DEPART et ARRIVEE.</span>
 <span class="sd">    </span>
-<span class="sd">    :examples:</span>
-<span class="sd">    .. code:: python</span>
-
-<span class="sd">        &gt;&gt;&gt; import asltam as atm</span>
-<span class="sd">        &gt;&gt;&gt; prix = atm.load_price().save_as_price(index=&#39; &#39;)</span>
-<span class="sd">        &gt;&gt;&gt; dist = atm.load_dist().save_as_dist(index=&#39; Nom gare &#39;)</span>
-<span class="sd">        &gt;&gt;&gt; geo = atm.load_geo().save_as_geo(index=&#39; Nom gare &#39;)</span>
-<span class="sd">        &gt;&gt;&gt; # pour avoir le bon format</span>
-<span class="sd">        &gt;&gt;&gt; geo = geo[[&#39;Latt&#39;, &#39;Long&#39;]]</span>
-<span class="sd">        &gt;&gt;&gt; atm.trajet(&#39;MONTPELLIER&#39;, &#39;PERPIGNAN NORD&#39;, geo, prix, dist)</span>
+<span class="sd">    :param str KEY: Clé API.</span>
+<span class="sd">   </span>
+<span class="sd">    :return: * **m** (*folium.Map*) - Carte intéractive affichant une route entre DEPART et ARRIVEE.</span>
+<span class="sd">    </span>
+<span class="sd">    :examples: .. code:: python</span>
+<span class="sd">                    &gt;&gt;&gt; import asltam as atm</span>
+<span class="sd">                    &gt;&gt;&gt; prix = atm.load_price().save_as_price(index=&#39; &#39;)</span>
+<span class="sd">                    &gt;&gt;&gt; dist = atm.load_dist().save_as_dist(index=&#39; Nom gare &#39;)</span>
+<span class="sd">                    &gt;&gt;&gt; geo = atm.load_geo().save_as_geo(index=&#39; Nom gare &#39;)</span>
+<span class="sd">                    &gt;&gt;&gt; # pour avoir le bon format</span>
+<span class="sd">                    &gt;&gt;&gt; geo = geo[[&#39;Latt&#39;, &#39;Long&#39;]]</span>
+<span class="sd">                    &gt;&gt;&gt; atm.trajet(&#39;MONTPELLIER&#39;, &#39;PERPIGNAN NORD&#39;, geo, prix, dist)</span>
 <span class="sd">    </span>
 <span class="sd">    .. note::</span>
 <span class="sd">        Il est possible de cliquer sur les portions</span>
@@ -211,28 +221,28 @@
     <span class="n">y</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">data_geo</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">j</span><span class="p">])[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
     <span class="c1"># Claculer la distance entre le point A et le point B pour pouvoir</span>
     <span class="c1"># prendre par la suite la distance la plus courte</span>
-    
+
     <span class="n">r1</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;http://router.project-osrm.org/route/v1/car/</span><span class="si">{</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">,</span><span class="si">{</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">;</span><span class="si">{</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">,</span><span class="si">{</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">?overview=false&quot;&quot;&quot;</span><span class="p">)</span>
     <span class="n">routes_1</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">r1</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
     <span class="n">route_1</span> <span class="o">=</span> <span class="n">routes_1</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;routes&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-    
+
     <span class="n">r2</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;http://router.project-osrm.org/route/v1/car/</span><span class="si">{</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">,</span><span class="si">{</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">;</span><span class="si">{</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">,</span><span class="si">{</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">?overview=false&quot;&quot;&quot;</span><span class="p">)</span>
     <span class="n">routes_2</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">r2</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
     <span class="n">route_2</span> <span class="o">=</span> <span class="n">routes_2</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;routes&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-    
+
     <span class="c1"># Distance entre le point A et le point B :</span>
     <span class="n">dist1</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">route_1</span><span class="p">[</span><span class="s1">&#39;distance&#39;</span><span class="p">]</span><span class="o">/</span><span class="mi">1000</span><span class="p">)</span>
-   
+
     <span class="c1"># Distance entre le point B et le point A :</span>
     <span class="n">dist2</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">route_2</span><span class="p">[</span><span class="s1">&#39;distance&#39;</span><span class="p">]</span><span class="o">/</span><span class="mi">1000</span><span class="p">)</span>
-    
+
     <span class="c1"># Résolution du problème de la distance différente entre</span>
     <span class="c1"># l&#39;aller et le retour avec une boucle</span>
     <span class="k">if</span> <span class="n">dist1</span> <span class="o">&lt;</span> <span class="n">dist2</span> <span class="p">:</span>
 
         <span class="n">coor</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">]</span>
 
-        <span class="n">client</span> <span class="o">=</span> <span class="n">openrouteservice</span><span class="o">.</span><span class="n">Client</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;5b3ce3597851110001cf62486f5564a064e34f3895221e5a0d9a2405&#39;</span><span class="p">)</span>
+        <span class="n">client</span> <span class="o">=</span> <span class="n">openrouteservice</span><span class="o">.</span><span class="n">Client</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="n">KEY</span><span class="p">)</span>
 
         <span class="n">m</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span>
                         <span class="n">location</span><span class="o">=</span><span class="n">x</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span>
@@ -272,7 +282,7 @@
 
         <span class="n">coor</span> <span class="o">=</span> <span class="p">[</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">]</span>
 
-        <span class="n">client</span> <span class="o">=</span> <span class="n">openrouteservice</span><span class="o">.</span><span class="n">Client</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="s1">&#39;5b3ce3597851110001cf62486f5564a064e34f3895221e5a0d9a2405&#39;</span><span class="p">)</span>
+        <span class="n">client</span> <span class="o">=</span> <span class="n">openrouteservice</span><span class="o">.</span><span class="n">Client</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="n">KEY</span><span class="p">)</span>
         <span class="n">m</span> <span class="o">=</span> <span class="n">folium</span><span class="o">.</span><span class="n">Map</span><span class="p">(</span>
                         <span class="n">location</span><span class="o">=</span><span class="n">y</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span>
                         <span class="n">zoom_start</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
@@ -357,6 +367,7 @@
       <script type="text/javascript" src="../../../_static/jquery.js"></script>
       <script type="text/javascript" src="../../../_static/underscore.js"></script>
       <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/tabs.js"></script>
 
   
 

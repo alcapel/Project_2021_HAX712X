@@ -6,11 +6,18 @@
 Documentation du programme ASLTAM
 ==================================
 
-Bienvenu dans la documentation du programme ASLTAM !  
+Bienvenu dans la documentation du programme ASLTAM ! Un package très utile de modélisation statistique. 
 
-Introduction
+Présentation
 =============
+
+   .. image:: ./usage/img/Autoroute.png
+    :width: 300
+    :align: center
+
+
 Le nom ``asltam`` provient de l'acronyme ASL (une mauvaise lecture de ASF, pour Autoroute du Sud de la France) et des premières lettres des créateurs du package : Thomas CARVAILLO, Alexandre CAPEL et Abdelmalk BOUARROUDJI (appelé aussi Malek). Ce module python a été conçu pour répondre à une problématique sur l'étude de la politique des prix de la compagnie Vinci, en particulier dans la région Occitanie.
+Cependant, il est possible pour vous d'utiliser ce package à votre guise, pour répondre à un de vos problèmes. Cependant, il faut commencer par l'installer.
 
 Procédure d'installation
 =========================
@@ -22,36 +29,63 @@ Pour utiliser pleinement ``asltam``, il faut faire plusieurs installations inter
 
 dans un terminal python (sous Windows, installer Anaconda3 si ce n'est pas déjà fait et recherchez Anaconda Prompt sur la barre de recherche).
 
-Ensuite, après avoir basculer dans le nouvel environnement python, téléchargez les modules présents dans le fichier ``requirements.txt`` via une commande ``pip``. Par exemple, pour le premier module compilez :
+Ensuite, après avoir basculer dans le nouvel environnement python, téléchargez le dossier du `git <https://github.com/Eldohrim/Project_2021_HAX712X>`_.
+Enfin, placer vous dans le dossier correspondant, et téléchargez les modules présents dans le fichier ``requirements.txt`` via la commande ``pip`` :
 
 .. code:: bash
 
-         $ conda install - n atm_env download=0.3.5
+         $ pip install -r /path/to/requirements.txt
 
-Ces packages sont importants pour le bon fonctionnement du programme. Après toutes ces manipulations vous pourrez enfin installer notre module avec la commande ``pip`` comme fait précédemment, et ainsi le lancer et l'utiliser comme bon vous semble. 
+Ces packages sont importants pour le bon fonctionnement du programme. Après toutes ces manipulations vous pourrez enfin installer notre module avec la commande :
+
+.. code:: bash
+
+         $ pip install -i https://test.pypi.org/simple/ asltam==1.1.0
+
+et ainsi le lancer et l'utiliser comme bon vous semble. Idée d'importation :
 
 .. code:: python
 
-         import asltam as atm
-
-Structure des données
-=======================
-
-La plupart des fonctions et algorithmes de ``asltam`` utilisent des variables de type DataFrame ``pandas`` qui ont une structure bien particulière pour bien fonctionner.
-On appellera alors matrice des distances/prix, un tableau de donnée symétrique à coefficients positifs, de diagonale nulle. Il sera donc nécessaire avant d'utiliser les fonctions du package, de veiller à ce que les données utilisées soient rangées de cette manière. Il faudra aussi veiller à ce que les données soient compatibles dans le sens ou la position des distances et des prix soit rangée dans le même ordre. Il sera également possible d'utiliser des données géographique, en particulier dans le module ``map``, pour l'affichage de cartes par exemple. Une classe pour chacun de ces types de données ont été conçu pour les charger et les manipuler.
+         >>> import asltam as atm
 
 
-
+Table des matières
+=====================
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 3
    :caption: Contents:
 
-.. toctree::
-   usage/asltam.rst
+.. tabs::
+   
+   .. tab:: ASLTAM
 
-.. toctree::
-   usage/Construction_des_données.rst
+      Pour accéder à toute la documentation concernant ``asltam``, aller ici :
+
+      .. toctree::
+         usage/asltam.rst
+   
+   .. tab:: Construction des données
+
+      Dans ces sections, nous expliquons d'où proviennent les données, et comment nous les avons traités pour répondre au problème. Ce sont les données à titre d'exemple pour les programmes.
+      
+      .. toctree::
+         usage/Construction_des_données.rst
+   
+   .. tab:: Structure des données
+
+      Pour avoir des résultats cohérents, et un bonne utilisation du package, il est nécessaire d'avoir connaissance du type et format des données.
+      Une série de définition et d'explication sur les données est réunie ici :
+
+      .. toctree::
+         usage/Structure_des_données.rst
+
+   .. tab:: Guide installation clef API
+
+      Pour une optimiser votre usage de ``asltam``, il est conseiller d'avoir une clef API personnelle. Voici un court guide pour en obtenir une :
+
+      .. toctree::
+         usage/installation_clef.rst      
 
 Indices and tables
 ==================

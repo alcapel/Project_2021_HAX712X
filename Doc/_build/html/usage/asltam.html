@@ -32,6 +32,8 @@
   
     <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   
+    <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
+  
 
   
         <link rel="index" title="Index"
@@ -96,6 +98,12 @@
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="Construction_des_donn%C3%A9es.html">Récupération des données</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Structure_des_donn%C3%A9es.html">Structure des données</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="installation_clef.html">Guide d’installation de clef API</a></li>
 </ul>
 
             
@@ -164,56 +172,42 @@
 <p>Il s’agit du module principal de notre programme, il contient toutes les fonctions nécessaires à l’aboutissement du projet.</p>
 <div class="section" id="module-map">
 <h2>Module map<a class="headerlink" href="#module-map" title="Permalink to this headline">¶</a></h2>
-<p>Le but principal de ce module est l’affichage d’une carte folium, affichant le trajet entre deux gares, ainsi que des descriptions de la route les séparant comme le prix, ou la distance totale. La fonction principale permettant d’afficher la carte peut s’appeler directement après importation de <code class="docutils literal notranslate"><span class="pre">asltam</span></code> comme fait ci-dessus, ainsi avec le code suivant :</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">asltam</span> <span class="k">as</span> <span class="nn">atm</span>
-<span class="n">geo</span> <span class="o">=</span>
-<span class="n">dist</span> <span class="o">=</span> <span class="n">atm</span><span class="o">.</span><span class="n">load_dist</span><span class="p">()</span><span class="o">.</span><span class="n">save_as_dist</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s1">&#39; Nom gare &#39;</span><span class="p">)</span>
-<span class="n">price</span> <span class="o">=</span> <span class="n">atm</span><span class="o">.</span><span class="n">load_price</span><span class="p">()</span><span class="o">.</span><span class="n">save_as_price</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
-<span class="n">start</span> <span class="o">=</span> <span class="s1">&#39;NARBONNE EST&#39;</span>
-<span class="n">target</span> <span class="o">=</span> <span class="s1">&#39;BEZIERS OUEST&#39;</span>
-<span class="n">atm</span><span class="o">.</span><span class="n">trajet</span><span class="p">(</span><span class="n">geo</span><span class="p">,</span> <span class="n">dist</span><span class="p">,</span> <span class="n">price</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>permettant d’afficher la carte suivante :</p>
-<a class="reference internal image-reference" href="../_images/trajet.png"><img alt="../_images/trajet.png" src="../_images/trajet.png" style="width: 500px;" /></a>
+<p>Le but principal de ce module est l’affichage d’une carte folium, affichant le trajet entre deux gares, ainsi que des descriptions de la route les séparant comme le prix, ou la distance totale. La fonction principale permettant d’afficher la carte peut s’appeler directement après importation de <code class="docutils literal notranslate"><span class="pre">asltam</span></code>.</p>
 <span class="target" id="module-asltam.map.carte_interactive"></span><dl class="py function">
 <dt class="sig sig-object py" id="asltam.map.carte_interactive.trajet">
-<span class="sig-prename descclassname"><span class="pre">asltam.map.carte_interactive.</span></span><span class="sig-name descname"><span class="pre">trajet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">DEPART</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ARRIVEE</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_geo</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_price</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_dist</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/asltam/map/carte_interactive.html#trajet"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#asltam.map.carte_interactive.trajet" title="Permalink to this definition">¶</a></dt>
+<span class="sig-prename descclassname"><span class="pre">asltam.map.carte_interactive.</span></span><span class="sig-name descname"><span class="pre">trajet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">DEPART</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ARRIVEE</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_geo</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_price</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_dist</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">KEY</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/asltam/map/carte_interactive.html#trajet"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#asltam.map.carte_interactive.trajet" title="Permalink to this definition">¶</a></dt>
 <dd><p>Affiche une carte intéractive avec le trajet
 entre DEPART et ARRIVEE.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Les données géographiques doivent être dans le
-bon ordre (i.e. Lattitude, Longitude) pour
-pouvoir être utilisé correctement.</p>
+<p>Les données géographiques doivent être dans le bon
+format (voir <a class="reference internal" href="Structure_des_donn%C3%A9es.html#format-des-donnees-geographiques"><span class="std std-ref">Format des données géographiques</span></a>).</p>
 </div>
-<dl class="field-list simple">
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Il est conseiller d’avoir sa propre clef API personelle.
+Pour en obtenir une, vous pouvez aller voir le 
+<a class="reference internal" href="installation_clef.html#guide-d-installation-de-clef-api"><span class="std std-ref">Guide d’installation de clef API</span></a>.</p>
+</div>
+<dl class="field-list">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>DEPART</strong> (<em>str</em>) – Nom de la gare de départ.</p></li>
 <li><p><strong>ARRIVEE</strong> (<em>str</em>) – Nom de la gare d’arrivée.</p></li>
-<li><p><strong>data_geo</strong> (<em>DataFrame</em>) – Tableau des données</p></li>
-</ul>
-</dd>
-</dl>
-<p>géographiques dans le format standard.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><ul class="simple">
+<li><p><strong>data_geo</strong> (<em>DataFrame</em>) – Tableau des données géographiques dans le format standard.</p></li>
 <li><p><strong>data_price</strong> (<em>DataFrame</em>) – Tableau des prix.</p></li>
 <li><p><strong>data_dist</strong> (<em>DataFrame</em>) – Tableau des distances.</p></li>
+<li><p><strong>KEY</strong> (<em>str</em>) – Clé API.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return folium.Map m</dt>
-<dd class="field-even"><p>Carte intéractive affichant</p>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>m</strong> (<em>folium.Map</em>) - Carte intéractive affichant une route entre DEPART et ARRIVEE.</p></li>
+</ul>
+</p>
 </dd>
-</dl>
-<p>une route entre DEPART et ARRIVEE.</p>
-<dl class="field-list simple">
 <dt class="field-odd">Examples</dt>
-<dd class="field-odd"><p></p></dd>
-</dl>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">asltam</span> <span class="k">as</span> <span class="nn">atm</span>
+<dd class="field-odd"><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">asltam</span> <span class="k">as</span> <span class="nn">atm</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">prix</span> <span class="o">=</span> <span class="n">atm</span><span class="o">.</span><span class="n">load_price</span><span class="p">()</span><span class="o">.</span><span class="n">save_as_price</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">dist</span> <span class="o">=</span> <span class="n">atm</span><span class="o">.</span><span class="n">load_dist</span><span class="p">()</span><span class="o">.</span><span class="n">save_as_dist</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s1">&#39; Nom gare &#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">geo</span> <span class="o">=</span> <span class="n">atm</span><span class="o">.</span><span class="n">load_geo</span><span class="p">()</span><span class="o">.</span><span class="n">save_as_geo</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s1">&#39; Nom gare &#39;</span><span class="p">)</span>
@@ -222,6 +216,8 @@ pouvoir être utilisé correctement.</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">atm</span><span class="o">.</span><span class="n">trajet</span><span class="p">(</span><span class="s1">&#39;MONTPELLIER&#39;</span><span class="p">,</span> <span class="s1">&#39;PERPIGNAN NORD&#39;</span><span class="p">,</span> <span class="n">geo</span><span class="p">,</span> <span class="n">prix</span><span class="p">,</span> <span class="n">dist</span><span class="p">)</span>
 </pre></div>
 </div>
+</dd>
+</dl>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Il est possible de cliquer sur les portions
@@ -233,15 +229,7 @@ s’y cache.</p>
 </div>
 <div class="section" id="module-price-distribution">
 <h2>Module price_distribution<a class="headerlink" href="#module-price-distribution" title="Permalink to this headline">¶</a></h2>
-<p>Dans ce module, des outils d’analyse sont mis à disposition pour faire de la visualisation des données. Par exemple, nous pouvons utiliser la fonction <code class="docutils literal notranslate"><span class="pre">kde_gare</span></code> de ce module, directement callable après importation du package, pour pouvoir faire une “kernel distribution estimation” sur la distribution des prix au kilomètre. Par exemple, le script suivant :</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">asltam</span> <span class="k">as</span> <span class="nn">atm</span>
-<span class="n">dist</span> <span class="o">=</span> <span class="n">atm</span><span class="o">.</span><span class="n">load_dist</span><span class="p">()</span><span class="o">.</span><span class="n">save_as_dist</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s1">&#39; Nom gare &#39;</span><span class="p">)</span>
-<span class="n">prix</span> <span class="o">=</span> <span class="n">atm</span><span class="o">.</span><span class="n">load_price</span><span class="p">()</span><span class="o">.</span><span class="n">save_as_price</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
-
-<span class="n">atm</span><span class="o">.</span><span class="n">kde_gare</span><span class="p">(</span><span class="nb">all</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">prix</span><span class="p">,</span> <span class="n">dist</span><span class="p">,</span> <span class="n">bw</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>permet d’afficher la distribution des prix au kilomètre selon tout le réseau routier que nous avions à disposition :</p>
+<p>Dans ce module, des outils d’analyse sont mis à disposition pour faire de la visualisation des données. Par exemple, nous pouvons utiliser la fonction <code class="docutils literal notranslate"><span class="pre">kde_gare</span></code> de ce module, directement callable après importation du package, pour pouvoir faire une “kernel distribution estimation” sur la distribution des prix au kilomètre.</p>
 <span class="target" id="module-asltam.price_distribution.distribution"></span><dl class="py function">
 <dt class="sig sig-object py" id="asltam.price_distribution.distribution.kde_gare">
 <span class="sig-prename descclassname"><span class="pre">asltam.price_distribution.distribution.</span></span><span class="sig-name descname"><span class="pre">kde_gare</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">all</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_price</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_dist</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bw</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/asltam/price_distribution/distribution.html#kde_gare"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#asltam.price_distribution.distribution.kde_gare" title="Permalink to this definition">¶</a></dt>
@@ -250,52 +238,84 @@ gares de péages sur un trajet donné (ou sur tout le
 réseau).</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Attention, les données de distance et de prix 
-doivent être compatible pour pouvoir avoir 
-des résultats cohérents.</p>
-<p>Voir la documentation pour la compatibilité.</p>
+<p>Attention, les données de distance et de prix
+doivent être compatible pour pouvoir avoir des résultats cohérents. 
+Voir la documentation pour la <a class="reference internal" href="Structure_des_donn%C3%A9es.html#compatibilite"><span class="std std-ref">Compatibilité</span></a>.</p>
 </div>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>all</strong> (<em>bool</em>) – Si True affiche la distribution sur le</p>
-</dd>
-</dl>
-<p>DataFrame entier.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>data_price</strong> (<em>DataFrame</em>) – Tableaux de données de prix entre</p>
-</dd>
-</dl>
-<p>les gares de péage.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>data_dist</strong> (<em>DataFrame</em>) – Tableaux de données des distances</p>
-</dd>
-</dl>
-<p>entre les gares de péage.</p>
-<dl class="field-list simple">
+<dl class="field-list">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
+<li><p><strong>all</strong> (<em>bool</em>) – Si True affiche la distribution sur le DataFrame entier.</p></li>
+<li><p><strong>data_price</strong> (<em>DataFrame</em>) – Tableaux de données de prix entre les gares de péage.</p></li>
+<li><p><strong>data_dist</strong> (<em>DataFrame</em>) – Tableaux de données des distances entre les gares de péage.</p></li>
 <li><p><strong>start</strong> (<em>str</em>) – Nom de la première gare.</p></li>
 <li><p><strong>target</strong> (<em>str</em>) – Nom de la seconde gare.</p></li>
 <li><p><strong>bw</strong> (<em>float</em>) – Voir doc bw_adjust de seaborn.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p></p>
+<dd class="field-even"><p>None.</p>
 </dd>
-</dl>
-<p>None.</p>
-<dl class="field-list simple">
 <dt class="field-odd">Examples</dt>
-<dd class="field-odd"><p></p></dd>
-</dl>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">atm</span><span class="o">.</span><span class="n">kde_gare</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">prix</span><span class="p">,</span> <span class="n">dist</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<dd class="field-odd"><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">asltam</span> <span class="k">as</span> <span class="nn">atm</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">prix</span> <span class="o">=</span> <span class="n">load_price</span><span class="p">()</span><span class="o">.</span><span class="n">save_as_price</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dist</span> <span class="o">=</span> <span class="n">load_dist</span><span class="p">()</span><span class="o">.</span><span class="n">save_as_dist</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s1">&#39; Nom gare &#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">atm</span><span class="o">.</span><span class="n">kde_gare</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">prix</span><span class="p">,</span> <span class="n">dist</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
+</dd>
+</dl>
 </dd></dl>
 
-<a class="reference internal image-reference" href="../_images/distrib.png"><img alt="../_images/distrib.png" src="../_images/distrib.png" style="width: 300px;" /></a>
+<dl class="py function">
+<dt class="sig sig-object py" id="asltam.price_distribution.distribution.mean_gare">
+<span class="sig-prename descclassname"><span class="pre">asltam.price_distribution.distribution.</span></span><span class="sig-name descname"><span class="pre">mean_gare</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/asltam/price_distribution/distribution.html#mean_gare"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#asltam.price_distribution.distribution.mean_gare" title="Permalink to this definition">¶</a></dt>
+<dd><p>Affiche le barycentre des données.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>data</strong> (<em>DataFrame</em>) – Tableau de données numériques.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>b</strong> (<em>pd.core.Series.Series</em>) - Le vecteur aux coordonnées moyennes.</p></li>
+</ul>
+</p>
+</dd>
+<dt class="field-odd">Example</dt>
+<dd class="field-odd"><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">asltam</span> <span class="k">as</span> <span class="nn">atm</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># affichons les prix moyens par gare</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">prix</span> <span class="o">=</span> <span class="n">atm</span><span class="o">.</span><span class="n">load_price</span><span class="p">()</span><span class="o">.</span><span class="n">save_as_price</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">atm</span><span class="o">.</span><span class="n">mean_gare</span><span class="p">(</span><span class="n">prix</span><span class="p">))</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="asltam.price_distribution.distribution.swarm_gare_price">
+<span class="sig-prename descclassname"><span class="pre">asltam.price_distribution.distribution.</span></span><span class="sig-name descname"><span class="pre">swarm_gare_price</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_price</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/asltam/price_distribution/distribution.html#swarm_gare_price"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#asltam.price_distribution.distribution.swarm_gare_price" title="Permalink to this definition">¶</a></dt>
+<dd><p>Affiche le swarmplot des prix par gare inscrite dans name.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data_price</strong> (<em>DataFrame</em>) – Tableau de données des prix.</p></li>
+<li><p><strong>name</strong> (<em>list</em>) – Liste d’index de data_price.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None.</p>
+</dd>
+<dt class="field-odd">Examples</dt>
+<dd class="field-odd"><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">asltam</span> <span class="k">as</span> <span class="nn">atm</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">prix</span> <span class="o">=</span> <span class="n">atm</span><span class="o">.</span><span class="n">load_price</span><span class="p">()</span><span class="o">.</span><span class="n">save_as_price</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">atm</span><span class="o">.</span><span class="n">swarm_gare_price</span><span class="p">(</span><span class="n">prix</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;MONTPELLIER&#39;</span><span class="p">,</span> <span class="s1">&#39;BRAM&#39;</span><span class="p">,</span> <span class="s1">&#39;CASTELNAUDARY&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd></dl>
+
 </div>
 <div class="section" id="module-asltam.io.pricedist">
 <span id="module-pricedist"></span><h2>Module pricedist<a class="headerlink" href="#module-asltam.io.pricedist" title="Permalink to this headline">¶</a></h2>
@@ -303,14 +323,18 @@ des résultats cohérents.</p>
 <dt class="sig sig-object py" id="asltam.io.pricedist.average_cost">
 <span class="sig-prename descclassname"><span class="pre">asltam.io.pricedist.</span></span><span class="sig-name descname"><span class="pre">average_cost</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_price</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_dist</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/asltam/io/pricedist.html#average_cost"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#asltam.io.pricedist.average_cost" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calcule de la matrice du prix moyen au kilomètre.</p>
-<dl class="simple">
-<dt>data_price<span class="classifier">DataFrame.</span></dt><dd><p>Tableau des prix.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data_price</strong> (<em>DataFrame</em>) – Tableau des prix.</p></li>
+<li><p><strong>data_dist</strong> (<em>DataFrame</em>) – Tableau des distances.</p></li>
+</ul>
 </dd>
-<dt>data_dist<span class="classifier">DataFrame.</span></dt><dd><p>Tableau des distances.</p>
-</dd>
-</dl>
-<dl class="simple">
-<dt>M<span class="classifier">array.</span></dt><dd><p>Retourne la matrice des prix moyens.</p>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>M</strong> (<em>array</em>) - Retourne la matrice des prix moyens.</p></li>
+</ul>
+</p>
 </dd>
 </dl>
 </dd></dl>
@@ -319,15 +343,18 @@ des résultats cohérents.</p>
 <dt class="sig sig-object py" id="asltam.io.pricedist.average_cost_list">
 <span class="sig-prename descclassname"><span class="pre">asltam.io.pricedist.</span></span><span class="sig-name descname"><span class="pre">average_cost_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_price</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_dist</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/asltam/io/pricedist.html#average_cost_list"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#asltam.io.pricedist.average_cost_list" title="Permalink to this definition">¶</a></dt>
 <dd><p>Calcule de la liste du prix moyen au kilomètre.</p>
-<dl class="simple">
-<dt>data_price<span class="classifier">DataFrame.</span></dt><dd><p>Tableau des prix.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data_price</strong> (<em>DataFrame</em>) – Tableau des prix.</p></li>
+<li><p><strong>data_dist</strong> (<em>DataFrame</em>) – Tableau des distances.</p></li>
+</ul>
 </dd>
-<dt>data_dist<span class="classifier">DataFrame.</span></dt><dd><p>Tableau des distances.</p>
-</dd>
-</dl>
-<dl class="simple">
-<dt>L<span class="classifier">list.</span></dt><dd><p>Retourne la partie diagonale inférieure (ou supérieure par 
-symétrie) de la matrice des prix moyens sous forme de liste.</p>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>L</strong> (<em>list</em>) - Retourne la partie diagonale inférieure (ou supérieure par symétrie) de la matrice des prix moyens sous forme de liste.</p></li>
+</ul>
+</p>
 </dd>
 </dl>
 </dd></dl>
@@ -336,13 +363,18 @@ symétrie) de la matrice des prix moyens sous forme de liste.</p>
 <dt class="sig sig-object py" id="asltam.io.pricedist.get_index">
 <span class="sig-prename descclassname"><span class="pre">asltam.io.pricedist.</span></span><span class="sig-name descname"><span class="pre">get_index</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/asltam/io/pricedist.html#get_index"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#asltam.io.pricedist.get_index" title="Permalink to this definition">¶</a></dt>
 <dd><p>Retourne la valeur de la position de name en tant qu’index.</p>
-<p>data : pd.DataFrame.</p>
-<dl class="simple">
-<dt>name<span class="classifier">str ou list, </span></dt><dd><p>Nom(s) d’index du tableau de données data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>DateFrame</em>) – </p></li>
+<li><p><strong>name</strong> (<em>str</em><em> or </em><em>list</em>) – Nom(s) d’index du tableau de données data.</p></li>
+</ul>
 </dd>
-</dl>
-<dl class="simple">
-<dt>I<span class="classifier">int or list.</span></dt><dd><p>Donne la/les positions(s) de name dans l’index de data.</p>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>I</strong> (<em>int or list</em>) - Donne la/les positions(s) de name dans l’index de data.</p></li>
+</ul>
+</p>
 </dd>
 </dl>
 </dd></dl>
@@ -355,20 +387,19 @@ Notre méthode se base sur le fait que l’algorithme de Kruskal nous
 fournit un graphe du réseau routier avec seulement des arêtes
 entre deux gares successives dont on déduit trivialement la liste
 avec un algorithme du plus court chemin (ici Dijkstra).</p>
-<dl class="simple">
-<dt>data_dist<span class="classifier">DataFrame.</span></dt><dd><p>Tableau de données sous forme de matrice 
-de distance entre toutes les gares.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data_dist</strong> (<em>DataFrame</em>) – Tableau de données sous forme de matrice de distance entre toutes les gares.</p></li>
+<li><p><strong>start</strong> (<em>str</em>) – La gare de départ (doit être une élément de data_dist.columns).</p></li>
+<li><p><strong>target</strong> (<em>str</em>) – La gare d’arrivée (doit être une élément de data_dist.columns).</p></li>
+</ul>
 </dd>
-<dt>start<span class="classifier">str.</span></dt><dd><p>La gare de départ (doit être une élément de 
-data_dist.columns).</p>
-</dd>
-<dt>target<span class="classifier">str.</span></dt><dd><p>La gare d’arrivée (doit être une élément de
-data_dist.columns).</p>
-</dd>
-</dl>
-<dl class="simple">
-<dt>L<span class="classifier">list.</span></dt><dd><p>Liste des péages situé sur le trajet autoroutier le plus court
-de start à target.</p>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>L</strong> (<em>list</em>) - Liste des péages situé sur le trajet autoroutier le plus court de start à target.</p></li>
+</ul>
+</p>
 </dd>
 </dl>
 </dd></dl>
@@ -390,8 +421,11 @@ inférieure ou égal à k.</p>
 <li><p><strong>k</strong> (<em>int</em>) – Déterminant la taille maximale des sous-graphes.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Return list L</dt>
-<dd class="field-even"><p>Une liste de graphe.</p>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>L</strong> (<em>list</em>) - Une liste de graphe.</p></li>
+</ul>
+</p>
 </dd>
 </dl>
 </dd></dl>
@@ -404,7 +438,7 @@ contrainte d’au maximum k entrées/sorties
 d’autoroute. Renvoie le prix, et les gares
 de sortie. Attention les tableaux de prix et de
 distances doivent être compatibles.</p>
-<dl class="field-list simple">
+<dl class="field-list">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>data_price</strong> (<em>DataFrame</em>) – Tableau des prix.</p></li>
@@ -414,16 +448,15 @@ distances doivent être compatibles.</p>
 <li><p><strong>k</strong> (<em>int</em>) – Nombre maximum d’entrées/sorties.</p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns list L</dt>
-<dd class="field-even"><p>La liste des sorties à prendre.</p>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>L</strong> (<em>list</em>) - La liste des sorties à prendre.</p></li>
+<li><p><strong>opt</strong> (<em>float</em>) - Renvoie le coût totaldu trajet.</p></li>
+</ul>
+</p>
 </dd>
-<dt class="field-odd">Returns float opt</dt>
-<dd class="field-odd"><p>Renvoie le coût totaldu trajet.</p>
-</dd>
-<dt class="field-even">Examples</dt>
-<dd class="field-even"><p></p></dd>
-</dl>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">asltam</span> <span class="k">as</span> <span class="nn">atm</span>
+<dt class="field-odd">Examples</dt>
+<dd class="field-odd"><div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">asltam</span> <span class="k">as</span> <span class="nn">atm</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">prix</span> <span class="o">=</span> <span class="n">atm</span><span class="o">.</span><span class="n">load_price</span><span class="p">()</span><span class="o">.</span><span class="n">save_as_price</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s1">&#39; &#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">dist</span> <span class="o">=</span> <span class="n">atm</span><span class="o">.</span><span class="n">load_dist</span><span class="p">()</span><span class="o">.</span><span class="n">save_as_dist</span><span class="p">(</span><span class="n">index</span><span class="o">=</span><span class="s1">&#39; Nom gare &#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">start</span> <span class="o">=</span> <span class="s1">&#39;MONTPELLIER&#39;</span>
@@ -433,6 +466,8 @@ distances doivent être compatibles.</p>
 <span class="go">[&#39;MONTPELLIER&#39;, &#39;SETE&#39;, &#39;AGDE&#39;, &#39;BEZIERS OUEST&#39;, &#39;LEUCATE&#39;] 9.0</span>
 </pre></div>
 </div>
+</dd>
+</dl>
 </dd></dl>
 
 </div>

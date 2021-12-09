@@ -32,6 +32,8 @@
   
     <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
   
+    <link rel="stylesheet" href="../../../_static/tabs.css" type="text/css" />
+  
 
   
         <link rel="index" title="Index"
@@ -89,6 +91,9 @@
 </ul>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../usage/Construction_des_donn%C3%A9es.html">Récupération des données</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../usage/Structure_des_donn%C3%A9es.html">Structure des données</a></li>
 </ul>
 
             
@@ -165,19 +170,12 @@
 <div class="viewcode-block" id="average_cost"><a class="viewcode-back" href="../../../usage/asltam.html#asltam.io.pricedist.average_cost">[docs]</a><span class="k">def</span> <span class="nf">average_cost</span><span class="p">(</span><span class="n">data_price</span><span class="p">,</span> <span class="n">data_dist</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Calcule de la matrice du prix moyen au kilomètre.</span>
+
+<span class="sd">    :param DataFrame data_price: Tableau des prix.</span>
 <span class="sd">    </span>
-<span class="sd">    Paramètres</span>
-<span class="sd">    ----------</span>
-<span class="sd">    data_price : DataFrame.</span>
-<span class="sd">    	Tableau des prix.</span>
+<span class="sd">    :param DataFrame data_dist: Tableau des distances.</span>
 <span class="sd">    </span>
-<span class="sd">    data_dist : DataFrame.</span>
-<span class="sd">    	Tableau des distances.</span>
-<span class="sd">    </span>
-<span class="sd">    Return</span>
-<span class="sd">    ------</span>
-<span class="sd">    M : array.</span>
-<span class="sd">    	Retourne la matrice des prix moyens.</span>
+<span class="sd">    :return: * **M** (*array*) - Retourne la matrice des prix moyens.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data_price</span><span class="p">)</span>
     <span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data_price</span><span class="p">)</span>
@@ -194,24 +192,18 @@
 <div class="viewcode-block" id="average_cost_list"><a class="viewcode-back" href="../../../usage/asltam.html#asltam.io.pricedist.average_cost_list">[docs]</a><span class="k">def</span> <span class="nf">average_cost_list</span><span class="p">(</span><span class="n">data_price</span><span class="p">,</span> <span class="n">data_dist</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Calcule de la liste du prix moyen au kilomètre.</span>
+
+<span class="sd">    :param DataFrame data_price: Tableau des prix.</span>
 <span class="sd">    </span>
-<span class="sd">    Paramètres</span>
-<span class="sd">    ----------</span>
-<span class="sd">    data_price : DataFrame.</span>
-<span class="sd">    	Tableau des prix.</span>
+<span class="sd">    :param DataFrame data_dist:	Tableau des distances.</span>
 <span class="sd">    </span>
-<span class="sd">    data_dist : DataFrame.</span>
-<span class="sd">    	Tableau des distances.</span>
-<span class="sd">    </span>
-<span class="sd">    Return</span>
-<span class="sd">    ------</span>
-<span class="sd">    L : list.</span>
-<span class="sd">    	Retourne la partie diagonale inférieure (ou supérieure par </span>
-<span class="sd">    	symétrie) de la matrice des prix moyens sous forme de liste.</span>
+<span class="sd">    :return: * **L** (*list*) - Retourne la partie diagonale inférieure (ou supérieure par symétrie) de la matrice des prix moyens sous forme de liste.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data_price</span><span class="p">)</span>
     <span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data_price</span><span class="p">)[</span><span class="n">np</span><span class="o">.</span><span class="n">triu_indices</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span>
     <span class="n">d</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data_dist</span><span class="p">)[</span><span class="n">np</span><span class="o">.</span><span class="n">triu_indices</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span>
+    <span class="c1"># le np.triu_indices permet de sélectionner juste ce</span>
+    <span class="c1"># qu&#39;il y a en dessous de la diagonale de la matrice</span>
     <span class="k">return</span> <span class="n">p</span><span class="o">/</span><span class="n">d</span></div>
 
 <span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
@@ -225,24 +217,20 @@
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Retourne la valeur de la position de name en tant qu&#39;index.</span>
 <span class="sd">    </span>
-<span class="sd">    Paramètres</span>
-<span class="sd">    ----------</span>
-<span class="sd">    data : pd.DataFrame.</span>
+<span class="sd">    :param DateFrame data:</span>
 <span class="sd">    </span>
-<span class="sd">    name : str ou list, </span>
-<span class="sd">    	Nom(s) d&#39;index du tableau de données data.</span>
+<span class="sd">    :param str or list name: Nom(s) d&#39;index du tableau de données data.</span>
 <span class="sd">    </span>
-<span class="sd">    Return</span>
-<span class="sd">    ------</span>
-<span class="sd">    I : int or list.</span>
-<span class="sd">    	Donne la/les positions(s) de name dans l&#39;index de data.</span>
+<span class="sd">    :return: * **I** (*int or list*) - Donne la/les positions(s) de name dans l&#39;index de data.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="o">==</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="c1">#  dans le cas où l&#39;on veut qu&#39;un seul index.</span>
         <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
         <span class="k">while</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="ow">and</span> <span class="n">name</span> <span class="o">!=</span> <span class="n">data</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
             <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
         <span class="k">return</span> <span class="n">i</span>
     <span class="k">elif</span> <span class="nb">type</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="o">==</span> <span class="nb">list</span><span class="p">:</span>
+        <span class="c1"># dans le cas où on veut une liste de plusieurs index.</span>
         <span class="n">ind</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">name</span><span class="p">)):</span>
             <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
@@ -264,25 +252,13 @@
 <span class="sd">    entre deux gares successives dont on déduit trivialement la liste</span>
 <span class="sd">    avec un algorithme du plus court chemin (ici Dijkstra).</span>
 <span class="sd">    </span>
-<span class="sd">    Paramètres</span>
-<span class="sd">    ----------</span>
-<span class="sd">    data_dist : DataFrame.</span>
-<span class="sd">    	Tableau de données sous forme de matrice </span>
-<span class="sd">    	de distance entre toutes les gares.</span>
+<span class="sd">    :param DataFrame data_dist: Tableau de données sous forme de matrice de distance entre toutes les gares.</span>
 <span class="sd">    </span>
-<span class="sd">    start : str.</span>
-<span class="sd">    	La gare de départ (doit être une élément de </span>
-<span class="sd">    	data_dist.columns).</span>
+<span class="sd">    :param str start: La gare de départ (doit être une élément de data_dist.columns).</span>
 <span class="sd">    </span>
-<span class="sd">    target : str.</span>
-<span class="sd">    	La gare d&#39;arrivée (doit être une élément de</span>
-<span class="sd">    	data_dist.columns).</span>
+<span class="sd">    :param str target: La gare d&#39;arrivée (doit être une élément de data_dist.columns).</span>
 <span class="sd">    </span>
-<span class="sd">    Return</span>
-<span class="sd">    ------</span>
-<span class="sd">    L : list.</span>
-<span class="sd">    	Liste des péages situé sur le trajet autoroutier le plus court</span>
-<span class="sd">    	de start à target.</span>
+<span class="sd">    :return: * **L** (*list*) - Liste des péages situé sur le trajet autoroutier le plus court de start à target.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">Graph</span><span class="p">(</span><span class="n">incoming_graph_data</span><span class="o">=</span><span class="n">data_dist</span><span class="p">)</span>
     <span class="n">a</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">minimum_spanning_tree</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="s1">&#39;weight&#39;</span><span class="p">)</span>
@@ -335,6 +311,7 @@
       <script type="text/javascript" src="../../../_static/jquery.js"></script>
       <script type="text/javascript" src="../../../_static/underscore.js"></script>
       <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../../_static/tabs.js"></script>
 
   
 

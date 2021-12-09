@@ -1,0 +1,452 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Structure des données &mdash; ASLTAM  documentation</title>
+  
+
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+    <link rel="stylesheet" href="../_static/tabs.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="ASLTAM  documentation" href="../index.html"/>
+        <link rel="prev" title="Récupération des données" href="Construction_des_donn%C3%A9es.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> ASLTAM
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="asltam.html">ASLTAM</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="Construction_des_donn%C3%A9es.html">Récupération des données</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Structure des données</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#format-des-donnees-geographiques">Format des données géographiques</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#matrice-des-distances-prix">Matrice des distances/prix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#compatibilite">Compatibilité</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ASLTAM</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Structure des données</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/usage/Structure_des_données.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="structure-des-donnees">
+<h1>Structure des données<a class="headerlink" href="#structure-des-donnees" title="Permalink to this headline">¶</a></h1>
+<p>Ici, nous présentons la forme que doivent avoir les données pour que les algorithmes puissent fonctionner convenablement.</p>
+<p>La plupart des fonctions et algorithmes de <code class="docutils literal notranslate"><span class="pre">asltam</span></code> utilisent des variables de type DataFrame <code class="docutils literal notranslate"><span class="pre">pandas</span></code> qui ont une structure bien particulière pour bien fonctionner.</p>
+<div class="section" id="format-des-donnees-geographiques">
+<h2>Format des données géographiques<a class="headerlink" href="#format-des-donnees-geographiques" title="Permalink to this headline">¶</a></h2>
+<p>Dans le module <code class="docutils literal notranslate"><span class="pre">map</span></code>, on utilise des données géographiques pour pouvoir afficher les cartes. Cependant, il est nécessaire d’avoir le bon format
+pour pouvoir utiliser convenablement les fonctions. Ainsi, les coordonnées doivent être en WGS84 (epsg:4326) et doivent commencer d’abord par la lattitude et ensuite la longitude.
+Voici un exemple de tableau sous le bon format :</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 41%" />
+<col style="width: 30%" />
+<col style="width: 30%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Gares de péage</p></th>
+<th class="head"><p>Lattitude</p></th>
+<th class="head"><p>Longitude</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Montpellier</p></td>
+<td><p>43.56321197997598</p></td>
+<td><p>3.832152851175532</p></td>
+</tr>
+<tr class="row-odd"><td><p>Sete</p></td>
+<td><p>43.48122735717297</p></td>
+<td><p>3.683459688948031</p></td>
+</tr>
+<tr class="row-even"><td><p>Agde</p></td>
+<td><p>43.37686025015689</p></td>
+<td><p>3.4158808248192942</p></td>
+</tr>
+<tr class="row-odd"><td><p>Beziers Cabrials (Sortie)</p></td>
+<td><p>43.34325721988552</p></td>
+<td><p>3.2885692228136043</p></td>
+</tr>
+<tr class="row-even"><td><p>Beziers Ouest</p></td>
+<td><p>43.303664399696856</p></td>
+<td><p>3.2229492234270127</p></td>
+</tr>
+</tbody>
+</table>
+<p>Si vos coordonnées sont en lambert93 (epsg:2154), vous pouvez transformer ces dernières en coordonnées WGS84 (epsg:4326) en suivant le tutoriel <a class="reference external" href="https://moonbooks.org/Articles/Convertir-des-coordonnees-Lambert-93-en-longitude-et-latitude-avec-python-3/">suivant</a>.</p>
+<p>Enfin, la classe <code class="docutils literal notranslate"><span class="pre">load_geo</span></code> est disponible dans <code class="docutils literal notranslate"><span class="pre">asltam</span></code> pour pouvoir charger vos données géographiques avec <code class="docutils literal notranslate"><span class="pre">pandas</span></code>.</p>
+</div>
+<div class="section" id="matrice-des-distances-prix">
+<h2>Matrice des distances/prix<a class="headerlink" href="#matrice-des-distances-prix" title="Permalink to this headline">¶</a></h2>
+<p>Comme pour les données géographiques, il va falloir fixer un certain vocabulaire dans les tableaux de données qui traitent des prix et des distances.
+Elles auront une structure assez simple, et on appellera matrice des distances/prix, un tableau de données symétrique à coefficients positifs, de diagonale nulle.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 31%" />
+<col style="width: 19%" />
+<col style="width: 19%" />
+<col style="width: 15%" />
+<col style="width: 15%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>x1</p></th>
+<th class="head"><p>x2</p></th>
+<th class="head"><p>…</p></th>
+<th class="head"><p>xn</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>x1</p></td>
+<td><p>0</p></td>
+<td><p>a1 2</p></td>
+<td><p>…</p></td>
+<td><p>a1 n</p></td>
+</tr>
+<tr class="row-odd"><td><p>x2</p></td>
+<td><p>a1 2</p></td>
+<td><p>0</p></td>
+<td><p>…</p></td>
+<td><p>a2 n</p></td>
+</tr>
+<tr class="row-even"><td><p>…</p></td>
+<td><p>…</p></td>
+<td><p>…</p></td>
+<td><p>…</p></td>
+<td><p>…</p></td>
+</tr>
+<tr class="row-odd"><td><p>xn</p></td>
+<td><p>a1 n</p></td>
+<td><p>a2 n</p></td>
+<td><p>…</p></td>
+<td><p>0</p></td>
+</tr>
+</tbody>
+</table>
+<p>Ces conditions sont assez légitime pour pouvoir faire un tableau croisé des prix (ou des distances). Par exemple, voici un extrait du tableau des prix de notre base de données :</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30%" />
+<col style="width: 13%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 30%" />
+<col style="width: 16%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Prix</p></th>
+<th class="head"><p>Montpellier</p></th>
+<th class="head"><p>Sete</p></th>
+<th class="head"><p>Agde</p></th>
+<th class="head"><p>Beziers Cabrials (Sortie)</p></th>
+<th class="head"><p>Beziers Ouest</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Montpellier</p></td>
+<td><p>0.0</p></td>
+<td><p>1.6</p></td>
+<td><p>3.6</p></td>
+<td><p>4.7</p></td>
+<td><p>5.6</p></td>
+</tr>
+<tr class="row-odd"><td><p>Sete</p></td>
+<td><p>1.6</p></td>
+<td><p>0.0</p></td>
+<td><p>1.9</p></td>
+<td><p>3.3</p></td>
+<td><p>3.6</p></td>
+</tr>
+<tr class="row-even"><td><p>Agde</p></td>
+<td><p>3.6</p></td>
+<td><p>1.9</p></td>
+<td><p>0.0</p></td>
+<td><p>1.0</p></td>
+<td><p>1.4</p></td>
+</tr>
+<tr class="row-odd"><td><p>Beziers Cabrials (Sortie)</p></td>
+<td><p>4.7</p></td>
+<td><p>3.3</p></td>
+<td><p>1.0</p></td>
+<td><p>0.0</p></td>
+<td><p>0.7</p></td>
+</tr>
+<tr class="row-even"><td><p>Beziers Ouest</p></td>
+<td><p>5.6</p></td>
+<td><p>3.6</p></td>
+<td><p>1.4</p></td>
+<td><p>0.7</p></td>
+<td><p>0.0</p></td>
+</tr>
+</tbody>
+</table>
+<p>Il sera donc nécessaire avant d’utiliser les fonctions du package, de veiller à ce que les données utilisées soient rangées de cette manière. Il existe deux classes
+pour pouvoir charger les données de distances ou de prix qui se nomment respectivement <code class="docutils literal notranslate"><span class="pre">load_dist</span></code> et <code class="docutils literal notranslate"><span class="pre">load_price</span></code>. Une méthode pour vérifier si ce sont bien des matrices de
+distances/prix est disponible.</p>
+</div>
+<div class="section" id="compatibilite">
+<h2>Compatibilité<a class="headerlink" href="#compatibilite" title="Permalink to this headline">¶</a></h2>
+<p>Pour pouvoir avoir des résultats interprétables, il faudra enfin veiller à ce que les données soit rangées dans le même ordre : c’est que nous appelerons “données compatibles”.
+Considérons le tableaux des distances suivants :</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 30%" />
+<col style="width: 13%" />
+<col style="width: 5%" />
+<col style="width: 5%" />
+<col style="width: 30%" />
+<col style="width: 16%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Distances</p></th>
+<th class="head"><p>Montpellier</p></th>
+<th class="head"><p>Sete</p></th>
+<th class="head"><p>Agde</p></th>
+<th class="head"><p>Beziers Cabrials (Sortie)</p></th>
+<th class="head"><p>Beziers Ouest</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Montpellier</p></td>
+<td><p>0.0</p></td>
+<td><p>17.0</p></td>
+<td><p>41.0</p></td>
+<td><p>57.0</p></td>
+<td><p>59.0</p></td>
+</tr>
+<tr class="row-odd"><td><p>Sete</p></td>
+<td><p>17.0</p></td>
+<td><p>0.0</p></td>
+<td><p>26.0</p></td>
+<td><p>39.0</p></td>
+<td><p>44.0</p></td>
+</tr>
+<tr class="row-even"><td><p>Agde</p></td>
+<td><p>41.0</p></td>
+<td><p>26.0</p></td>
+<td><p>0.0</p></td>
+<td><p>16.0</p></td>
+<td><p>18.0</p></td>
+</tr>
+<tr class="row-odd"><td><p>Beziers Cabrials (Sortie)</p></td>
+<td><p>57.0</p></td>
+<td><p>39.0</p></td>
+<td><p>16.0</p></td>
+<td><p>0.0</p></td>
+<td><p>8.0</p></td>
+</tr>
+<tr class="row-even"><td><p>Beziers Ouest</p></td>
+<td><p>59.0</p></td>
+<td><p>44.0</p></td>
+<td><p>18.0</p></td>
+<td><p>8.0</p></td>
+<td><p>0.0</p></td>
+</tr>
+</tbody>
+</table>
+<p>Alors, ce-dernier, et ceux des sections précédentes, sont compatibles (on voit que les noms de gare sont dans le même ordre sur le tableau).</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="Construction_des_donn%C3%A9es.html" class="btn btn-neutral" title="Récupération des données" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2021, Bouarroudj Abdelmalek, Capel Alexandre, Carvaillo Thomas.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> and ❤️  using a custom <a href="https://github.com/LinxiFan/Stanford-theme">theme</a> based on <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/documentation_options.js"></script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

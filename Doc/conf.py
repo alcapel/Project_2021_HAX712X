@@ -13,7 +13,7 @@
 
 import os
 import sys
-sys.path.insert(0, os.path.abspath('D:\Documents\Project_2021_HAX712X-main'))
+sys.path.insert(0, os.path.abspath('C:/Users/alexc/Downloads/Project_2021_HAX712X-main (1)/Project_2021_HAX712X-main'))
 
 ###################################### A LIRE ######################################
 # Pour que sphinx trouve le module, il faut que vous modifiez le chemin d'accès ci-dessus
@@ -39,7 +39,9 @@ author = 'Bouarroudj Abdelmalek, Capel Alexandre, Carvaillo Thomas'
 extensions = [
 'sphinx.ext.autodoc',
 'sphinx.ext.todo',
-'sphinx.ext.viewcode'
+'sphinx.ext.viewcode',
+'sphinx.ext.autosectionlabel',
+'sphinx_tabs.tabs'
 ]
 
 # Add any paths that contain templates here, relative to this directory.
