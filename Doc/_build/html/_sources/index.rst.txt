@@ -29,14 +29,14 @@ Pour utiliser pleinement ``asltam``, il faut faire plusieurs installations inter
 
 dans un terminal python (sous Windows, installer Anaconda3 si ce n'est pas déjà fait et recherchez Anaconda Prompt sur la barre de recherche).
 
-Ensuite, après avoir basculer dans le nouvel environnement python, téléchargez le dossier du `git <https://github.com/Eldohrim/Project_2021_HAX712X>`_.
-Enfin, placer vous dans le dossier correspondant, et téléchargez les modules présents dans le fichier ``requirements.txt`` via la commande ``pip`` :
+Ensuite, après avoir basculé dans le nouvel environnement python, téléchargez le dossier du `git <https://github.com/Eldohrim/Project_2021_HAX712X>`_.
+Enfin, placez vous dans le dossier correspondant, et téléchargez les modules présents dans le fichier ``requirements.txt`` via la commande ``pip`` :
 
 .. code:: bash
 
          $ pip install -r /path/to/requirements.txt
 
-Ces packages sont importants pour le bon fonctionnement du programme. Après toutes ces manipulations vous pourrez enfin installer notre module avec la commande :
+Ces packages sont importants pour le bon fonctionnement du programme. Après toutes ces manipulations, vous pourrez enfin installer notre module avec la commande :
 
 .. code:: bash
 
@@ -48,6 +48,30 @@ et ainsi le lancer et l'utiliser comme bon vous semble. Idée d'importation :
 
          >>> import asltam as atm
 
+Démonstrations de ``asltam``
+=============================
+Les possibilités avec ``asltam`` sont multiples. Il est possible avec notre package de faire des études statistiques avec des outils
+de visualitation 
+
+* affichage d'un "kernel density estimation" avec la fonction ``kde_gare`` (issu du code dans :ref:`Module price_distribution`)
+
+.. image:: ./usage/img/kde.jpg
+   :width: 400
+   :align: center
+
+* affichage d'un swarmplot des prix en fonction des gares d'arrivée (code issu de la même section que celui ci-dessus):
+
+.. image:: ./usage/img/swarm.jpg
+   :width: 400
+   :align: center
+
+mais aussi d'afficher des cartes intéractives avec des serveurs très performants (fait avec le code de :ref:`Module map`): 
+
+.. image:: ./usage/img/carte-gif.gif
+   :width: 400
+   :align: center
+
+Il y a aussi un algorithme d'optimisation de coût de trajet, mais nous vous laissons le plaisir de le découvrir par vous même dans le :ref:`Module graph`.
 
 Table des matières
 =====================
@@ -75,14 +99,14 @@ Table des matières
    .. tab:: Structure des données
 
       Pour avoir des résultats cohérents, et un bonne utilisation du package, il est nécessaire d'avoir connaissance du type et format des données.
-      Une série de définition et d'explication sur les données est réunie ici :
+      Une série de définitions et d'explications sur les données est réunie ici :
 
       .. toctree::
          usage/Structure_des_données.rst
 
    .. tab:: Guide installation clef API
 
-      Pour une optimiser votre usage de ``asltam``, il est conseiller d'avoir une clef API personnelle. Voici un court guide pour en obtenir une :
+      Pour une optimiser votre usage de ``asltam``, il est conseillé d'avoir une clef API personnelle. Voici un court guide pour en obtenir une :
 
       .. toctree::
          usage/installation_clef.rst      

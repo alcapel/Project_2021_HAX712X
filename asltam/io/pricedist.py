@@ -97,7 +97,7 @@ def get_way(data_dist, start, target):
     
     :param str target: La gare d'arrivée (doit être une élément de data_dist.columns).
     
-    :return: * **L** (*list*) - Liste des péages situé sur le trajet autoroutier le plus court de start à target.
+    :return: * **L** (*list*) - Liste des péages situés sur le trajet autoroutier le plus court de start à target.
     """
     G = nx.Graph(incoming_graph_data=data_dist)
     a = nx.minimum_spanning_tree(G, weight='weight')

@@ -57,7 +57,7 @@ def kmin_cost_out(data_price, data_dist, start, target, k):
 
     :return: 
             * **L** (*list*) - La liste des sorties à prendre.\n
-            * **opt** (*float*) - Renvoie le coût totaldu trajet.
+            * **opt** (*float*) - Renvoie le coût total du trajet.
     
     :examples: .. code:: python 
                     >>> import asltam as atm

@@ -179,12 +179,12 @@ Cependant, il est possible pour vous d’utiliser ce package à votre guise, pou
 </pre></div>
 </div>
 <p>dans un terminal python (sous Windows, installer Anaconda3 si ce n’est pas déjà fait et recherchez Anaconda Prompt sur la barre de recherche).</p>
-<p>Ensuite, après avoir basculer dans le nouvel environnement python, téléchargez le dossier du <a class="reference external" href="https://github.com/Eldohrim/Project_2021_HAX712X">git</a>.
-Enfin, placer vous dans le dossier correspondant, et téléchargez les modules présents dans le fichier <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> via la commande <code class="docutils literal notranslate"><span class="pre">pip</span></code> :</p>
+<p>Ensuite, après avoir basculé dans le nouvel environnement python, téléchargez le dossier du <a class="reference external" href="https://github.com/Eldohrim/Project_2021_HAX712X">git</a>.
+Enfin, placez vous dans le dossier correspondant, et téléchargez les modules présents dans le fichier <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code> via la commande <code class="docutils literal notranslate"><span class="pre">pip</span></code> :</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ pip install -r /path/to/requirements.txt
 </pre></div>
 </div>
-<p>Ces packages sont importants pour le bon fonctionnement du programme. Après toutes ces manipulations vous pourrez enfin installer notre module avec la commande :</p>
+<p>Ces packages sont importants pour le bon fonctionnement du programme. Après toutes ces manipulations, vous pourrez enfin installer notre module avec la commande :</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ pip install -i https://test.pypi.org/simple/ <span class="nv">asltam</span><span class="o">==</span><span class="m">1</span>.1.0
 </pre></div>
 </div>
@@ -192,6 +192,22 @@ Enfin, placer vous dans le dossier correspondant, et téléchargez les modules p
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">asltam</span> <span class="k">as</span> <span class="nn">atm</span>
 </pre></div>
 </div>
+</div>
+<div class="section" id="demonstrations-de-asltam">
+<h1>Démonstrations de <code class="docutils literal notranslate"><span class="pre">asltam</span></code><a class="headerlink" href="#demonstrations-de-asltam" title="Permalink to this headline">¶</a></h1>
+<p>Les possibilités avec <code class="docutils literal notranslate"><span class="pre">asltam</span></code> sont multiples. Il est possible avec notre package de faire des études statistiques avec des outils
+de visualitation</p>
+<ul class="simple">
+<li><p>affichage d’un “kernel density estimation” avec la fonction <code class="docutils literal notranslate"><span class="pre">kde_gare</span></code> (issu du code dans <a class="reference internal" href="usage/asltam.html#module-price-distribution"><span class="std std-ref">Module price_distribution</span></a>)</p></li>
+</ul>
+<a class="reference internal image-reference" href="_images/kde.jpg"><img alt="_images/kde.jpg" class="align-center" src="_images/kde.jpg" style="width: 400px;" /></a>
+<ul class="simple">
+<li><p>affichage d’un swarmplot des prix en fonction des gares d’arrivée (code issu de la même section que celui ci-dessus):</p></li>
+</ul>
+<a class="reference internal image-reference" href="_images/swarm.jpg"><img alt="_images/swarm.jpg" class="align-center" src="_images/swarm.jpg" style="width: 400px;" /></a>
+<p>mais aussi d’afficher des cartes intéractives avec des serveurs très performants (fait avec le code de <a class="reference internal" href="usage/asltam.html#module-map"><span class="std std-ref">Module map</span></a>):</p>
+<a class="reference internal image-reference" href="_images/carte-gif.gif"><img alt="_images/carte-gif.gif" class="align-center" src="_images/carte-gif.gif" style="width: 400px;" /></a>
+<p>Il y a aussi un algorithme d’optimisation de coût de trajet, mais nous vous laissons le plaisir de le découvrir par vous même dans le <a class="reference internal" href="usage/asltam.html#module-graph"><span class="std std-ref">Module graph</span></a>.</p>
 </div>
 <div class="section" id="table-des-matieres">
 <h1>Table des matières<a class="headerlink" href="#table-des-matieres" title="Permalink to this headline">¶</a></h1>
@@ -221,7 +237,7 @@ Enfin, placer vous dans le dossier correspondant, et téléchargez les modules p
 </ul>
 </div>
 </div><div aria-labelledby="tab-0-0-2" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-2" name="0-2" role="tabpanel" tabindex="0"><p>Pour avoir des résultats cohérents, et un bonne utilisation du package, il est nécessaire d’avoir connaissance du type et format des données.
-Une série de définition et d’explication sur les données est réunie ici :</p>
+Une série de définitions et d’explications sur les données est réunie ici :</p>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="usage/Structure_des_donn%C3%A9es.html">Structure des données</a><ul>
@@ -232,7 +248,7 @@ Une série de définition et d’explication sur les données est réunie ici :<
 </li>
 </ul>
 </div>
-</div><div aria-labelledby="tab-0-0-3" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-3" name="0-3" role="tabpanel" tabindex="0"><p>Pour une optimiser votre usage de <code class="docutils literal notranslate"><span class="pre">asltam</span></code>, il est conseiller d’avoir une clef API personnelle. Voici un court guide pour en obtenir une :</p>
+</div><div aria-labelledby="tab-0-0-3" class="sphinx-tabs-panel" hidden="true" id="panel-0-0-3" name="0-3" role="tabpanel" tabindex="0"><p>Pour une optimiser votre usage de <code class="docutils literal notranslate"><span class="pre">asltam</span></code>, il est conseillé d’avoir une clef API personnelle. Voici un court guide pour en obtenir une :</p>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="usage/installation_clef.html">Guide d’installation de clef API</a></li>
