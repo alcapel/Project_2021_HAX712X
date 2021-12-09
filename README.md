@@ -24,7 +24,7 @@ $ pip install -r /path/to/requirements.txt
 Ces packages sont importants pour le bon fonctionnement du programme. Après toutes ces manipulations vous pourrez enfin installer notre module avec la commande :
 
 ```bash
-$ pip install -i https://test.pypi.org/simple/ asltam==1.0.0
+$ pip install -i https://test.pypi.org/simple/ asltam==1.1.0
 ```
 et ainsi le lancer et l'utiliser comme bon vous semble. 
 Idée d'importation :
