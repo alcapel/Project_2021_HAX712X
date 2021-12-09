@@ -16,14 +16,14 @@ def get_subgraph_under_k(data, k):
 
     :param DataFrame or Array data:
 
-    :param int k : Déterminant la taille maximale des 
-    sous-graphes.
+    :param int k: Déterminant la taille maximale des sous-graphes.
 
-    :return list L: Une liste de graphe.
+    :return: * **L** (*list*) - Une liste de graphe.
     """
     n = len(data)
     graphes = []
     for j in range(k+1):
+        # boucle sur toutes les combinaisons possibles.
         for i in combinations(range(1, n-1), j):
             sub = [0] + list(i) + [n-1]
             g = load_price.subdata_price(data, sub)
@@ -45,8 +45,6 @@ def kmin_cost_out(data_price, data_dist, start, target, k):
     de sortie. Attention les tableaux de prix et de
     distances doivent être compatibles.
 
-    Paramètres
-    ----------
     :param DataFrame data_price: Tableau des prix.
 
     :param DataFrame data_dist: Tableau des distances.
@@ -57,20 +55,19 @@ def kmin_cost_out(data_price, data_dist, start, target, k):
 
     :param int k: Nombre maximum d'entrées/sorties.
 
-    :returns list L: La liste des sorties à prendre.
-    :returns float opt: Renvoie le coût totaldu trajet.
+    :return: 
+            * **L** (*list*) - La liste des sorties à prendre.\n
+            * **opt** (*float*) - Renvoie le coût totaldu trajet.
     
-    :examples:
-    .. code:: python
-    
-        >>> import asltam as atm
-        >>> prix = atm.load_price().save_as_price(index=' ')
-        >>> dist = atm.load_dist().save_as_dist(index=' Nom gare ')
-        >>> start = 'MONTPELLIER'
-        >>> target = 'LEUCATE'
-        >>> g, opt = atm.kmin_cost_out(prix, dist, start, target, 4)
-        >>> print(g, opt)
-        ['MONTPELLIER', 'SETE', 'AGDE', 'BEZIERS OUEST', 'LEUCATE'] 9.0
+    :examples: .. code:: python 
+                    >>> import asltam as atm
+                    >>> prix = atm.load_price().save_as_price(index=' ')
+                    >>> dist = atm.load_dist().save_as_dist(index=' Nom gare ')
+                    >>> start = 'MONTPELLIER'
+                    >>> target = 'LEUCATE'
+                    >>> g, opt = atm.kmin_cost_out(prix, dist, start, target, 4)
+                    >>> print(g, opt)
+                    ['MONTPELLIER', 'SETE', 'AGDE', 'BEZIERS OUEST', 'LEUCATE'] 9.0
         
     """
     a = get_way(data_dist, start, target)
@@ -79,6 +76,8 @@ def kmin_cost_out(data_price, data_dist, start, target, k):
     graphes = get_subgraph_under_k(road, k)
     i_opt = 0
     for i in range(len(graphes)):
+        # on recherche dans la liste celui qui a le poids
+        # le plus faible.
         path = nx.minimum_spanning_tree(graphes[i], weight='weight')
         pds = path.size(weight='weight')
         if pds < opt:
