@@ -53,7 +53,7 @@ target = 'BEZIERS OUEST'
 atm.trajet(start, target, geo, price, dist)
 
 ```
-permettant d'afficher la carte suivante : 
+permettant d'afficher le résultat suivant : 
 <p align="center">
   <img src="https://github.com/Eldohrim/Project_2021_HAX712X/blob/main/Beamer/carte-gif.gif" width="400" title="Exemple">
 </p>
