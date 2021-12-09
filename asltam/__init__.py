@@ -1,4 +1,4 @@
-__version__ = '1.1.0'
+__version__ = '1.1.1'
 
 from .io.load_geo import load_geo
 from .io.load_dist import load_dist
