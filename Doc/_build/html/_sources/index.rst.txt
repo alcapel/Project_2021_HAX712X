@@ -6,7 +6,7 @@
 Documentation du programme ASLTAM
 ==================================
 
-Bienvenu dans la documentation du programme ASLTAM ! Un package très utile de modélisation statistique. 
+Bienvenue dans la documentation du programme ASLTAM ! Un package très utile de modélisation statistique. 
 
 Présentation
 =============
@@ -17,7 +17,7 @@ Présentation
 
 
 Le nom ``asltam`` provient de l'acronyme ASL (une mauvaise lecture de ASF, pour Autoroute du Sud de la France) et des premières lettres des créateurs du package : Thomas CARVAILLO, Alexandre CAPEL et Abdelmalk BOUARROUDJI (appelé aussi Malek). Ce module python a été conçu pour répondre à une problématique sur l'étude de la politique des prix de la compagnie Vinci, en particulier dans la région Occitanie.
-Cependant, il est possible pour vous d'utiliser ce package à votre guise, pour répondre à un de vos problèmes. Cependant, il faut commencer par l'installer.
+Cependant, il est possible pour vous d'utiliser ce package à votre guise, pour répondre à un de vos problèmes.
 
 Procédure d'installation
 =========================
@@ -30,7 +30,7 @@ Pour utiliser pleinement ``asltam``, il faut faire plusieurs installations inter
 dans un terminal python (sous Windows, installer Anaconda3 si ce n'est pas déjà fait et recherchez Anaconda Prompt sur la barre de recherche).
 
 Ensuite, après avoir basculé dans le nouvel environnement python, téléchargez le dossier du `git <https://github.com/Eldohrim/Project_2021_HAX712X>`_.
-Enfin, placez vous dans le dossier correspondant, et téléchargez les modules présents dans le fichier ``requirements.txt`` via la commande ``pip`` :
+Enfin, téléchargez les modules présents dans le fichier ``requirements.txt`` via la commande ``pip`` :
 
 .. code:: bash
 
@@ -40,7 +40,7 @@ Ces packages sont importants pour le bon fonctionnement du programme. Après tou
 
 .. code:: bash
 
-         $ pip install -i https://test.pypi.org/simple/ asltam==1.1.0
+         $ pip install -i https://test.pypi.org/simple/ asltam==1.1.1
 
 et ainsi le lancer et l'utiliser comme bon vous semble. Idée d'importation :
 
@@ -51,7 +51,7 @@ et ainsi le lancer et l'utiliser comme bon vous semble. Idée d'importation :
 Démonstrations de ``asltam``
 =============================
 Les possibilités avec ``asltam`` sont multiples. Il est possible avec notre package de faire des études statistiques avec des outils
-de visualitation 
+de visualitation :
 
 * affichage d'un "kernel density estimation" avec la fonction ``kde_gare`` (issu du code dans :ref:`Module price_distribution`)
 
@@ -91,7 +91,7 @@ Table des matières
    
    .. tab:: Construction des données
 
-      Dans ces sections, nous expliquons d'où proviennent les données, et comment nous les avons traités pour répondre au problème. Ce sont les données à titre d'exemple pour les programmes.
+      Dans ces sections, nous expliquons d'où proviennent les données, et comment nous les avons traité pour répondre au problème. Ce sont les données utilisées à titre d'exemple pour les programmes.
       
       .. toctree::
          usage/Construction_des_données.rst

@@ -22,8 +22,8 @@ def kde_gare(
     gares de péages sur un trajet donné (ou sur tout le 
     réseau). 
 
-    .. warning:: Attention, les données de distance et de prix
-            doivent être compatible pour pouvoir avoir des résultats cohérents. 
+    .. warning:: Attention, les données de distances et de prix
+            doivent être compatibles pour pouvoir avoir des résultats cohérents. 
             Voir la documentation pour la :ref:`Compatibilité`.
 
     :param bool all: Si True affiche la distribution sur le DataFrame entier.
@@ -115,7 +115,7 @@ def mean_gare(data):
 
 def swarm_gare_price(data_price, name):
     """
-    Affiche le swarmplot des prix par gare inscrite dans name.
+    Affiche le swarmplot des prix par gares inscrites dans name.
 
     :param DataFrame data_price: Tableau de données des prix.
 

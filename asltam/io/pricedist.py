@@ -8,7 +8,7 @@ start = time.time()
 
 def average_cost(data_price, data_dist):
     """
-    Calcule de la matrice du prix moyen au kilomètre.
+    Calcul de la matrice du prix moyen au kilomètre.
 
     :param DataFrame data_price: Tableau des prix.
     
@@ -29,7 +29,7 @@ start = time.time()
 
 def average_cost_list(data_price, data_dist):
     """
-    Calcule de la liste du prix moyen au kilomètre.
+    Calcul de la liste du prix moyen au kilomètre.
 
     :param DataFrame data_price: Tableau des prix.
     
@@ -55,7 +55,7 @@ def get_index(data, name):
     """
     Retourne la valeur de la position de name en tant qu'index.
     
-    :param DateFrame data:
+    :param DateFrame data: Un tableau de données.
     
     :param str or list name: Nom(s) d'index du tableau de données data.
     
@@ -91,7 +91,7 @@ def get_way(data_dist, start, target):
     entre deux gares successives dont on déduit trivialement la liste
     avec un algorithme du plus court chemin (ici Dijkstra).
     
-    :param DataFrame data_dist: Tableau de données sous forme de matrice de distance entre toutes les gares.
+    :param DataFrame data_dist: Tableau de données sous forme de matrice de distances entre toutes les gares.
     
     :param str start: La gare de départ (doit être une élément de data_dist.columns).
     

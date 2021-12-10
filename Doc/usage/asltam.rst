@@ -5,7 +5,7 @@ Il s'agit du module principal de notre programme, il contient toutes les fonctio
 
 Module map
 ------------
-Le but principal de ce module est l'affichage d'une carte folium, affichant le trajet entre deux gares, ainsi que des descriptions de la route les séparant comme le prix, ou la distance totale. La fonction principale permettant d'afficher la carte peut s'appeler directement après importation de ``asltam``.
+Le but principal de ce module est l'affichage d'une carte folium,  affichant le trajet entre deux gares, ainsi que des descriptions de la route les séparant comme le prix, ou la distance totale. La fonction principale permettant d'afficher la carte peut s'appeler directement après importation de ``asltam``.
 
 .. automodule:: asltam.map.carte_interactive
     :members:
@@ -28,7 +28,7 @@ Module pricedist
 Module graph
 ---------------
 
-Ce dernier module s'appuie sur deux gros algorithmes issus de la théorie des graphes (i.e. Dijkstra et Kruskal) dans le but de produire un algorithme minimisant le coût d'un trajet en s'autorisant k sortie d'autoroute durant le trajet. Le problème étant combinatoire (voire même NP difficile), il est conseillé de l'utiliser dans des conditions viables : soit avec un trajet assez court, soit avec une contrainte k assez petite ou très grande.
+Ce dernier module s'appuie sur deux gros algorithmes issus de la théorie des graphes (i.e. Dijkstra et Kruskal) dans le but de produire un algorithme minimisant le coût d'un trajet en s'autorisant k sortie d'autoroute durant ce dernier. Le problème étant combinatoire (NP complet), il est conseillé de l'utiliser dans des conditions viables : soit avec un trajet assez court, soit avec une contrainte k très petite ou très grande.
 
 
 .. automodule:: asltam.graph.graph

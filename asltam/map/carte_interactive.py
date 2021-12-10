@@ -15,10 +15,12 @@ def trajet(DEPART, ARRIVEE, data_geo, data_price, data_dist, KEY):
 
     .. warning::
         Les données géographiques doivent être dans le bon
-        format (voir :ref:`Format des données géographiques`).
+        format (voir :ref:`Format des données géographiques`),
+        et toutes les données doivent être compatibles
+        (voir :ref:`Compatibilité`).
 
     .. tip::
-        Il est conseiller d'avoir sa propre clef API personelle.
+        Il est conseillé d'avoir sa propre clef API personelle.
         Pour en obtenir une, vous pouvez aller voir le 
         :ref:`Guide d'installation de clef API`.
 
