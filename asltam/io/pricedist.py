@@ -10,6 +10,10 @@ def average_cost(data_price, data_dist):
     """
     Calcul de la matrice du prix moyen au kilomètre.
 
+    .. warning:: Attention, les données de distances et de prix
+                doivent être compatibles pour pouvoir avoir des résultats cohérents. 
+                Voir la documentation pour la :ref:`Compatibilité`.
+
     :param DataFrame data_price: Tableau des prix.
     
     :param DataFrame data_dist: Tableau des distances.
@@ -30,6 +34,10 @@ start = time.time()
 def average_cost_list(data_price, data_dist):
     """
     Calcul de la liste du prix moyen au kilomètre.
+
+    .. warning:: Attention, les données de distances et de prix
+                doivent être compatibles pour pouvoir avoir des résultats cohérents. 
+                Voir la documentation pour la :ref:`Compatibilité`.
 
     :param DataFrame data_price: Tableau des prix.
     

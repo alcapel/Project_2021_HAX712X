@@ -95,6 +95,9 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../../usage/Structure_des_donn%C3%A9es.html">Structure des données</a></li>
 </ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../usage/installation_clef.html">Guide d’installation de clef API</a></li>
+</ul>
 
             
           
@@ -166,10 +169,13 @@
 
 <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
 
-
 <div class="viewcode-block" id="average_cost"><a class="viewcode-back" href="../../../usage/asltam.html#asltam.io.pricedist.average_cost">[docs]</a><span class="k">def</span> <span class="nf">average_cost</span><span class="p">(</span><span class="n">data_price</span><span class="p">,</span> <span class="n">data_dist</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Calcule de la matrice du prix moyen au kilomètre.</span>
+<span class="sd">    Calcul de la matrice du prix moyen au kilomètre.</span>
+
+<span class="sd">    .. warning:: Attention, les données de distances et de prix</span>
+<span class="sd">                doivent être compatibles pour pouvoir avoir des résultats cohérents. </span>
+<span class="sd">                Voir la documentation pour la :ref:`Compatibilité`.</span>
 
 <span class="sd">    :param DataFrame data_price: Tableau des prix.</span>
 <span class="sd">    </span>
@@ -188,10 +194,13 @@
 
 <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
 
-
 <div class="viewcode-block" id="average_cost_list"><a class="viewcode-back" href="../../../usage/asltam.html#asltam.io.pricedist.average_cost_list">[docs]</a><span class="k">def</span> <span class="nf">average_cost_list</span><span class="p">(</span><span class="n">data_price</span><span class="p">,</span> <span class="n">data_dist</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Calcule de la liste du prix moyen au kilomètre.</span>
+<span class="sd">    Calcul de la liste du prix moyen au kilomètre.</span>
+
+<span class="sd">    .. warning:: Attention, les données de distances et de prix</span>
+<span class="sd">                doivent être compatibles pour pouvoir avoir des résultats cohérents. </span>
+<span class="sd">                Voir la documentation pour la :ref:`Compatibilité`.</span>
 
 <span class="sd">    :param DataFrame data_price: Tableau des prix.</span>
 <span class="sd">    </span>
@@ -217,7 +226,7 @@
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Retourne la valeur de la position de name en tant qu&#39;index.</span>
 <span class="sd">    </span>
-<span class="sd">    :param DateFrame data:</span>
+<span class="sd">    :param DateFrame data: Un tableau de données.</span>
 <span class="sd">    </span>
 <span class="sd">    :param str or list name: Nom(s) d&#39;index du tableau de données data.</span>
 <span class="sd">    </span>
@@ -238,11 +247,12 @@
                 <span class="n">i</span> <span class="o">+=</span> <span class="mi">1</span>
             <span class="n">ind</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">ind</span></div>
+    
 <span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Temps passé pour exécuter get_index: </span><span class="si">{0:.5f}</span><span class="s2"> s.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">end</span> <span class="o">-</span> <span class="n">start</span><span class="p">))</span>
 
-<span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
 
+<span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
 
 <div class="viewcode-block" id="get_way"><a class="viewcode-back" href="../../../usage/asltam.html#asltam.io.pricedist.get_way">[docs]</a><span class="k">def</span> <span class="nf">get_way</span><span class="p">(</span><span class="n">data_dist</span><span class="p">,</span> <span class="n">start</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
@@ -252,13 +262,13 @@
 <span class="sd">    entre deux gares successives dont on déduit trivialement la liste</span>
 <span class="sd">    avec un algorithme du plus court chemin (ici Dijkstra).</span>
 <span class="sd">    </span>
-<span class="sd">    :param DataFrame data_dist: Tableau de données sous forme de matrice de distance entre toutes les gares.</span>
+<span class="sd">    :param DataFrame data_dist: Tableau de données sous forme de matrice de distances entre toutes les gares.</span>
 <span class="sd">    </span>
 <span class="sd">    :param str start: La gare de départ (doit être une élément de data_dist.columns).</span>
 <span class="sd">    </span>
 <span class="sd">    :param str target: La gare d&#39;arrivée (doit être une élément de data_dist.columns).</span>
 <span class="sd">    </span>
-<span class="sd">    :return: * **L** (*list*) - Liste des péages situé sur le trajet autoroutier le plus court de start à target.</span>
+<span class="sd">    :return: * **L** (*list*) - Liste des péages situés sur le trajet autoroutier le plus court de start à target.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">Graph</span><span class="p">(</span><span class="n">incoming_graph_data</span><span class="o">=</span><span class="n">data_dist</span><span class="p">)</span>
     <span class="n">a</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">minimum_spanning_tree</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">weight</span><span class="o">=</span><span class="s1">&#39;weight&#39;</span><span class="p">)</span>
@@ -266,7 +276,6 @@
 
 <span class="n">end</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Temps passé pour exécuter get_way : </span><span class="si">{0:.5f}</span><span class="s2"> s.&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">end</span> <span class="o">-</span> <span class="n">start</span><span class="p">))</span>
-
 </pre></div>
 
            </div>

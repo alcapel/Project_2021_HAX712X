@@ -205,9 +205,12 @@
 <span class="sd">    Calcule le trajet de frais minimum avec la </span>
 <span class="sd">    contrainte d&#39;au maximum k entrées/sorties </span>
 <span class="sd">    d&#39;autoroute. Renvoie le prix, et les gares</span>
-<span class="sd">    de sortie. Attention les tableaux de prix et de</span>
-<span class="sd">    distances doivent être compatibles.</span>
-
+<span class="sd">    de sortie. </span>
+<span class="sd">    </span>
+<span class="sd">    .. warning:: Attention, les données de distances et de prix</span>
+<span class="sd">            doivent être compatibles pour pouvoir avoir des résultats cohérents. </span>
+<span class="sd">            Voir la documentation pour la :ref:`Compatibilité`.</span>
+<span class="sd">            </span>
 <span class="sd">    :param DataFrame data_price: Tableau des prix.</span>
 
 <span class="sd">    :param DataFrame data_dist: Tableau des distances.</span>
@@ -220,7 +223,7 @@
 
 <span class="sd">    :return: </span>
 <span class="sd">            * **L** (*list*) - La liste des sorties à prendre.\n</span>
-<span class="sd">            * **opt** (*float*) - Renvoie le coût totaldu trajet.</span>
+<span class="sd">            * **opt** (*float*) - Renvoie le coût total du trajet.</span>
 <span class="sd">    </span>
 <span class="sd">    :examples: .. code:: python </span>
 <span class="sd">                    &gt;&gt;&gt; import asltam as atm</span>

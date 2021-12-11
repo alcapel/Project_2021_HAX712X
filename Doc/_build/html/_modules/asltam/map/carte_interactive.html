@@ -161,8 +161,7 @@
            <div itemprop="articleBody">
             
   <h1>Source code for asltam.map.carte_interactive</h1><div class="highlight"><pre>
-<span></span><span class="c1">#%%</span>
-<span class="kn">import</span> <span class="nn">folium</span>
+<span></span><span class="kn">import</span> <span class="nn">folium</span>
 <span class="kn">from</span> <span class="nn">openrouteservice</span> <span class="kn">import</span> <span class="n">convert</span>
 <span class="kn">import</span> <span class="nn">openrouteservice</span>
 <span class="kn">import</span> <span class="nn">json</span>
@@ -179,10 +178,12 @@
 
 <span class="sd">    .. warning::</span>
 <span class="sd">        Les données géographiques doivent être dans le bon</span>
-<span class="sd">        format (voir :ref:`Format des données géographiques`).</span>
+<span class="sd">        format (voir :ref:`Format des données géographiques`),</span>
+<span class="sd">        et toutes les données doivent être compatibles</span>
+<span class="sd">        (voir :ref:`Compatibilité`).</span>
 
 <span class="sd">    .. tip::</span>
-<span class="sd">        Il est conseiller d&#39;avoir sa propre clef API personelle.</span>
+<span class="sd">        Il est conseillé d&#39;avoir sa propre clef API personnelle.</span>
 <span class="sd">        Pour en obtenir une, vous pouvez aller voir le </span>
 <span class="sd">        :ref:`Guide d&#39;installation de clef API`.</span>
 

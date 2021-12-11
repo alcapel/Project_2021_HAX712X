@@ -42,9 +42,12 @@ def kmin_cost_out(data_price, data_dist, start, target, k):
     Calcule le trajet de frais minimum avec la 
     contrainte d'au maximum k entrées/sorties 
     d'autoroute. Renvoie le prix, et les gares
-    de sortie. Attention les tableaux de prix et de
-    distances doivent être compatibles.
-
+    de sortie. 
+    
+    .. warning:: Attention, les données de distances et de prix
+            doivent être compatibles pour pouvoir avoir des résultats cohérents. 
+            Voir la documentation pour la :ref:`Compatibilité`.
+            
     :param DataFrame data_price: Tableau des prix.
 
     :param DataFrame data_dist: Tableau des distances.

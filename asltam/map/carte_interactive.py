@@ -20,7 +20,7 @@ def trajet(DEPART, ARRIVEE, data_geo, data_price, data_dist, KEY):
         (voir :ref:`Compatibilité`).
 
     .. tip::
-        Il est conseillé d'avoir sa propre clef API personelle.
+        Il est conseillé d'avoir sa propre clef API personnelle.
         Pour en obtenir une, vous pouvez aller voir le 
         :ref:`Guide d'installation de clef API`.
 

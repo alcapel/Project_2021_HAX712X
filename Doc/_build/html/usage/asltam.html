@@ -181,11 +181,13 @@ entre DEPART et ARRIVEE.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>Les données géographiques doivent être dans le bon
-format (voir <a class="reference internal" href="Structure_des_donn%C3%A9es.html#format-des-donnees-geographiques"><span class="std std-ref">Format des données géographiques</span></a>).</p>
+format (voir <a class="reference internal" href="Structure_des_donn%C3%A9es.html#format-des-donnees-geographiques"><span class="std std-ref">Format des données géographiques</span></a>),
+et toutes les données doivent être compatibles
+(voir <a class="reference internal" href="Structure_des_donn%C3%A9es.html#compatibilite"><span class="std std-ref">Compatibilité</span></a>).</p>
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Il est conseiller d’avoir sa propre clef API personelle.
+<p>Il est conseillé d’avoir sa propre clef API personnelle.
 Pour en obtenir une, vous pouvez aller voir le 
 <a class="reference internal" href="installation_clef.html#guide-d-installation-de-clef-api"><span class="std std-ref">Guide d’installation de clef API</span></a>.</p>
 </div>
@@ -238,8 +240,8 @@ gares de péages sur un trajet donné (ou sur tout le
 réseau).</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Attention, les données de distance et de prix
-doivent être compatible pour pouvoir avoir des résultats cohérents. 
+<p>Attention, les données de distances et de prix
+doivent être compatibles pour pouvoir avoir des résultats cohérents. 
 Voir la documentation pour la <a class="reference internal" href="Structure_des_donn%C3%A9es.html#compatibilite"><span class="std std-ref">Compatibilité</span></a>.</p>
 </div>
 <dl class="field-list">
@@ -295,7 +297,7 @@ Voir la documentation pour la <a class="reference internal" href="Structure_des_
 <dl class="py function">
 <dt class="sig sig-object py" id="asltam.price_distribution.distribution.swarm_gare_price">
 <span class="sig-prename descclassname"><span class="pre">asltam.price_distribution.distribution.</span></span><span class="sig-name descname"><span class="pre">swarm_gare_price</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_price</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/asltam/price_distribution/distribution.html#swarm_gare_price"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#asltam.price_distribution.distribution.swarm_gare_price" title="Permalink to this definition">¶</a></dt>
-<dd><p>Affiche le swarmplot des prix par gare inscrite dans name.</p>
+<dd><p>Affiche le swarmplot des prix par gares inscrites dans name.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -322,7 +324,13 @@ Voir la documentation pour la <a class="reference internal" href="Structure_des_
 <dl class="py function">
 <dt class="sig sig-object py" id="asltam.io.pricedist.average_cost">
 <span class="sig-prename descclassname"><span class="pre">asltam.io.pricedist.</span></span><span class="sig-name descname"><span class="pre">average_cost</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_price</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_dist</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/asltam/io/pricedist.html#average_cost"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#asltam.io.pricedist.average_cost" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calcule de la matrice du prix moyen au kilomètre.</p>
+<dd><p>Calcul de la matrice du prix moyen au kilomètre.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Attention, les données de distances et de prix
+doivent être compatibles pour pouvoir avoir des résultats cohérents. 
+Voir la documentation pour la <a class="reference internal" href="Structure_des_donn%C3%A9es.html#compatibilite"><span class="std std-ref">Compatibilité</span></a>.</p>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -342,7 +350,13 @@ Voir la documentation pour la <a class="reference internal" href="Structure_des_
 <dl class="py function">
 <dt class="sig sig-object py" id="asltam.io.pricedist.average_cost_list">
 <span class="sig-prename descclassname"><span class="pre">asltam.io.pricedist.</span></span><span class="sig-name descname"><span class="pre">average_cost_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_price</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_dist</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/asltam/io/pricedist.html#average_cost_list"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#asltam.io.pricedist.average_cost_list" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calcule de la liste du prix moyen au kilomètre.</p>
+<dd><p>Calcul de la liste du prix moyen au kilomètre.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Attention, les données de distances et de prix
+doivent être compatibles pour pouvoir avoir des résultats cohérents. 
+Voir la documentation pour la <a class="reference internal" href="Structure_des_donn%C3%A9es.html#compatibilite"><span class="std std-ref">Compatibilité</span></a>.</p>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -366,7 +380,7 @@ Voir la documentation pour la <a class="reference internal" href="Structure_des_
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>data</strong> (<em>DateFrame</em>) – </p></li>
+<li><p><strong>data</strong> (<em>DateFrame</em>) – Un tableau de données.</p></li>
 <li><p><strong>name</strong> (<em>str</em><em> or </em><em>list</em>) – Nom(s) d’index du tableau de données data.</p></li>
 </ul>
 </dd>
@@ -390,14 +404,14 @@ avec un algorithme du plus court chemin (ici Dijkstra).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>data_dist</strong> (<em>DataFrame</em>) – Tableau de données sous forme de matrice de distance entre toutes les gares.</p></li>
+<li><p><strong>data_dist</strong> (<em>DataFrame</em>) – Tableau de données sous forme de matrice de distances entre toutes les gares.</p></li>
 <li><p><strong>start</strong> (<em>str</em>) – La gare de départ (doit être une élément de data_dist.columns).</p></li>
 <li><p><strong>target</strong> (<em>str</em>) – La gare d’arrivée (doit être une élément de data_dist.columns).</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p><ul class="simple">
-<li><p><strong>L</strong> (<em>list</em>) - Liste des péages situé sur le trajet autoroutier le plus court de start à target.</p></li>
+<li><p><strong>L</strong> (<em>list</em>) - Liste des péages situés sur le trajet autoroutier le plus court de start à target.</p></li>
 </ul>
 </p>
 </dd>
@@ -436,8 +450,13 @@ inférieure ou égal à k.</p>
 <dd><p>Calcule le trajet de frais minimum avec la 
 contrainte d’au maximum k entrées/sorties 
 d’autoroute. Renvoie le prix, et les gares
-de sortie. Attention les tableaux de prix et de
-distances doivent être compatibles.</p>
+de sortie.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Attention, les données de distances et de prix
+doivent être compatibles pour pouvoir avoir des résultats cohérents. 
+Voir la documentation pour la <a class="reference internal" href="Structure_des_donn%C3%A9es.html#compatibilite"><span class="std std-ref">Compatibilité</span></a>.</p>
+</div>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -451,7 +470,7 @@ distances doivent être compatibles.</p>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p><ul class="simple">
 <li><p><strong>L</strong> (<em>list</em>) - La liste des sorties à prendre.</p></li>
-<li><p><strong>opt</strong> (<em>float</em>) - Renvoie le coût totaldu trajet.</p></li>
+<li><p><strong>opt</strong> (<em>float</em>) - Renvoie le coût total du trajet.</p></li>
 </ul>
 </p>
 </dd>

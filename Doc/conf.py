@@ -13,7 +13,7 @@
 
 import os
 import sys
-sys.path.insert(0, os.path.abspath('C:/Users/alexc/Downloads/Project_2021_HAX712X-main (1)/Project_2021_HAX712X-main'))
+sys.path.insert(0, os.path.abspath('C:/Users/alexc/OneDrive/Bureau/DOSSIER FAC/COURS/MASTER/SSD/M1/Développement logiciel/Project_2021_HAX712X'))
 
 ###################################### A LIRE ######################################
 # Pour que sphinx trouve le module, il faut que vous modifiez le chemin d'accès ci-dessus
