@@ -10,3 +10,4 @@ ignore*
 .DS_store
 .osm
 .json
+.ipynb_checkpoints

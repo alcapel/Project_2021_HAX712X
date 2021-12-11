@@ -1,7 +1,7 @@
 Récupération des données
 ===========================
 
-Les données que nous utilisons pour faire les démonstrations proviennent de données libres disponible sur internet. Pour les points géographiques (dont nous avons déduit les distances), nous avons utilisé des données libres (sous format ``.csv``) disponible sur 
+Les données que nous utilisons pour faire les démonstrations proviennent de données libres disponibles sur internet. Pour les points géographiques (dont nous avons déduit les distances), nous avons utilisé des données libres (sous format ``.csv``) disponible sur 
 
 https://static.data.gouv.fr/resources/gares-de-peage-du-reseau-routier-national-concede/20210224-175626/gares-peage-2019.csv.
 
