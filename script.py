@@ -2,15 +2,15 @@
 import asltam as atm
 from ipywidgets import interact, fixed
 
-prix = atm.load_price().save_as_price(index=' ')
-dist = atm.load_dist().save_as_dist(index=' Nom gare ')
-geo = atm.load_geo().save_as_geo(index=' Nom gare ')
+prix = atm.load_price().save_as_price(index = ' ')
+dist = atm.load_dist().save_as_dist(index = ' Nom gare ')
+geo = atm.load_geo().save_as_geo(index = ' Nom gare ')
 geo = geo[['Latt', 'Long']]
 
 #%% Construction de la carte intéractive
-interact(atm.trajet, DEPART=list(geo.index), ARRIVEE=list(geo.index), 
-         data_geo=fixed(geo), data_price=fixed(prix), data_dist=fixed(dist),
-         KEY='5b3ce3597851110001cf62486f5564a064e34f3895221e5a0d9a2405')
+interact(atm.trajet, DEPART = list(geo.index), ARRIVEE = list(geo.index), 
+         data_geo = fixed(geo), data_price = fixed(prix), data_dist = fixed(dist),
+         KEY = '5b3ce3597851110001cf62486f5564a064e34f3895221e5a0d9a2405')
 
 #%% Affichage des distributions avec interact
 interact(atm.kde_gare, all = True, data_dist = fixed(dist),
@@ -26,7 +26,7 @@ start = input(f"Donnez une gare de départ parmi les gares suivantes : {list(pri
 target = input(f"Donnez une gare d'arrivée parmi les gares suivantes : {list(prix.index)}.")
 n = input("Rentrez le nombre de sortie que vous vous accordez :")
 
-g, opt = atm.kmin_cost_out(data_dist=dist, data_price=prix,
+g, opt = atm.kmin_cost_out(data_dist = dist, data_price = prix,
                           start = start, target = target, 
                           k = int(n))
 print(f"Pour avoir le trajet optimal entre {g[0]} et {g[-1]},\n",
