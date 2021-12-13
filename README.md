@@ -44,7 +44,7 @@ Le but principal de ce module est l'affichage d'une carte folium, affichant le t
 
 ```python
 import asltam as atm
-geo = atm.load_dist().save_as_geo(index=' ')
+geo = atm.load_geo().save_as_geo(index=' ')
 geo = geo[['Latt', 'Long']]
 dist = atm.load_dist().save_as_dist(index=' Nom gare ')
 price = atm.load_price().save_as_price(index=' ')
